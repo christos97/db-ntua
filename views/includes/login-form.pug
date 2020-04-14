@@ -1,14 +1,14 @@
-form(action="/", method="post")    
-    table
-        tr
-            td Email
-            td 
-                input(type="text" name="email" required="required")
-        tr  
-            td Password
-            td  
-                input(type="password" name="password" required="required")
-        tr  
-            td
-            td
-                input(type="submit" value="Login")
+extends ../layout
+
+block content
+  .form-signin
+    .card-signin
+     .card-title    
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Welcome 
+        form(method='POST' action='/')
+          div.form-group
+            input#email.form-control(type='email', placeholder='Enter your email' name='email' required='required')
+          div.form-group
+            input#pw.form-control(type='password' placeholder='Enter your password' name='password' required='required')
+          button.btn.btn-primary(type='submit') Login

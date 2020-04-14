@@ -4,6 +4,8 @@ var config = require ('./config/dbConfig')
 
 var db  = mysql.createConnection(config.pool_bundle);
 
-db.query = util.promisify(pool.query)
+db.query = util.promisify(db.query)
+
 
 module.exports = db;
+
