@@ -1,16 +1,28 @@
 var createError = require('http-errors');
 var express = require('express');
+const session = ('cookie-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var pug = require('pug')
 var indexRouter = require('./routes/index');
-
+var dashboardRouter = require('./routes/dashboard')
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+/*
+app.use(session({
+  secret: 'shhh',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 600* 10000 * 300
+  }
+}))
+*/
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,6 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/dashboard',dashboardRouter)
 
 
 // catch 404 and forward to error handler

@@ -12,11 +12,6 @@
     border-radius: 2rem;
   }
   
-  .h1 .display-4.m-b-2 {
-      position: absolute;
-      left: 100px;
-      color : #9370DB;
-  }
   .card-signin .card-title {
     margin-bottom: 2rem;
     font-weight: 250;
@@ -31,7 +26,7 @@
     width: 50%;
   }
   
-  .div.form-group {
+  div.form-group {
       left: 50px;
   }
 

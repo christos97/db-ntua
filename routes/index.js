@@ -14,7 +14,7 @@ router.post('/', (req, res, next) => {
       db.query(sql, [email], (err, result) => {
           if (err) throw err;
           if (result[0].password === password)     
-            res.redirect('/')
+            res.redirect('dashboard')
           else 
             res.redirect('/')
       })
