@@ -1,6 +1,9 @@
 var mysql = require('mysql');
+const util = require('util')
 var config = require ('./config/dbConfig')
 
-var pool  = mysql.createPool(config.pool_bundle);
+var db  = mysql.createConnection(config.pool_bundle);
 
-module.exports = pool;
+db.query = util.promisify(pool.query)
+
+module.exports = db;
