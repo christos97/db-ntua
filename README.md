@@ -39,11 +39,7 @@ git checkout master
 
 git fetch
 
-git checkout giannis
-
 git reset --hard origin/master
-
-(isws na min xreiazontai ta prwta 2)
 
 kai tha kanei overwrite ta panta (tha pareis genika hard copy tou master branch opote tha einai identical)
 
