@@ -7,9 +7,19 @@ git clone https://github.com/christos97/db-ntua &&
 cd db_ntua &&
 npm install && npm start
 
+npm install psaxnei to package.json sto dir pou eisai. npm start trexei to antistoixo script sto package.json (ksekinaei ton sever me nodemon)
+
 Γενικά φτιαξε το db config και παιζει να σου πεταξει ερρορ η βαση , κανε alter user απο το cli της mysql
 
 localhost:3000/ einai o server
+
+Exw valei to nodemon wste me kathe allagi p kaneis (sto backend) na kanei restart ton server sto CTRL^S
+
+an kaneis CTRL^Z ton server enw trexei , tha sou krathsei to port kai sto epomeno npm start tha s pei Port already in use.
+
+Quick fix gia auto genika einai sudo apt install net-tools (thes to netstat) 
+
+meta opote sto petaei tha kaneis sudo netstat -tlnp kai tha kaneis kill -9 to pid p trexei o node server (tha einai se kapoio tcp port)
 
 Ftiakse ena table admins me fields email,password kai enan admin me admin@admin.com, adminpass
 
@@ -44,3 +54,6 @@ git fetch (gia kalo kai gia kako, mallon den xreiazetai)
 git push -u origin/giannis
 
 an den se afhsei min kaneis pote -f, apla kane git pull kai meta pali push
+
+episis poli vasiko... vale enan editor giati tha trelatheis me tosa arxeia, proteinw vscode pou exei kai inline terminal
+
