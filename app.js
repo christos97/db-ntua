@@ -7,6 +7,7 @@ var logger = require('morgan');
 var pug = require('pug')
 var indexRouter = require('./routes/index');
 var dashboardRouter = require('./routes/dashboard')
+var productRouter = require('./routes/products')
 var app = express();
 
 // view engine setup
@@ -30,9 +31,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Static files
 app.use('/', indexRouter);
 app.use('/dashboard',dashboardRouter)
+app.use('/products',productRouter)
 
+// API for axios 
+
+var apiRouter = require('./routes/api')
+app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

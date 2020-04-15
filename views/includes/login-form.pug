@@ -4,10 +4,12 @@ block content
     .card-signin
      .card-title    
       .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2 Welcome 
+        .header.h1.display-4.m-b-2 Bad Analytics 
         form(method='POST' action='/')
           div.form-group
-            input#email.form-control(type='email', placeholder='Enter your email' name='email' required='required')
+            input#email.form-control(type='email' placeholder='Enter your email' name='email' required='required')
           div.form-group
             input#pw.form-control(type='password' placeholder='Enter your password' name='password' required='required')
           button.btn.btn-primary(type='submit') Login
+          script(type="module" src="../js/login.js")
+

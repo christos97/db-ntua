@@ -1,25 +1,4 @@
 extends layout
 block content
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        a.navbar-brand(href='#') Bad Analytics
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-    
-        .collapse.navbar-collapse(id='navbarSupportedContent')
-            ul.navbar-nav.mr-auto
-                li.nav-item.active
-                    a.nav-link(href='/dashboard') Dashboard
-                li.nav-item
-                    a.nav-link(href='/food-courts') Products  
-                li.nav-item
-                    a.nav-link(href='/parking') Stores
-                li.nav-item
-                    a.nav-link(href='/places') Customers
-            ul.navbar-nav.float-right 
-                li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle(id='navbarDropdownMenuLink', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Account
-                    .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                     a.dropdown-item(href='/') Logout
-            
-    
+    include includes/navbar    
     
