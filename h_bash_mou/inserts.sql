@@ -106,3 +106,85 @@ insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values 
 insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,4);
 insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,5);
 insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,6);
+
+/* kathgoria 1 Fresh Products*/
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('9457813465', 2.93, 'Apples', 'Golden', 0, 1);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.04, '2020-03-04','9457813465');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-04-01', 2.8, '2020-04-10','9457813465');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7946842152', 4.37, 'Pears', 'Conference', 0, 1);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 4.00, '2020-04-04','7946842152');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7986121145', 5.4, 'Avocado', 'Biofarm', 1, 1);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('9458871645', 3.21, 'Oranges', 'Conference', 0, 1);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 2.5, '2020-03-04','9458871645');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05', 2.9, '2020-03-24','9458871645');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-25', 3.46, '2020-04-04','9458871645');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4385784111', 3.24, 'Bananas', 'Dole', 1, 1);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7784859699', 3.2, 'Pork', '', 1, 1);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7784859691', 2.4, 'Chicken', '', 0, 1);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.4, '2020-03-04','7784859691');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4444587133', 1.5, 'Lamp Head', '', 1, 1);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1119786455', 2.6, 'Meatballs', '', 1, 1);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4689751247', 5.2, 'Pineapple', 'Biofarm', 1, 1);
+
+/* kathgoria 2 Fridge Products*/
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4876969691', 1.08, 'Kefir', 'Olympos', 1, 2);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7988841112', 1.2, 'ChocoMilk', 'Rodopaki', 1, 2);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('9273049372', 1.45, 'Milk', 'Delta', 1, 2);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7848784753', 1.98, 'Eggs', 'Xrysa Ayga', 1, 2);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('9647851112', 0.78, 'Danone', 'Activia', 1, 2);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('9986157468', 0.9, 'Light Yogurt', 'Rodopi', 0, 2);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 1.2, '2020-02-04','9986157468');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05', 1.1, '2020-03-24','9986157468');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4475837200', 0.95, 'Cream', 'Marata', 0, 2);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.4, '2020-03-04','4475837200');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('0182740844', 0.7, 'Bueno', 'Kinder', 0, 2);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 0.64, '2020-04-04','0182740844');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7784547843', 1.0, 'Nut Bar', 'Flapjack', 0, 2);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 2.04, '2020-03-24','7784547843');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-24', 1.5, '2020-04-14','7784547843');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1000488743', 2.4, 'Tyrokafterh', 'AlfaStar', 0, 2);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.4, '2020-02-04','1000488743');
+
+/*kathgoria 3 Liquors and Spirits*/
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('0645158001', 3.52, 'Beer 4pack', 'Alfa', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4460322153', 3.74, 'Beer 6pack', 'Bergina', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('3659568874', 1.51, 'Sangria', 'Don Simon', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7874585330', 1.9, 'White wine', 'Pareas', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('2223656581', 2.04, 'Red Wine', 'Pareas', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7774464646', 2.92, 'Ouzo', 'Mini', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7774464647', 3.36, 'Tsipouro', 'Mpampatzim', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7774464648', 13, 'Cognac', 'Metaxa', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7774464231', 15.50, 'Vodka', 'Absolut', 1, 3);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4325784111', 24.96, 'Whiskey', 'Jack Daniels', 1, 3);
+
+/*kathgoria 4*/
+/*kathgoria 5*/
+/*kathgoria 6*/
