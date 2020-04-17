@@ -5,7 +5,7 @@ use shopsNcustomers;
 
 -- TI EINAI TO 1ST TRANS????
 
---ok
+/*ok*/
 create table Stores(
 	Store_id int not null AUTO_INCREMENT unique,
 	Operating_hours varchar(11) not null default '09:00-21:00',
@@ -14,8 +14,7 @@ create table Stores(
 	unique(Store_id),
 	primary key(Store_id)
 );
-
---ok
+/*ok*/
 create table StorePhoneNo(
 	Numb varchar(10) not null,
 	Phone_Id int not null AUTO_INCREMENT,
@@ -24,8 +23,7 @@ create table StorePhoneNo(
 	primary key(Phone_Id),
 	foreign key (Store_id) references Stores(Store_id)
 );
-
---ok
+/*ok*/
 create table StoreAddress(
 	Store_id int not null,
 	Adr_id int not null AUTO_INCREMENT,
@@ -63,16 +61,14 @@ create table CustomerAddress(
 	unique(Adr_id,Card),
 	foreign key (Card) references Customer(Card)
 );
-
---ok
+/*ok*/
 create table Category(
 	Category_id int not null AUTO_INCREMENT,
 	Name varchar(255) not null,
 	unique (Category_id, Name),
 	primary key(Category_id)
 );
-
---ok
+/*ok*/
 create table StoreProvidesCategory(
 	Store_id int not null,
 	Category_id int not null,
@@ -95,11 +91,10 @@ create table Products (
 	primary key(Barcode)
 );
 
-
 create table HadOlderPrice(
 	Start_date date not null,
 	Price float not null,
-	End_date datetime not null,
+	End_date date not null,
 	Barcode varchar(10) not null,
 	check (Start_date < End_date),
 	check (Price > 0),
@@ -117,7 +112,6 @@ create table StoreOffersProduct(
 	unique (Store_id,Barcode),
 	primary key (Store_id,Barcode)
 );
-
 
 create table Transaction(
 	Date_time datetime not null,
