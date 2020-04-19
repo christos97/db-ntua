@@ -46,67 +46,6 @@ insert into shopsNcustomers.Category(Category_id, Name) values (4,'Self Care Pro
 insert into shopsNcustomers.Category(Category_id, Name) values (5,'Home Products');
 insert into shopsNcustomers.Category(Category_id, Name) values (6,'Pet Products');
 
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,4);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,5);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,6);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,4);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,4);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,5);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,4);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,5);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,6);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,4);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,4);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,5);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,4);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,5);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,6);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,4);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,6);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,4);
-
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,1);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,2);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,3);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,4);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,5);
-insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,6);
-
 /* kathgoria 1 Fresh Products*/
 insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('9457813465', 2.93, 'Apples', 'Golden', 0, 1);
 insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.04, '2020-03-04','9457813465');
@@ -185,6 +124,714 @@ insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_tra
 
 insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4325784111', 24.96, 'Whiskey', 'Jack Daniels', 1, 3);
 
-/*kathgoria 4*/
-/*kathgoria 5*/
-/*kathgoria 6*/
+/*kathgoria 4 Self Care Products*/
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4965879533',1.79 , 'Toothbrush', 'Colgate', 1, 4);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('3666321005', 2.19, 'Toothpaste', 'White System', 1, 4);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4415266990', 31.19, 'Eau De Toilete', 'Prada', 1, 4);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4444555512', 3.56, 'Shampoo', 'Elvive', 1, 4);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1212120003', 5.5, 'Conditioner', 'Loreal', 1, 4);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6666555551', 4.9, 'Shaving Cream', 'Bic', 1, 4);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4447859992',70 , 'Antiage Cream', 'Clinique', 0, 4);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01',80 , '2020-02-04','4447859992');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05',60 , '2020-03-04','4447859992');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05',74 , '2020-04-08','4447859992');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6489200132', 12, 'Face Mask', 'Bioten', 0, 4);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 9.5, '2020-03-04','6489200132');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-04',11.2 , '2020-03-21','6489200132');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('5100232520', 20, 'Teeth Whitening Pen', 'Moon', 0, 4);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 24, '2020-03-27','5100232520');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('7784589630', 12, 'Amethyst Crystal Cleaner', '', 0, 4);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 19, '2020-04-25','7784589630');
+
+/*kathgoria 5 Home Products*/
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6584756985', 150, 'Woven Rug', 'Wyat', 1, 5);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('2103254875', 69, 'Window Panel', 'Homedecor', 1, 5);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6458954112',249 , 'Wooden Mirror', 'Homedecor', 1, 5);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1033659896', 50, 'Chair', 'Homedecor', 1, 5);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('0012121036', 15, 'Plastic Chair', '', 1, 5);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6941035879', 100, 'Table', 'Homedecor', 1, 5);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('3330323201', 500, 'Sofa', 'Homedecor', 0, 5);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 560, '2020-02-04','3330323201');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05',480 , '2020-03-04','3330323201');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05',471 , '2020-04-08','3330323201');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6495687410', 4, 'Trash Can', 'Homedecor', 0, 5);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 6,'2020-03-04','6495687410');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-04', 5.2,'2020-03-21','6495687410');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6951000236',31 , 'Lamp', 'Homedecor', 0, 5);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 25, '2020-03-27','6951000236');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('8342876655',3 , 'Tv Screen Cleaner', '', 0, 5);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 2.1, '2020-04-25','8342876655');
+
+/*kathgoria 6 Pet Products*/
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4587963201', 25, 'Dog Food', 'Pet4u', 1, 6);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4785469600',25 , 'Cat Food', 'Pet4u', 1, 6);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('3333333212', 10, 'Fish Food', 'Pet4u', 1, 6);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1000000002', 12, 'Turtle Food', 'Pet4u', 1, 6);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1000000230',42 , 'Lizard Food', 'Pet4u', 1, 6);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('5555555555',3 , 'Bird Food', '', 1, 6);
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('6666666666',4 , 'Mice Food', 'Pet4u', 0, 6);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01',4.5 , '2020-02-04','6666666666');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05', 4.9, '2020-03-04','6666666666');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05', 5.1, '2020-04-08','6666666666');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1010144512', 60, 'Snake Food', 'Pet4u', 0, 6);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 62,'2020-03-04','1010144512');
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-04', 30, '2020-03-21','1010144512');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('1010101010',7 , 'Rabbit Food', 'Pet4u', 0, 6);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 8, '2020-03-27','1010101010');
+
+insert into shopsNcustomers.Products(Barcode, Price, Name, Brand_name, First_transaction, Category_id) values ('4242424242', 100, 'Animal Cage', 'Pet4u', 0, 6);
+insert into shopsNcustomers.HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01',132 , '2020-04-25','4242424242');
+
+
+/**************************************************/
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,4);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,5);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (1,6);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'0012121036' , 5, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1033659896' , 5, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'2103254875' , 5, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'3330323201' , 5, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6458954112' , 5, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6495687410' , 5, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6584756985' , 5, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6941035879' , 5, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6951000236' , 5, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'8342876655' , 5, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1000000002' , 6, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1000000230' , 6, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1010101010' , 6, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'1010144512' , 6, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'3333333212' , 6, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4242424242' , 6, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4587963201' , 6, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'4785469600' , 6, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'5555555555' , 6, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (1,'6666666666' , 6, 10);
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (2,4);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (2,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,4);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (3,5);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'0012121036' , 5, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'1033659896' , 5, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'2103254875' , 5, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'3330323201' , 5, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'6458954112' , 5, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'6495687410' , 5, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'6584756985' , 5, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'6941035879' , 5, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'6951000236' , 5, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (3,'8342876655' , 5, 10);
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,4);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,5);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (4,6);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'0012121036' , 5, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1033659896' , 5, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'2103254875' , 5, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'3330323201' , 5, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6458954112' , 5, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6495687410' , 5, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6584756985' , 5, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6941035879' , 5, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6951000236' , 5, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'8342876655' , 5, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1000000002' , 6, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1000000230' , 6, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1010101010' , 6, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'1010144512' , 6, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'3333333212' , 6, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4242424242' , 6, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4587963201' , 6, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'4785469600' , 6, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'5555555555' , 6, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (4,'6666666666' , 6, 10);
+
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (5,4);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (5,'7784589630' , 4, 10);
+
+
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,4);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (6,5);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'7784589630' , 4, 10);
+
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'0012121036' , 5, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'1033659896' , 5, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'2103254875' , 5, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'3330323201' , 5, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'6458954112' , 5, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'6495687410' , 5, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'6584756985' , 5, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'6941035879' , 5, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'6951000236' , 5, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (6,'8342876655' , 5, 10);
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,4);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,5);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (7,6);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'0012121036' , 5, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1033659896' , 5, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'2103254875' , 5, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'3330323201' , 5, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6458954112' , 5, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6495687410' , 5, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6584756985' , 5, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6941035879' , 5, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6951000236' , 5, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'8342876655' , 5, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1000000002' , 6, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1000000230' , 6, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1010101010' , 6, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'1010144512' , 6, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'3333333212' , 6, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4242424242' , 6, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4587963201' , 6, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'4785469600' , 6, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'5555555555' , 6, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (7,'6666666666' , 6, 10);
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,4);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (8,6);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'1000000002' , 6, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'1000000230' , 6, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'1010101010' , 6, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'1010144512' , 6, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'3333333212' , 6, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4242424242' , 6, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4587963201' , 6, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'4785469600' , 6, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'5555555555' , 6, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (8,'6666666666' , 6, 10);
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (9,4);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (9,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,1);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,2);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,3);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,4);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,5);
+insert into shopsNcustomers.StoreProvidesCategory(Store_id, Category_id) values (10,6);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1119786455' , 1, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4385784111' , 1, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4444587133' , 1, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4689751247' , 1, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7784859691' , 1, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7784859699' , 1, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7946842152' , 1, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7986121145' , 1, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'9457813465' , 1, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'9458871645' , 1, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'0182740844' , 2, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1000488743' , 2, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4475837200' , 2, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4876969691' , 2, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7784547843' , 2, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7848784753' , 2, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7988841112' , 2, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'9273049372' , 2, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'9647851112' , 2, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'9986157468' , 2, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'0645158001' , 3, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'2223656581' , 3, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'3659568874' , 3, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4325784111' , 3, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4460322153' , 3, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7774464231' , 3, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7774464646' , 3, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7774464647' , 3, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7774464648' , 3, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7874585330' , 3, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1212120003' , 4, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'3666321005' , 4, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4415266990' , 4, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4444555512' , 4, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4447859992' , 4, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4965879533' , 4, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'5100232520' , 4, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6489200132' , 4, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6666555551' , 4, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'7784589630' , 4, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'0012121036' , 5, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1033659896' , 5, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'2103254875' , 5, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'3330323201' , 5, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6458954112' , 5, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6495687410' , 5, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6584756985' , 5, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6941035879' , 5, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6951000236' , 5, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'8342876655' , 5, 10);
+
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1000000002' , 6, 1);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1000000230' , 6, 2);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1010101010' , 6, 3);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'1010144512' , 6, 4);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'3333333212' , 6, 5);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4242424242' , 6, 6);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4587963201' , 6, 7);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'4785469600' , 6, 8);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'5555555555' , 6, 9);
+insert into shopsNcustomers.StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6666666666' , 6, 10);
