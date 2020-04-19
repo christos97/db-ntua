@@ -76,7 +76,7 @@ create table StoreProvidesCategory(
 	foreign key(Store_id) references Stores(Store_id),
 	foreign key(Category_id) references Category(Category_id)
 );
-
+/*ok*/
 create table Products (
 	Barcode varchar(10) not null unique,
 	Price float not null,
@@ -90,7 +90,7 @@ create table Products (
 	foreign key (Category_id) references Category(Category_id),
 	primary key(Barcode)
 );
-
+/*ok*/
 create table HadOlderPrice(
 	Start_date date not null,
 	Price float not null,
@@ -101,7 +101,7 @@ create table HadOlderPrice(
 	foreign key(Barcode) references Products(Barcode),
 	primary key(Start_date,Barcode)
 );
-
+/*ok*/
 create table StoreOffersProduct(
 	Store_id int not null,
 	Barcode varchar(10) not null,
