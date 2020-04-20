@@ -5,7 +5,7 @@ use shopsNcustomers;
 
 -- TI EINAI TO 1ST TRANS????
 
-/*ok*/
+
 create table Stores(
 	Store_id int not null AUTO_INCREMENT unique,
 	Operating_hours varchar(11) not null default '09:00-21:00',
@@ -14,7 +14,7 @@ create table Stores(
 	unique(Store_id),
 	primary key(Store_id)
 );
-/*ok*/
+
 create table StorePhoneNo(
 	Numb varchar(10) not null,
 	Phone_Id int not null AUTO_INCREMENT,
@@ -23,7 +23,7 @@ create table StorePhoneNo(
 	primary key(Phone_Id),
 	foreign key (Store_id) references Stores(Store_id)
 );
-/*ok*/
+
 create table StoreAddress(
 	Store_id int not null,
 	Adr_id int not null AUTO_INCREMENT,
@@ -61,14 +61,14 @@ create table CustomerAddress(
 	unique(Adr_id,Card),
 	foreign key (Card) references Customer(Card)
 );
-/*ok*/
+
 create table Category(
 	Category_id int not null AUTO_INCREMENT,
 	Name varchar(255) not null,
 	unique (Category_id, Name),
 	primary key(Category_id)
 );
-/*ok*/
+
 create table StoreProvidesCategory(
 	Store_id int not null,
 	Category_id int not null,
@@ -76,7 +76,7 @@ create table StoreProvidesCategory(
 	foreign key(Store_id) references Stores(Store_id),
 	foreign key(Category_id) references Category(Category_id)
 );
-/*ok*/
+
 create table Products (
 	Barcode varchar(10) not null unique,
 	Price float not null,
@@ -90,7 +90,7 @@ create table Products (
 	foreign key (Category_id) references Category(Category_id),
 	primary key(Barcode)
 );
-/*ok*/
+
 create table HadOlderPrice(
 	Start_date date not null,
 	Price float not null,
@@ -101,7 +101,7 @@ create table HadOlderPrice(
 	foreign key(Barcode) references Products(Barcode),
 	primary key(Start_date,Barcode)
 );
-/*ok*/
+
 create table StoreOffersProduct(
 	Store_id int not null,
 	Barcode varchar(10) not null,
@@ -121,7 +121,7 @@ create table Transaction(
 	Card int not null,
 	check (Total_piecies > 0),
 	check (Total_amount > 0),
-	check (Payment_method in ('cash','credit card')),
+	check (Payment_method in ('Cash','Credit card')),
 	foreign key(Card) references Customer(Card),
 	primary key(Date_time,Card)
 );
