@@ -1,0 +1,13 @@
+    .btn-group-vertical {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+.btn .btn-primary {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}

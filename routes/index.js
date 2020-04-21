@@ -17,7 +17,7 @@ router.post('/', (req, res, next) => {
           if (err) throw err;
           if(result.length > 0)
             if (result[0].password === password)     
-              res.redirect('dashboard')
+              res.redirect('/dashboard')
             else 
               res.redirect('/')
           else 

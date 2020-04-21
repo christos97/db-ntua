@@ -1,11 +1,9 @@
-const axios = require('axios')
-
+//const axios = require('axios')
 const form = document.querySelector('form');
-console.log("here")
+var xhttp = new XMLHttpRequest();
+
 form.addEventListener('submit', async event => {
-    event.preventDefault();
-  
-    const email = document.getElementById('email');
-    const password = document.getElementById('pw');
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('pw').value;
     console.log(email,password)
 })
