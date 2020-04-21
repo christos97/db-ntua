@@ -2,5 +2,8 @@ extends ../layout
 block content
     include ../includes/navbar
     div.btn.btn-group-vertical
-        a.btn.btn-primary(href= "/products/addProduct" role="button") Add Product
-        a.btn.btn-primary(href= "/products/addProduct" role="button") Add Product
+        a.btn.btn-primary.btn-block(href= "/products/addProduct" role="button") Add New Product
+        a.btn.btn-primary.btn-block(href= "/products/addProduct" role="button") Edit Existing Product       
+    div.container(style="position: fixed;top: 50%; left: 75%; transform: translate(-80%, -50%); width: 25%;")
+        canvas(id="myChart", width="200" height="200")
+    script(src="../js/productChart.js")

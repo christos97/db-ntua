@@ -1,3 +1,16 @@
 extends ../layout
 block content
-    
+    form(method='POST' action='/products/addProduct')
+        div.form-group
+            input#barcode.form-control(placeholder='Barcode' name='barcode' required='required')
+        div.form-group
+            input#price.form-control(placeholder='Price' name='price' required='required')
+        div.form-group
+            input#price.form-control(placeholder='Product Name' name='name' required='required')
+        div.form-group
+            input#price.form-control(placeholder='Brand' name='brand' required='required')    
+        div.form-group
+            input#price.form-control(placeholder='First Transaction' name='first_transaction' required='required')
+        div.form-group
+            input#price.form-control(placeholder='Category' name='category' required='required')
+        button.btn.btn-primary(type='submit') Add Product
