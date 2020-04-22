@@ -4,6 +4,7 @@ const app            = express()
 const jwt           = require('jsonwebtoken');
 
 router.post('/login', (req,res) => {
+    console.log("here")
     let email =req.body.email
     let password = req.body.password
     let sql = 'select * from admins where email=? AND password=?'; 

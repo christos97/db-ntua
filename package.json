@@ -10,6 +10,7 @@
     "chart.js": "^2.9.3",
     "cookie-parser": "~1.4.4",
     "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-session": "^1.17.0",
@@ -21,6 +22,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.3",
     "pug": "^2.0.4",
+    "req-flash": "0.0.3",
     "requirejs": "^2.3.6",
     "util": "^0.12.2"
   }
