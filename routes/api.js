@@ -1,28 +1,16 @@
 const express       = require("express");
 const router        = express.Router();
 const app            = express()
-const jwt           = require('jsonwebtoken');
+var db = require('../db');
 
-router.post('/login', (req,res) => {
-    console.log("here")
-    let email =req.body.email
-    let password = req.body.password
-    let sql = 'select * from admins where email=? AND password=?'; 
-    db.query(sql, [email,password], (err, result) => {
-        if (err) throw err;
-        if(result.length == 0 ) {
-            return res.status(401);
-        }
-        const token = jwt.sign(
-            {
-                email: result[0].email,
-                id:    "admin"
-            },
-                'secret'
-            )
-            return res.status(200).json({token: token})
-        })
-    }) 
+router.get('/products',( req, res, next) => {
+   let sql = "SELECT * FROM Products"
+   db.query(sql, (err,result) => {
+       if (err) throw err
+       console.log(result)
+       res.status(200).send(result)
+   })
+})
 
 module.exports = router;
 

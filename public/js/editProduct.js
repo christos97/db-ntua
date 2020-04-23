@@ -1,6 +1,6 @@
 'use strict';
 
-const e = React.createElement;
+const e = React.createElement(canvas);
 
 class EditProduct extends React.Component {
   constructor(props) {
