@@ -1,7 +1,7 @@
 'use strict';
 
 const e = React.createElement;
-class ProductChart extends React.Component {
+class TopSellingSpotsChart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -33,7 +33,7 @@ class ProductChart extends React.Component {
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{
-                    label: 'Product Chart',
+                    label: 'Top Selling Spots',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -75,5 +75,5 @@ class ProductChart extends React.Component {
     }
 }
 
-const domContainer = document.getElementById('product_chart');
-ReactDOM.render(<ProductChart/>, domContainer);
+const domContainer = document.getElementById('top_selling_spots_chart');
+ReactDOM.render(<TopSellingSpotsChart/>, domContainer);

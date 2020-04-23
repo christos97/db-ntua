@@ -1,7 +1,7 @@
 'use strict';
 
 const e = React.createElement;
-class PurchasesChart extends React.Component {
+class FrequentlyBoughtTogetherChart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -17,10 +17,10 @@ class PurchasesChart extends React.Component {
           (result) => {
             console.log(result)
             this.setState({items: result})
+            console.log(JSON.stringify(result))
           },
           (error) => {
             this.setState({
-              isLoaded: true,
               error
             });
           }
@@ -33,7 +33,7 @@ class PurchasesChart extends React.Component {
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{
-                    label: 'Purchases Chart',
+                    label: 'Frequently Bought Together',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -75,5 +75,5 @@ class PurchasesChart extends React.Component {
     }
 }
 
-const domContainer = document.getElementById('purchases_chart');
-ReactDOM.render(<PurchasesChart/>, domContainer);
+const domContainer = document.getElementById('frequently_bought_together_chart');
+ReactDOM.render(<FrequentlyBoughtTogetherChart/>, domContainer);

@@ -21,6 +21,5 @@ class EditProduct extends React.Component {
   }
 }
 
-
 const domContainer = document.querySelector('#edit_product');
 ReactDOM.render(e(EditProduct), domContainer);

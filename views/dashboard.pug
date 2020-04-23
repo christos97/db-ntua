@@ -2,9 +2,9 @@ extends layout
 block content
     include includes/navbar
     .chart-container(style="position: relative; top: 50%;left: 50% ;width: 40%; margin-bottom: 3rem; padding: 1.5rem;")
-            #purchases_chart
-            script(type="text/babel" src="./js/purchasesChart.js")
+            #top_selling_spots_chart
+            script(type="text/babel" src="./js/topSellingSpotsChart.js")
     .chart-container(style="position: relative; top: 50%;left: 50%; width: 40%; margin-bottom: 3rem; padding: 1.5rem;")
-            #product_chart
-            script(type="text/babel" src="./js/productChart.js")
+            #frequently_bought_together_chart
+            script(type="text/babel" src="./js/freqBoughtTogetherChart.js")
                     
