@@ -1,5 +1,10 @@
 extends layout
 block content
     include includes/navbar
-    #purchases_chart
-    script(type="text/babel" src="./js/purchasesChart.js")
+    .chart-container(style="position: relative; top: 50%;left: 50% ;width: 40%; margin-bottom: 3rem; padding: 1.5rem;")
+            #purchases_chart
+            script(type="text/babel" src="./js/purchasesChart.js")
+    .chart-container(style="position: relative; top: 50%;left: 50%; width: 40%; margin-bottom: 3rem; padding: 1.5rem;")
+            #product_chart
+            script(type="text/babel" src="./js/productChart.js")
+                    

@@ -26,7 +26,6 @@ class PurchasesChart extends React.Component {
           }
         )
         
-        console.log(this.state.items   , "here")
         
         this.chartRef.current.focus();
         this.myChart = new Chart(this.chartRef.current, {
@@ -34,7 +33,7 @@ class PurchasesChart extends React.Component {
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Purchases Chart',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
