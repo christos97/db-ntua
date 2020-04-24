@@ -15,12 +15,10 @@ class TopSellingSpotsChart extends React.Component {
         .then(res => res.json())
         .then(
           (result) => {
-            console.log(result)
             this.setState({items: result})
           },
           (error) => {
             this.setState({
-              isLoaded: true,
               error
             });
           }
