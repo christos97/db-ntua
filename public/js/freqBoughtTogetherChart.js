@@ -8,7 +8,7 @@ class FrequentlyBoughtTogetherChart extends React.Component {
     
     componentDidMount() {
     
-        fetch("http://localhost:3000/api/products")
+        fetch("http://localhost:3000/api/products/freq_bought_together")
         .then(res => res.json())
         .then(
           (result) => {
@@ -16,7 +16,7 @@ class FrequentlyBoughtTogetherChart extends React.Component {
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'horizontalBar',
                 data: {
-                    labels: [result[0].Name + " + " + result[1].Name, result[5].Name,result[43].Name, result[12].Name, result[32].Name, result[26].Name],
+                    labels: ["random","random","random","random","random","random"],
                     datasets: [{
                         label: 'Frequently Bought Together',
                         data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
@@ -73,5 +73,4 @@ class FrequentlyBoughtTogetherChart extends React.Component {
     }
 }
 
-const domContainer = document.getElementById('frequently_bought_together_chart');
-ReactDOM.render(<FrequentlyBoughtTogetherChart/>, domContainer);
+ReactDOM.render(<FrequentlyBoughtTogetherChart/>, document.getElementById('frequently_bought_together_chart'));
