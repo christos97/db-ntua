@@ -1,17 +1,19 @@
-nav.navbar.navbar-expand-lg.navbar-light(style="background-color: #F5F5F5")
-        a.navbar-brand(href='#') Bad Analytics
+nav.navbar.navbar-expand-lg.navbar-light.bg-dark(style="border-radius: 15px; padding: 0.8rem; height: 80px;")
+    div.container-fluid
+        div.navbar-header
+            a.navbar-brand(href='#' style="color: #e6e6ff;") Bad Analytics
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon    
         div.collapse.navbar-collapse(id='navbarNavDropdown')
             ul.navbar-nav.float-left
                 li.nav-item.active
-                    a.nav-link(href='/dashboard') Dashboard
+                    a.nav-link(href='/dashboard' style="color: #e6e6ff;") Dashboard
                 li.nav-item
-                    a.nav-link(href='/products') Products
+                    a.nav-link(href='/products' style="color: #e6e6ff;;") Products
                 li.nav-item
-                    a.nav-link(href='#') Stores
+                    a.nav-link(href='/stores' style="color: #e6e6ff;") Stores
                 li.nav-item
-                    a.nav-link(href='#') Customers
+                    a.nav-link(href='#' style="color: #e6e6ff;;") Customers
                 li.nav-item
-                    a.nav-link(href='/') Logout
+                    a.nav-link(href='/' style="color: #e6e6ff;") Logout
             

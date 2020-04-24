@@ -1,0 +1,21 @@
+extends ../layout
+block content
+    include ../includes/navbar
+    h5(style="position: relative; top: 50%; left: 30%;text-align: center; border-style:outset; border-color: rgba(165, 192, 182, 1) ;border-radius: 10px; background-color: lightgrey ;padding: 20px; width: 40%;height: 70px; margin-top: 3rem;font-weight: bold;") Pick a store and search for data 
+    div.container(style="position: fixed;top: 50%; left: 60%; transform: translate(-50%, -50%); margin-top: 5rem;")
+        ul.list-group(style=style="position: fixed;top: 60%; left: 20%; transform: translate(-50%, -50%); width: 40%;")
+            h2 Athens
+            a.list-group-item.list-group-item-action(href="/stores/1" style="border: 2px solid; border-color: black; margin-top: 1.5rem; max-width: 30%; border-radius:0.5rem ;padding:0.5rem")= stores[0].Street + " " + stores[0].Number_ 
+            a.list-group-item.list-group-item-action(href="/stores/2" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%;border-radius:0.5rem ; padding:0.5rem")= stores[1].Street + " " + stores[1].Number_
+            a.list-group-item.list-group-item-action(href="/stores/3" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%;border-radius:0.5rem ; padding:0.5rem")= stores[2].Street + " " + stores[2].Number_
+            a.list-group-item.list-group-item-action(href="/stores/4"   style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%; border-radius:0.5rem ; padding:0.5rem")= stores[3].Street + " " + stores[3].Number_
+        ul.list-group(style=style="position: fixed;top: 60%; left: 50%; transform: translate(-50%, -50%); width: 40%;")
+            h2 Kalamata
+            a.list-group-item.list-group-item-action(href="/stores/5" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%;border-radius:0.5rem ; padding:0.5rem")= stores[4].Street + " " + stores[4].Number_
+            a.list-group-item.list-group-item-action(href="/stores/6" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%;border-radius:0.5rem ; padding:0.5rem")= stores[5].Street + " " + stores[5].Number_
+            a.list-group-item.list-group-item-action(href="/stores/7" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%;border-radius:0.5rem ; padding:0.5rem")= stores[6].Street + " " + stores[6].Number_
+        ul.list-group(style=style="position: fixed;top: 60%; left: 80%; transform: translate(-50%, -50%); width: 40%;")
+            h2 Lamia
+            a.list-group-item.list-group-item-action(href="/stores/8" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%; border-radius:0.5rem ;padding:0.5rem")= stores[7].Street + " " + stores[7].Number_
+            a.list-group-item.list-group-item-action(href="/stores/9" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%;border-radius:0.5rem ; padding:0.5rem")= stores[8].Street + " " + stores[8].Number_
+            a.list-group-item.list-group-item-action(href="/stores/10" style="border: 2px solid; border-color: black;margin-top: 1.5rem; max-width: 30%;border-radius:0.5rem ; padding:0.5rem")= stores[9].Street + " " + stores[9].Number_

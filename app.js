@@ -10,7 +10,8 @@ var cors = require('cors')
 var pug = require('pug')
 var indexRouter = require('./routes/index');
 var dashboardRouter = require('./routes/dashboard')
-var productRouter = require('./routes/products')
+var productsRouter = require('./routes/products')
+var storesRouter = require('./routes/stores')
 var app = express();
 
 // view engine setup
@@ -28,9 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash())
 // Static files
 app.use('/', indexRouter);
-app.use('/dashboard',dashboardRouter)
-app.use('/products',productRouter)
-
+app.use('/dashboard', dashboardRouter)
+app.use('/products', productsRouter)
+app.use('/stores', storesRouter)
 // API for axios 
 
 var apiRouter = require('./routes/api')
