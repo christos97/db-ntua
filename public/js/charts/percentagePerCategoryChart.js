@@ -1,6 +1,6 @@
 'use strict';
 
-class FrequentlyBoughtTogetherChart extends React.Component {
+class PercentagePerCategoryChart extends React.Component {
     constructor(props) {
         super(props)
         this.chartRef = React.createRef();
@@ -14,11 +14,11 @@ class FrequentlyBoughtTogetherChart extends React.Component {
           (result) => {
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
-                type: 'horizontalBar',
+                type: 'bar',
                 data: {
-                    labels: ["random","random","random","random","random","random"],
+                    labels: ["Fresh","Frozen","Liquors","Self Care","Home","Pet"],
                     datasets: [{
-                        label: 'Frequently Bought Together',
+                        label: 'Percentage of sales in each category',
                         data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -48,7 +48,16 @@ class FrequentlyBoughtTogetherChart extends React.Component {
                     scales: {
                         yAxes: [{
                             ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
                                 beginAtZero: true
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
+                                beginAtZero: true,
                             }
                         }]
                     }
@@ -73,4 +82,4 @@ class FrequentlyBoughtTogetherChart extends React.Component {
     }
 }
 
-ReactDOM.render(<FrequentlyBoughtTogetherChart/>, document.getElementById('frequently_bought_together_chart'));
+ReactDOM.render(<PercentagePerCategoryChart/>, document.getElementById('percentage_per_category_chart'));

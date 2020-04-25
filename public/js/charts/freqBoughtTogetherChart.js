@@ -1,9 +1,13 @@
 'use strict';
 
-class PercentagePerCategoryChart extends React.Component {
+class FrequentlyBoughtTogetherChart extends React.Component {
     constructor(props) {
         super(props)
         this.chartRef = React.createRef();
+        this.state = {
+            products: [],
+            amount: 0
+        }
     }
     
     componentDidMount() {
@@ -12,13 +16,18 @@ class PercentagePerCategoryChart extends React.Component {
         .then(res => res.json())
         .then(
           (result) => {
+            
+            this.setState({products: [...this.state.products, result]})
+            const list = this.state.products.map((prod) =>
+                <li> {prod} </li>
+            )
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'horizontalBar',
                 data: {
-                    labels: ["random","random","random","random","random","random"],
+                    labels: [result[0].Name + " + " +result[1].Name,"random","random","random","random","random"],
                     datasets: [{
-                        label: 'Percentage of sales in each category',
+                        label: 'Frequently Bought Together',
                         data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -48,7 +57,16 @@ class PercentagePerCategoryChart extends React.Component {
                     scales: {
                         yAxes: [{
                             ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
                                 beginAtZero: true
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
+                                beginAtZero: true,
                             }
                         }]
                     }
@@ -66,11 +84,11 @@ class PercentagePerCategoryChart extends React.Component {
 
     render(){
         return (
-            <div>
-                <canvas ref={this.chartRef} />
-            </div>
+                <div>
+                    <canvas ref={this.chartRef} />
+                </div>
         );
     }
 }
 
-ReactDOM.render(<PercentagePerCategoryChart/>, document.getElementById('percentage_per_category_chart'));
+ReactDOM.render(<FrequentlyBoughtTogetherChart/>, document.getElementById('frequently_bought_together_chart'));

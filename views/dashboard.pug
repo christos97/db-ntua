@@ -1,26 +1,33 @@
 extends layout
 block content
     include includes/navbar
-    .container-fluid(style="width: 80%;")  
-      .row
-        .col
-          h4 Top Selling Spots
-          .chart-container
-            #top_selling_spots_chart
-            script(type="text/babel" src=".././js/dashboardCharts/topSellingSpotsChart.js")
-        .col
-          h4 Frequently bought together   
-          .chart-container
-            #frequently_bought_together_chart
-            script(type="text/babel" src=".././js/dashboardCharts/freqBoughtTogetherChart.js")
-      .row
-        .col
-          h4 Most visited hours per age bracket   
-          .chart-container
-            #visiting_hours_per_age_chart
-            script(type="text/babel" src=".././js/dashboardCharts/visitingHoursPerAgeChart.js")
-        .col
-          h4 Prefered products per category 
-          .chart-container
-            #visiting_hours_per_age_chart
-            script(type="text/babel" src=".././js/dashboardCharts/percentagePerCatgeory.js")
+    link(rel="stylesheet", href="./stylesheets/dashboard.css")
+    .container
+    .row
+      .col
+        h4 Top Selling Spots
+        .chart-container
+          #top_selling_spots_chart
+          script(type="text/babel" src=".././js/charts/topSellingSpotsChart.js")
+      .col
+        h4 Frequently bought together   
+        .chart-container
+          #frequently_bought_together_chart
+          script(type="text/babel" src=".././js/charts/freqBoughtTogetherChart.js")
+    .row
+      .col
+        h4 Most visited hours per age bracket   
+        .chart-container
+          #visiting_hours_per_age_chart
+          script(type="text/babel" src=".././js/charts/visitingHoursPerAgeChart.js")
+      .col
+        h4 Prefered products per category 
+        .chart-container
+          #percentage_per_category_chart
+          script(type="text/babel" src=".././js/charts/percentagePerCategoryChart.js")
+    .row
+      .col
+        h4 Most profitable hours
+        .chart-container
+          #profit_timeline__chart
+          script(type="text/babel" src=".././js/charts/profitTimelineChart.js")

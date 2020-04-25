@@ -20,6 +20,7 @@ class VisitingHoursPerAgeChart extends React.Component {
                     "15:00","16:00","17:00","18:00","19:00","20:00","21:00"],
                     datasets: [{
                         label: '<30',
+                        fill:false,
                         data: [5, 8, 12, 5, 6, 3], // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -31,10 +32,9 @@ class VisitingHoursPerAgeChart extends React.Component {
                     },
                     {
                         label: '31-45',
-                        data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
-                        backgroundColor: [
-                            'rgba(54, 162, 235, 0.2)',
-                       ],
+                        fill:false,
+                        data: [12, 19, 3, 5, 2, 9], // times bought together...result[..].whatever
+
                         borderColor: [
                             'rgba(54, 162, 235, 1)',
                         ],
@@ -42,10 +42,8 @@ class VisitingHoursPerAgeChart extends React.Component {
                     },
                     {
                         label: '46-65',
-                        data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
-                        backgroundColor: [
-                            'rgba(255, 206, 86, 0.2)',
-                        ],
+                        fill:false,
+                        data: [2, 6, 14, 12, 9, 2], // times bought together...result[..].whatever
                         borderColor: [
                             'rgba(255, 206, 86, 1)',
                         ],
@@ -53,10 +51,8 @@ class VisitingHoursPerAgeChart extends React.Component {
                     },
                     {
                         label: '65+',
-                        data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
-                        backgroundColor: [
-                            'rgba(39, 183, 36, 0.2)',
-                        ],
+                        fill:false,
+                        data: [15, 12, 19, 7, 10, 6], // times bought together...result[..].whatever
                         borderColor: [
                             'rgba(39, 183, 36, 1)',
                         ],
@@ -66,15 +62,12 @@ class VisitingHoursPerAgeChart extends React.Component {
                 },
                 options: {
                     legend: {
-                        labels: {
-                            fontColor: 'black'
-                        }
+                        display : true
                     },
                     scales: {
                         yAxes: [{
                             label:{},
                             ticks: {
-                                label   : 'Value',
                                 fontColor: 'black',
                                 fontSize: 14,
                                 beginAtZero: true
@@ -84,8 +77,8 @@ class VisitingHoursPerAgeChart extends React.Component {
                             ticks: {
                                 fontColor: 'black',
                                 fontSize: 14,
+                                beginAtZero: true,
                                 stepSize: 1,
-                                beginAtZero: true
                             }
                         }]
                     }

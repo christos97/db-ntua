@@ -15,7 +15,7 @@ router.get('/products/freq_bought_together',( req, res, next) => {
    let sql = "SELECT * FROM Products"
    db.query(sql, (err,result) => {
        if (err) throw err
-       console.log(result)
+       //console.log(result)
        res.status(200).send(result)
    })
 })

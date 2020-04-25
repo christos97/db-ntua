@@ -1,13 +1,14 @@
 'use strict';
 
-class ProfitTimelineChart extends React.Component {
+Chart.defaults.global.legend.display = false;
+
+class TopSellingSpotsChart extends React.Component {
     constructor(props) {
         super(props)
         this.chartRef = React.createRef();
     }
-    
+
     componentDidMount() {
-    
         fetch("http://localhost:3000/api/products/freq_bought_together")
         .then(res => res.json())
         .then(
@@ -18,7 +19,7 @@ class ProfitTimelineChart extends React.Component {
                 data: {
                     labels: ["random","random","random","random","random","random"],
                     datasets: [{
-                        label: 'Most Profitable Hours',
+                        label: '',
                         data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -48,20 +49,28 @@ class ProfitTimelineChart extends React.Component {
                     scales: {
                         yAxes: [{
                             ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
+                                beginAtZero: true
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
                                 beginAtZero: true
                             }
                         }]
                     }
                 }
             });
-                          
-            },
+          },
           (error) => {
             this.setState({
               error
             });
           }
-        )        
+        )
     }
 
     render(){
@@ -73,4 +82,4 @@ class ProfitTimelineChart extends React.Component {
     }
 }
 
-ReactDOM.render(<ProfitTimelineChart/>, document.getElementById('profit_timeline__chart'));
+ReactDOM.render(<TopSellingSpotsChart/>, document.getElementById('top_selling_spots_chart'));
