@@ -8,7 +8,7 @@ class PercentagePerCategoryChart extends React.Component {
     
     componentDidMount() {
     
-        fetch("http://localhost:3000/api/products/freq_bought_together")
+        fetch("http://localhost:3000/api/freq_bought_together")
         .then(res => res.json())
         .then(
           (result) => {

@@ -6,7 +6,7 @@ a:hover {
 
 a.navbar-brand {
     font-size:23px; 
-    font-weight:italic; 
+    font-weight: 'italic'; 
     margin-right: 3rem
 }
 
