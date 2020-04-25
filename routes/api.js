@@ -4,6 +4,7 @@ const app            = express()
 var db = require('../db');
 
 
+
 // otidipote meta to "{base_url}/api" einai edw
 /* 
 Edw ola ta routes gia ta charts, apla res.send(result) opou result to apotelesma tou query (result === json array)  

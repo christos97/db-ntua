@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "cookie-parser": "~1.4.4",
     "cookie-session": "^1.4.0",
@@ -22,6 +23,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.3",
     "pug": "^2.0.4",
+    "react-bootstrap": "^1.0.1",
     "react-chartjs-2": "^2.9.0",
     "req-flash": "0.0.3",
     "requirejs": "^2.3.6",
