@@ -1,10 +1,19 @@
 extends ../layout
 block content
     include ../includes/navbar
-    div.card(style="margin-top: 3rem; padding:0.5rem; margin-bottom:1rem; border-radius:10px; border-color:black; width: 40%")
-        div.card-body
-            h1 City:    #{city} 
-            h2 Street:  #{street} #{number}
-            h4 Postal Code: #{postal_code}
-    #form_container
-    script(type ='text/babel' src="../js/purchases.js")
+    .container
+    .row
+        .col
+            .card(style="margin-top: 4rem; margin-left:2rem; padding:0.5rem; margin-bottom:1rem; border-radius:10px; border-color:black; width: 70%")
+                .card-body
+                    h1 City:    #{city} 
+                    h2 Street:  #{street} #{number}
+                    h4 Postal Code: #{postal_code}
+        .col(style="margin-right: 3rem; margin-top: 2rem;")
+            h4(style="margin-bottom: 1rem; text-align: center;") Store sales per category
+            #store_sales_per_category_chart
+            script(type ='text/babel' src="../js/charts/storeSalesPerCategoryChart.js")    
+    .row
+        #form_container
+        script(type ='text/babel' src="../js/purchases.js")
+        
