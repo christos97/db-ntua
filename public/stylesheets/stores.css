@@ -23,6 +23,8 @@ h2{
 	line-height: 42px;
     padding: 10px; 
 }
+
+
 a.list-group-item.list-group-item-action:hover {
     
     background-color: black;
@@ -35,7 +37,7 @@ a.list-group-item.list-group-item-action {
     border: 2px  black;
     border-style: inset; 
     margin-top: 1.5rem; 
-    width: 50%; 
+    width: 30%; 
     padding: 1rem;
     font-size: large;
    

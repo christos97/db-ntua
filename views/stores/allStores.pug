@@ -3,20 +3,30 @@ block content
     include ../includes/navbar
     link(rel="stylesheet", href="../stylesheets/stores.css")
     h5 Pick a store and search for data 
-    div.container(style="position: fixed;top: 50%; left: 55%; transform: translate(-50%, -50%); margin-top: 2rem;")
-        ul.list-group(style="position: fixed;top: 60%; left: 5%; transform: translate(-50%, -50%); width: 50%;")
-            h2 Athens
-            a.list-group-item.list-group-item-action(href="/stores/1")= stores[0].Street + " " + stores[0].Number_ 
-            a.list-group-item.list-group-item-action(href="/stores/2")= stores[1].Street + " " + stores[1].Number_
-            a.list-group-item.list-group-item-action(href="/stores/3")= stores[2].Street + " " + stores[2].Number_
-            a.list-group-item.list-group-item-action(href="/stores/4")= stores[3].Street + " " + stores[3].Number_
-        ul.list-group(style="position: fixed;top: 60%; left: 50%; transform: translate(-50%, -50%); width: 50%;")
-            h2 Kalamata
-            a.list-group-item.list-group-item-action(href="/stores/5")= stores[4].Street + " " + stores[4].Number_
-            a.list-group-item.list-group-item-action(href="/stores/6")= stores[5].Street + " " + stores[5].Number_
-            a.list-group-item.list-group-item-action(href="/stores/7")= stores[6].Street + " " + stores[6].Number_
-        ul.list-group(style="position: fixed;top: 60%; left: 95%; transform: translate(-50%, -50%); width: 50%;")
-            h2 Lamia
-            a.list-group-item.list-group-item-action(href="/stores/8")= stores[7].Street + " " + stores[7].Number_
-            a.list-group-item.list-group-item-action(href="/stores/9")= stores[8].Street + " " + stores[8].Number_
-            a.list-group-item.list-group-item-action(href="/stores/10")= stores[9].Street + " " + stores[9].Number_
+    .container-fluid
+        .row
+        h2 Athens
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/1")= stores[0].Street + " " + stores[0].Number_ 
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/2")= stores[1].Street + " " + stores[1].Number_
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/3")= stores[2].Street + " " + stores[2].Number_
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/4")= stores[3].Street + " " + stores[3].Number_    
+        .row
+        h2 Kalamata
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/5")= stores[4].Street + " " + stores[4].Number_
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/6")= stores[5].Street + " " + stores[5].Number_
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/7")= stores[6].Street + " " + stores[6].Number_
+        .row
+        h2 Lamia
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/8")= stores[7].Street + " " + stores[7].Number_
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/9")= stores[8].Street + " " + stores[8].Number_
+            .col
+                a.list-group-item.list-group-item-action(href="/stores/10")= stores[9].Street + " " + stores[9].Number_
