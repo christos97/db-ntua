@@ -1,10 +1,13 @@
 extends layout
 block content
     include includes/navbar
-    .chart-container(style="position: relative; top: 50%;left: 50% ;width: 40%; margin-bottom: 3rem; padding: 1.5rem;")
-            #top_selling_spots_chart
-            script(type="text/babel" src="./js/topSellingSpotsChart.js")
-    .chart-container(style="position: relative; top: 50%;left: 50%; width: 40%; margin-bottom: 3rem; padding: 1.5rem;")
-            #frequently_bought_together_chart
-            script(type="text/babel" src="./js/freqBoughtTogetherChart.js")
-                    
+    .row
+     .col
+      .chart-container(style="width: 100%; margin-top: 2rem; margin-bottom: 2rem; padding: 1rem;")
+        #top_selling_spots_chart
+        script(type="text/babel" src="./js/topSellingSpotsChart.js")
+     .col   
+      .chart-container(style="width: 100%; margin-top: 2rem; margin-bottom: 2rem; padding: 1rem;")
+        #frequently_bought_together_chart
+        script(type="text/babel" src="./js/freqBoughtTogetherChart.js")
+                        

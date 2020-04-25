@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var dashboardRouter = require('./routes/dashboard')
 var productsRouter = require('./routes/products')
 var storesRouter = require('./routes/stores')
+var customersRouter = require('./routes/customers')
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter)
 app.use('/products', productsRouter)
 app.use('/stores', storesRouter)
+app.use('/customers', customersRouter)
 // API for axios 
 
 var apiRouter = require('./routes/api')

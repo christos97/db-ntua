@@ -1,0 +1,6 @@
+extends ../layout
+block content
+    include ../includes/navbar
+    ul
+        each customer in customers
+            li=customer.Name
