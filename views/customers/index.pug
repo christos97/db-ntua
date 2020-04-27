@@ -1,6 +1,8 @@
 extends ../layout
 block content
     include ../includes/navbar
-    ul
-        each customer in customers
-            li=customer.Name
+    each customer in customers
+        .card.bg-dark(style="border-radius: 15px; padding: 1rem; position: relative; left: 30%;width: 30%; margin: 2rem 1rem 2rem 1rem;")
+            .card-body(style="color: lightgrey;")
+                h5.card-title #{customer.Name} - Card ID: #{customer.Card}
+                a.card-link(href=`/customers/${customer.Card}` style="color: lightblue;") Customer Profile

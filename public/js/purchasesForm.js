@@ -8,7 +8,7 @@ class FormContainer extends React.Component {
       }
 
     async componentDidMount() {
-        const response = await fetch(`http://localhost:3000/api/products/freq_bought_together`)
+        const response = await fetch(`http://localhost:3000/api/freq_bought_together`)
         const data = await response.json()
         //this.setState({name : data[0].Name , loading: false})
     }

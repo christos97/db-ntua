@@ -5,7 +5,7 @@ var db = require('../db');
 
 // ola mazi 
 router.get('/', (req, res) => {       // Select store 
-    let sql = 'SELECT * FROM StoreAddress'
+    let sql = 'SELECT * FROM StoreAddress '
     db.query(sql, (err, result) => {
         if (err) throw err
         console.log(result)

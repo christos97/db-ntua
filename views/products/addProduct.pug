@@ -1,17 +1,23 @@
 extends ../layout
 block content
-    form(method='POST' action='/products/addProduct')
-        div.form-group
-            input#barcode.form-control(placeholder='Barcode' name='barcode' required='required')
-        div.form-group
-            input#price.form-control(placeholder='Price' name='price' required='required')
-        div.form-group
-            input#name.form-control(placeholder='Product Name' name='name' required='required')
-        div.form-group
-            input#brand.form-control(placeholder='Brand' name='brand' required='required')    
-        div.form-group
-            input#first_transaction.form-control(placeholder='First Transaction' name='first_transaction' required='required')
-        div.form-group
-            input#category_id.form-control(placeholder='Category' name='category_id' required='required')
-        button.btn.btn-primary(type='submit') Add Product
-        
+    .container(style="width: 30%;")
+        .row
+            form(method='POST' action='/products/addProduct')
+            .col
+                .form-group
+                    input#barcode.form-control(placeholder='Barcode' name='barcode' required='required')
+                .form-group
+                    input#price.form-control(placeholder='Price' name='price' required='required')
+                .form-group
+                    input#name.form-control(placeholder='Product Name' name='name' required='required')
+                .form-group
+                    input#brand.form-control(placeholder='Brand' name='brand' required='required')    
+                .form-group
+                    input#first_transaction.form-control(placeholder='First Transaction' name='first_transaction' required='required')
+                .form-group
+                    input#category_id.form-control(placeholder='Category' name='category_id' required='required')
+        .row
+            .col
+                a.button.btn.btn-dark(style="width:120px; margin: 0.5rem 1rem 0rem 1rem ;padding: 1rem; border-radius:15px;" href="/products" type="button") Back        
+            .col
+                button.btn.btn-dark(style="width:130px; margin: 0.5rem 1rem 0rem 1rem ;padding: 1rem; border-radius:15px;" type='submit') Add Product

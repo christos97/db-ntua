@@ -18,9 +18,7 @@ class FrequentlyBoughtTogetherChart extends React.Component {
           (result) => {
             
             this.setState({products: [...this.state.products, result]})
-            const list = this.state.products.map((prod) =>
-                <li> {prod} </li>
-            )
+            
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'horizontalBar',

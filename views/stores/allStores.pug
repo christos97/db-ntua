@@ -2,31 +2,12 @@ extends ../layout
 block content
     include ../includes/navbar
     link(rel="stylesheet", href="../stylesheets/stores.css")
-    h5 Pick a store and search for data 
-    .container-fluid
-        .row
-        h2 Athens
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/1")= stores[0].Street + " " + stores[0].Number_ 
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/2")= stores[1].Street + " " + stores[1].Number_
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/3")= stores[2].Street + " " + stores[2].Number_
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/4")= stores[3].Street + " " + stores[3].Number_    
-        .row
-        h2 Kalamata
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/5")= stores[4].Street + " " + stores[4].Number_
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/6")= stores[5].Street + " " + stores[5].Number_
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/7")= stores[6].Street + " " + stores[6].Number_
-        .row
-        h2 Lamia
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/8")= stores[7].Street + " " + stores[7].Number_
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/9")= stores[8].Street + " " + stores[8].Number_
-            .col
-                a.list-group-item.list-group-item-action(href="/stores/10")= stores[9].Street + " " + stores[9].Number_
+    each store in stores
+        .card.bg-dark(style="border-radius: 15px; padding: 1rem; position: relative; left: 30%;width: 30%; margin: 2rem 1rem 2rem 1rem;")
+            .card-body(style="color: lightgrey;")
+                h2.card-title Store ID: #{store.Store_id}  
+                h2 City #{store.City}
+                br
+                h3 Street: #{store.Street} #{store.Number_}, #{store.Postal_code}
+                h3 Phone: #{store.Phone}
+                a.card-link(href=`/stores/${store.Card}` style="color: lightblue;") store Profile

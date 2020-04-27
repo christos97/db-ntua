@@ -1,7 +1,12 @@
 extends ../layout
 block content
     include ../includes/navbar
-    div.btn.btn-group-vertical
-        a.btn.btn-primary.btn-block(href= "/products/addProduct" role="button") Add New Product
-        a.btn.btn-primary.btn-block(href= "/products/editProduct" role="button") Edit Existing Product       
-        
+    link(rel='stylesheet', href='/stylesheets/stores.css')
+    .container(style="position: relative;  margin-top: 2rem;")
+        .row
+            a.btn.btn-dark.btn-block(href= "/products/addProduct" role="button" style="width:30%;") Add New Product
+        .row
+            a.btn.btn-dark.btn-block(href= "/products/editProduct" role="button" style="margin-top: 0rem; width:30%;") Edit Product       
+        .row
+            a.btn.btn-dark.btn-block(href= "/products/deleteProduct" role="button" style="margin-top: 0rem; width:30%;") Delete Product       
+                        

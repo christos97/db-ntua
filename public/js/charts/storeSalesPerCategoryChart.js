@@ -16,9 +16,9 @@ class StoreSalesPerCategoryChart extends React.Component {
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'bar',
                 data: {
-                    labels: ["Fresh","Frozen","Liquors","Self Care","Home","Pet"],
+                    labels: ["Fresh","Frozen","Liquor & Spirits","Self Care","Home","Pet"],
                     datasets: [{
-                        label: 'Percentage of sales in each category',
+                        label: 'Percentage of total sales in catgeory',
                         data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
