@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../db');
 var flash        = require('req-flash');
 router.use(flash())
+const { check, validationResult } = require('express-validator');
 
 // Product Index ---> Crud button links & product datatable 
 router.get('/', (req, res) => {
@@ -37,27 +38,28 @@ router.post('/addProduct', (req, res, next) => {
     })
 })
 
-// Edit Product
+// Edit Product edw girnaw kai barcode,name gia kathe product 
 router.get('/editProduct', (req, res) => {
     let sql = 'SELECT Barcode,Name FROM Products'
     db.query(sql, (err, result) => {
         if (err) 
             console.log("query failed")
+        console.log(result)
         res.render('products/editProduct', { products: result})
     })
 })
 
-router.post('/editProduct', (req, res, next) => {
-
+router.post('/editProduct',(req, res, next) => {
     let barcode = req.body.barcode,     
         price = req.body.price,         
         name = req.body.name,
         brand = req.body.brand,
         category_id = req.body.category_id,   // auto einai int opote thelei kai to relation kanonika wste na vazeis string
-        initial_barcode = req.body.initial_barcode
+        product = req.body.product
 
+    console.log(barcode,price,name,brand,category_id, product)
     let sql = 'UPDATE Products SET Barcode=?, Price=?, Name=?, Brand_name=?, First_transaction=1, Category_id=? WHERE Barcode=?'
-    db.query(sql,[barcode, parseFloat(price), name, brand, parseInt(category_id),initial_barcode], (err, result) => {
+    db.query(sql,[barcode, parseFloat(price), name, brand, parseInt(category_id),product], (err, result) => {
         if (err) 
             res.status(400).send()
         if (result)
