@@ -1,0 +1,25 @@
+extends ../layout
+block content
+    include ../includes/navbar
+    script(src="../js/stores/storesTable.js")      
+    .container(id="wrapper" style="margin-top: 3rem;")
+        table#storesTable.table.table-bordered.table-light
+            thead.thead-dark
+                tr  
+                    th ID
+                    th City
+                    th Street
+                    th Number
+                    th Postal Code
+                    th Operating Hours
+                    th m2 
+            tbody
+                each store in stores   
+                    tr      
+                        td #{store.Store_id}
+                        td #{store.City}
+                        td #{store.Street}
+                        td #{store.Number_}
+                        td #{store.Postal_code} 
+                        td #{store.Operating_hours}
+                        td #{store.Size_}

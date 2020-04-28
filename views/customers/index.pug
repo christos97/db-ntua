@@ -1,8 +1,35 @@
 extends ../layout
 block content
     include ../includes/navbar
-    each customer in customers
-        .card.bg-dark(style="border-radius: 15px; padding: 1rem; position: relative; left: 30%;width: 30%; margin: 2rem 1rem 2rem 1rem;")
-            .card-body(style="color: lightgrey;")
-                h5.card-title #{customer.Name} - Card ID: #{customer.Card}
-                a.card-link(href=`/customers/${customer.Card}` style="color: lightblue;") Customer Profile
+    script(src="../js/customers/customerTable.js")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    .container(style="margin-top: 3rem;")
+        .row
+            table#customerTable.table.table-bordered.table-light
+                thead.thead-dark
+                    tr  
+                        th(scope="col" data-field='card') Card ID
+                        th(scope="col" data-field='name') Full Name
+                        th(scope="col" data-field='date_of_birth') Date of Birth
+                        th(scope="col" data-field='city') City
+                        th(scope="col" data-field='street') Street
+                        th(scope="col" data-field='number') Number 
+                        th(scope="col" data-field='postal_code') Postal Code
+                        th(scope="col" data-field='phone') Phone
+                        th(scope="col" data-field='family_memebers') Family Members
+                        th(scope="col" data-field='pet') Pets
+                        th(scope="col" data-field='points') Points
+                tbody
+                    each customer in customers   
+                        tr      
+                            td #{customer.Card}
+                            td #{customer.Name}
+                            td #{customer.Date_of_birth}
+                            td #{customer.City} 
+                            td #{customer.Street}
+                            td #{customer.Number_}
+                            td #{customer.Postal_code}
+                            td #{customer.Phone}
+                            td #{customer.Family_members}
+                            td #{customer.Pet}
+                            td #{customer.Points}

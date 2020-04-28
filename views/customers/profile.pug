@@ -1,13 +1,45 @@
 extends ../layout
 block content
     include ../includes/navbar
-    .card.bg-dark(style=" padding:1rem;  border: 3px inset grey; width: 40%; margin: 3rem 1rem 2rem 1rem;")
-        .card-body(style="color: lightgrey;")
-            h2.card-title #{customer[0].Name} 
-            h2 Card ID: #{customer[0].Card}, Card Points: #{customer[0].Points}
-            br
-            h3 City: #{customer[0].City}
-            h3 Street: #{customer[0].Street} #{customer[0].Number_}, #{customer[0].Postal_code}
-            h3 Phone: #{customer[0].Phone}
-            h3 Pet: #{customer[0].Pet} 
-            h3 Family members: #{customer[0].Family_members}
+    script(src="../js/customers/customerTransactionsTable.js")
+    script(type ='text/babel' src="../js/charts/top10PerCustomerChart.js")
+    script(type ='text/babel' src="../js/charts/customerVisitingHoursChart.js")
+    .container
+        .row
+            .col    
+                .card.bg-dark(style="padding:0.5rem;  border: 3px inset grey; width: 100%; margin: 3rem 0rem 2rem 1rem;")
+                    .card-body(style="color: lightgrey; text-align: center;")
+                        h3.card-title #{customer[0].Name} | Card ID: #{customer[0].Card} | Card Points: #{customer[0].Points}
+                        br
+                        h4 City: #{customer[0].City} | Address: #{customer[0].Street} #{customer[0].Number_}, #{customer[0].Postal_code}
+                        h4 Phone: #{customer[0].Phone}
+                        h4 Family members: #{customer[0].Family_members}, Pet: #{customer[0].Pet} 
+                        h4 Transactions per week: ? | Amount spent per week: ?
+                        h4 Transactions per month: ? | Amount spent per month: ?
+        .row
+            .col
+                h2(style="text-align:center; margin: 2rem 1rem 2rem 1rem; padding: 0.5rem;") Customer Transactions 
+                table#customerTransactionsTable.table.table-bordered.table-light
+                    thead.thead-dark 
+                        tr  
+                            th(scope="col" data-field='transaction_date') Date
+                            th(scope="col" data-field='pieces') Pieces
+                            th(scope="col" data-field='amount') Amount
+                            th(scope="col" data-field='payment_method') Payment Method 
+                    tbody
+                        tr 
+                            td YYYY-MM-DD UTC
+                            td #
+                            td $
+                            td Cash | Card
+    .container-fluid 
+        .row
+            .col
+                h4(style="text-align:center; margin: 2rem 1rem 1rem 1rem; padding: 0.5rem;") Top 10 customer products
+                .chart-container(style="margin: 3rem 1rem 2rem 0rem; ")
+                    #top_10_per_customer_chart
+            .col
+                h4(style="text-align:center; margin: 2rem 1rem 1rem 1rem; padding: 0.5rem;") Customer Visiting Hours
+                .chart-container(style="margin: 3rem 1rem 1rem 0rem; ")
+                    #customer_visiting_hours_chart
+      

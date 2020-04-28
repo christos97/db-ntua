@@ -1,23 +1,22 @@
 extends ../layout
 block content
-    .container(style="width: 30%;")
+    .container(style="width: 50%")
         .row
-            form(method='POST' action='/products/addProduct')
+            form 
             .col
+                h3(style="text-align: center; margin-bottom: 1rem; padding 0.5rem;") Add Product  
                 .form-group
-                    input#barcode.form-control(placeholder='Barcode' name='barcode' required='required')
+                    input#barcode.form-control(placeholder='Barcode' name='barcode')    
                 .form-group
-                    input#price.form-control(placeholder='Price' name='price' required='required')
+                    input#price.form-control(placeholder='Price' name='price')
                 .form-group
-                    input#name.form-control(placeholder='Product Name' name='name' required='required')
+                    input#name.form-control(placeholder='Product Name' name='name')
                 .form-group
-                    input#brand.form-control(placeholder='Brand' name='brand' required='required')    
+                    input#brand.form-control(placeholder='Brand' name='brand')    
                 .form-group
-                    input#first_transaction.form-control(placeholder='First Transaction' name='first_transaction' required='required')
-                .form-group
-                    input#category_id.form-control(placeholder='Category' name='category_id' required='required')
-        .row
+                    input#category_id.form-control(placeholder='Category' name='category_id')
+        .row(style='margin: 2rem 30% 1rem 30%;')
             .col
-                a.button.btn.btn-dark(style="width:120px; margin: 0.5rem 1rem 0rem 1rem ;padding: 1rem; border-radius:15px;" href="/products" type="button") Back        
-            .col
-                button.btn.btn-dark(style="width:130px; margin: 0.5rem 1rem 0rem 1rem ;padding: 1rem; border-radius:15px;" type='submit') Add Product
+                a.button.btn.btn-dark(style="padding: 1rem; margin-right: 1.5rem; border-radius:15px;" href="/products" type="button") Back        
+                button.btn.btn-dark(style=" padding: 1rem; border-radius:15px;" id='submit-btn' type='submit' onClick="addProduct()") Add 
+                script(src="../js/products/crudProduct.js")

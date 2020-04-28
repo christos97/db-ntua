@@ -5,12 +5,13 @@ block content
             form
             .col(style="margin-right: 2rem;")
                 .form-group
-                    h4 Products and their existing barcodes
-                    select.form-control
+                    h3 Products and their existing barcodes
+                    input(type='text' name='product' list='productsList')
+                    datalist#productsList   
                         each prod in products
-                            option.form-control #{prod.Name} - #{prod.Barcode} 
+                            option.form-control(value=`${prod.Barcode}`) #{prod.Name}  
             .col
-                h4 Edit Product  
+                h3 Edit Product  
                 .form-group
                     input#barcode.form-control(placeholder='Barcode' name='barcode')    
                 .form-group
@@ -23,5 +24,5 @@ block content
                     input#category_id.form-control(placeholder='Category' name='category_id')
         .row(style='margin: 2rem 30% 1rem 30%;')
             a.button.btn.btn-dark(style="padding: 1rem; margin-right: 1.5rem; border-radius:15px;" href="/products" type="button") Back        
-            button.btn.btn-dark(style=" padding: 1rem; border-radius:15px;" id='submit-btn' type='submit' onClick="sendData()") Change fields provided
-            script(src="../js/editProduct.js")
+            button.btn.btn-dark(style=" padding: 1rem; border-radius:15px;" id='submit-btn' type='submit' onClick="editProduct()") Edit
+            script(src="../js/products/crudProduct.js")

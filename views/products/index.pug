@@ -1,12 +1,29 @@
 extends ../layout
 block content
     include ../includes/navbar
-    link(rel='stylesheet', href='/stylesheets/stores.css')
-    .container(style="position: relative;  margin-top: 2rem;")
+    script(src="../js/products/productsTable.js")
+    .container(style="position: relative;  margin-top: 3rem;")
         .row
-            a.btn.btn-dark.btn-block(href= "/products/addProduct" role="button" style="width:30%;") Add New Product
-        .row
-            a.btn.btn-dark.btn-block(href= "/products/editProduct" role="button" style="margin-top: 0rem; width:30%;") Edit Product       
-        .row
-            a.btn.btn-dark.btn-block(href= "/products/deleteProduct" role="button" style="margin-top: 0rem; width:30%;") Delete Product       
-                        
+            .col
+                a.btn.btn-dark.btn-block(href= "/products/addProduct" role="button") Add Product
+            .col
+                a.btn.btn-dark.btn-block(href= "/products/editProduct" role="button") Edit Product       
+            .col
+                a.btn.btn-dark.btn-block(href= "/products/deleteProduct" role="button") Delete Product       
+    .container(id="wrapper" style="margin-top: 3rem;")
+        table#productTable.table.table-bordered.table-light
+            thead.thead-dark
+                tr  
+                    th(scope="col" data-field='barcode') Barcode
+                    th(scope="col" data-field='price') Price
+                    th(scope="col" data-field='name') Name
+                    th(scope="col" data-field='brand') Brand
+                    th(scope="col" data-field='category') Category 
+            tbody
+                each product in products   
+                    tr      
+                        td #{product.Barcode}
+                        td #{product.Price}
+                        td #{product.prod_name}
+                        td #{product.Brand_name} 
+                        td #{product.categ_name}

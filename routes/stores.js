@@ -5,11 +5,11 @@ var db = require('../db');
 
 // ola mazi 
 router.get('/', (req, res) => {       // Select store 
-    let sql = 'SELECT * FROM StoreAddress '
+    let sql = 'SELECT * FROM StoreAddress JOIN Stores ON Stores.Store_id=StoreAddress.Store_id'    
     db.query(sql, (err, result) => {
         if (err) throw err
         console.log(result)
-        res.render('stores/allStores', {stores: result})
+        res.render('stores/index', {stores: result})
     })
 })
 

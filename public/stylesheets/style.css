@@ -1,0 +1,11 @@
+
+a.btn.btn-dark.btn-block{
+    
+    margin-bottom: 1.5rem;
+    font-size: x-large;
+    border-radius: 15px;
+    border: 2.5px inset whitesmoke;
+    padding: 1rem;
+    width: 80%;
+    text-align: center;
+}
