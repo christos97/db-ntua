@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
-var flash        = require('req-flash');
-router.use(flash())
-const { check, validationResult } = require('express-validator');
+
 
 // Product Index ---> Crud button links & product datatable 
 router.get('/', (req, res) => {

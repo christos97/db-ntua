@@ -16,7 +16,7 @@ var db = require('../db');
 
 
 //Frequently Bought together 
-router.get('/freq_bought_together',( req, res, next) => {
+router.get('/freq_bought_together',(req, res) => {
    let sql = "SELECT * FROM Products" // ??
    db.query(sql, (err,result) => {
        if (err) throw err

@@ -14,7 +14,14 @@ block content
                 .form-group
                     input#brand.form-control(placeholder='Brand' name='brand')    
                 .form-group
-                    input#category_id.form-control(placeholder='Category' name='category_id')
+                    input(type='text' name='category' list='categoryList')
+                    datalist#categoryList
+                        option.form-control(value="1")  Fresh
+                        option.form-control(value="2")  Frozen
+                        option.form-control(value="3")  Liquors and Spirits
+                        option.form-control(value="4")  Self Care
+                        option.form-control(value="5")  Home
+                        option.form-control(value="6")  Pets 
         .row(style='margin: 2rem 30% 1rem 30%;')
             .col
                 a.button.btn.btn-dark(style="padding: 1rem; margin-right: 1.5rem; border-radius:15px;" href="/products" type="button") Back        

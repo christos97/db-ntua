@@ -1,11 +1,12 @@
 validateInput = function (body) {
     
     for (let f in body){
-        //console.log(f + "  " + body[f])
+    
         if (body[f] == ""){
             alert("Please provide all fields")
             return 0
         }
+
         switch(f) {
             
             case 'barcode':
@@ -35,15 +36,10 @@ addProduct = function () {
         price: document.getElementById('price').value,
         name: document.getElementById('name').value,
         brand: document.getElementById('brand').value,
-        category: document.getElementById('category_id').value
+        category_id: document.querySelector('input[name="category"]').value
     }
     
-    for (let f in body){
-        if (body[f] == ""){
-            alert("Please provide all fields")
-            return
-        }
-    } 
+    if(!validateInput(body)) return
     
     axios.post(url, body)
          .then( (result) => alert(result.data) )
@@ -52,7 +48,7 @@ addProduct = function () {
 
 
 editProduct = function () {
-    console.log(document.querySelector('input[name="category"]').value)
+
     let body = {
         product: document.querySelector('input[name="product"]').value,
         barcode: document.getElementById('barcode').value,
@@ -62,10 +58,8 @@ editProduct = function () {
         category_id: document.querySelector('input[name="category"]').value
     }
     
-    if(!validateInput(body)) {
-        console.log("?")        
-        return}
-    console.log("request")
+    if(!validateInput(body)) return
+   
     url = 'http://localhost:3000/products/editProduct'
     axios.post(url, body)
         .then( (result) => {
