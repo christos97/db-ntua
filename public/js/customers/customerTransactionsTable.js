@@ -22,13 +22,22 @@ $(document).ready(function() {
         fixedHeader: true
     } );
 
-    var totalAmountRange = document.getElementById("totalAmountRange")
-    totalAmountRange.addEventListener('mouseup', () => {
-        //alert(totalAmountRange.value)
-        console.log(totalAmountRange.value)
-        axios.post('http://localhost:3000/api/random',{max_price: totalAmountRange.value})
-            .then(( result) =>console.log(result.data))
-    })
+    
+    $("#amount_slider").ionRangeSlider({
+        type: "double",
+        min: 0,
+        max: 1000,
+        from: 200,
+        to: 500,
+        grid: false,
+        skin: 'round',
+        onFinish: function(data){
+            axios.post('http://localhost:3000/api/random',{minx_price: data.from_value , max_price: data.to_value})
+                 .then(( result) =>console.log(result))
+        }
+    })   
+
+    
 
 
 } );

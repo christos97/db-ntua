@@ -71,7 +71,7 @@ create table StoreProvidesCategory(
 
 create table Products (
 	Barcode varchar(10) not null unique,
-	Price decimal not null,
+	Price decimal(6,3) not null,
 	Name varchar(255) not null,
 	Brand_name varchar(255) default '',
 	First_transaction int not null default 0,
@@ -85,7 +85,7 @@ create table Products (
 
 create table HadOlderPrice(
 	Start_date date not null,
-	Price decimal not null,
+	Price decimal(6,3) not null,
 	End_date date not null,
 	Barcode varchar(10) not null,
 	check (Start_date < End_date),

@@ -28,10 +28,11 @@ router.get('/freq_bought_together',(req, res) => {
 // genika des ta onomata twn charts kai ftiakse antistoixa GET endpoints me underscore
 
 router.post('/random',(req, res) => {
-    let price = req.body.max_price
-    console.log(price)
-    let sql = 'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id WHERE Products.Price<=? '
-    db.query(sql, [parseFloat(price)], (err,result) => {
+    let min_price = req.body.min_price
+    let max_price = req.body.max_price
+    console.log(min_price,max_price)
+    let sql = 'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id WHERE Products.Price>=? AND Products.Price<=?'
+    db.query(sql, [parseFloat(min_price),parseFloat(max_price)], (err,result) => {
         if (err) throw err
         console.log(result)
         res.status(200).send(result)
