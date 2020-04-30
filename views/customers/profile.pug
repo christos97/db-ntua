@@ -18,20 +18,30 @@ block content
                         h4 Transactions per week: ? | Amount spent per week: ?
                         h4 Transactions per month: ? | Amount spent per month: ?
         .row
-            .col
-                h2(style="text-align:center; margin: 2rem 1rem 2rem 1rem; padding: 0.5rem;") Customer Transactions 
+        h2(style="text-align:center; margin: 2rem 1rem 2rem 1rem; padding: 0.5rem;") Customer Transactions
+        .row
+            .col 
+                input#dateRange.slider(type="range" min="1" max="100" value="50" style="width: 20%; margin: 2rem 1rem 0rem 1rem;")
+                input#piecesRange.slider(type="range" min="1" max="100" value="50" style="width: 20%; margin: 2rem 1rem 0rem 1rem;")
+                label(for="totalAmountRange") Max price
+                input#totalAmountRange.slider(type="range" min="1" max="100" value="50" style="width: 20%; margin: 2rem 1rem 0rem 1rem;")
+                .btn-group.btn-group-toggle(data-toggle="buttons")
+                    label.btn.btn-dark(style="margin-bottom:0.3rem;margin-right: 0.1rem; margin-left:1rem;")
+                        input(type="radio" name="cash")
+                    label.btn.btn-dark(style="margin-left: 0.1rem;margin-bottom:0.3rem;")  
+                        input(type="radio" name="card")
                 table#customerTransactionsTable.table.table-bordered.table-light
                     thead.thead-dark 
                         tr  
                             th(scope="col" data-field='transaction_date') Date
-                            th(scope="col" data-field='pieces') Pieces
+                            th(scope="col" data-field='pieces') Pieces per Product
                             th(scope="col" data-field='amount') Amount
                             th(scope="col" data-field='payment_method') Payment Method 
                     tbody
                         tr 
                             td YYYY-MM-DD UTC
-                            td # pieces of ?
-                            td $
+                            td (#ofpieces,prod)
+                            td Total $
                             td Cash || Card
     .container-fluid 
         .row
