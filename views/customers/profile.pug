@@ -20,30 +20,34 @@ block content
         .row
         h2(style="text-align:center; margin: 2rem 1rem 2rem 1rem; padding: 0.5rem;") Customer Transactions
         .row
-            .col 
-                input#dateRange.slider(type="range" min="0" max="1000" value="200" style="width: 100%; margin: 2rem 1rem 0rem 1rem;")
-            .col
-                input#piecesRange.slider(type="range" min="0" max="1000" value="800" style="width: 100%; margin: 2rem 1rem 0rem 1rem;")   
-            .col
+            .col(style="margin: 2rem 1rem 2rem 1rem;") 
+                label(for="date_slider") Date range:
+                input#date_slider.js-range-slider(name="amount_slider" type="text" value="")
+            .col(style="margin: 2rem 1rem 2rem 1rem;") 
+                label(for="pieces_slider") # of products:
+                input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="" style="width: 100%; margin: 2rem 1rem 2rem 1rem;")
+            .col(style="margin: 2rem 1rem 2rem 1rem;")         
                 label(for="amount_slider") Amount range:
-                input#amount_slider.js-range-slider(name="amount_slider" type="text" value="" style="width: 100%; margin: 2rem 1rem 0rem 1rem;")
-            .col
+                input#amount_slider.js-range-slider(name="amount_slider" type="text" value="" style="width: 100%; margin: 2rem 1rem 2rem 1rem;")
+            .col(style="margin: 2rem 1rem 2rem 1rem;") 
                 .btn-group.btn-group-toggle(data-toggle="buttons")
-                    label.btn.btn-dark(style="margin-bottom:0.3rem;margin-right: 0.1rem; margin-left:1rem;") Cash
+                    label.btn.btn-primary(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem;") Cash
                         input#cash(type="radio" name="cash")
-                    label.btn.btn-dark(style="margin-left: 0.1rem;margin-bottom:0.3rem;") Card
+                    label.btn.btn-primary(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem") Card
                         input#card(type="radio" name="card")
         .row
             .col
-                table#customerTransactionsTable.table.table-bordered.table-light
+                table#customerTransactionsTable.table.table-bordered.table-light(style="margin: 2rem 2rem 2rem 0rem;")
                     thead.thead-dark 
                         tr  
+                            th Card
                             th(scope="col" data-field='transaction_date') Date
                             th(scope="col" data-field='pieces') Pieces per Product
                             th(scope="col" data-field='amount') Amount
                             th(scope="col" data-field='payment_method') Payment Method 
                     tbody
                         tr 
+                            td #{customer[0].Card}
                             td YYYY-MM-DD UTC
                             td (#ofpieces,prod)
                             td Total $
