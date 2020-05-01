@@ -1,3 +1,7 @@
+drop database if exists db_ntua;
+create database db_ntua;
+use db_ntua;
+
 create table Stores(
 	Store_id int not null AUTO_INCREMENT unique,
 	Operating_hours varchar(11) not null default '09:00-21:00',
@@ -111,10 +115,12 @@ create table Transaction(
 	Total_amount float not null,
 	Payment_method varchar(255) not null,
 	Card int not null,
+	Store_id int not null,
 	check (Total_piecies > 0),
 	check (Total_amount > 0),
 	check (Payment_method in ('Cash','Credit card')),
 	foreign key(Card) references Customer(Card),
+	foreign key(Store_id) references Stores(Store_id),
 	primary key(Date_time,Card)
 );
 
