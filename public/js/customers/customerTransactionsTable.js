@@ -40,8 +40,7 @@ $(document).ready(function() {
                 'Date_time' : json.data[i].Date_time,
                 'Total_piecies': json.data[i].Total_piecies,
                 'Total_amount': json.data[i].Total_amount,
-                'Payment_method': json.data[i].Payment_method,
-               
+                'Payment_method': json.data[i].Payment_method
            })
         }
         table.draw() 
@@ -99,6 +98,8 @@ $(document).ready(function() {
         }
     })
     
+    let min_pieces,
+        max_pieces 
     $("#pieces_slider").ionRangeSlider({
         type: "double",
         min: 0,

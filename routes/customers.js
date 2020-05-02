@@ -14,7 +14,7 @@ router.get('/', (req,res) => {
 // User Profile - Karta Stoixeiwn
 router.get('/:card_id', (req, res) => {
     let card = req.params.card_id
-    let sql = 'SELECT * FROM CustomerAddress JOIN Customer ON Customer.Card=CustomerAddress.Card WHERE Customer.Card=?'
+    let sql = 'SELECT * FROM CustomerAddress,Transaction JOIN Customer ON Customer.Card=CustomerAddress.Card JOIN Transaction ON   WHERE Customer.Card=?'
     db.query(sql,[card], (err,result) => {
         if (err) throw err;
         console.log(result)
