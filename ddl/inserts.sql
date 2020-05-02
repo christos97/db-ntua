@@ -962,35 +962,35 @@ insert into StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6666
 /****************************************************************************************************************/
 
 /* PELATES */ /* ta points logika tha einai to 10% epi ths timhs twn proiontwn */
-insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (1,'2104547954','Dog',2,31,'1978-02-08','Giorgos Giorgopoulos');
+insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (1,'2104547954','Dog',2,0,'1978-02-08','Giorgos Giorgopoulos');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (1,1,'Eksikiou','4','11845','Athens');
 
-insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (2,'2104452103','',4,48,'1980-04-02','Giannia Giannakaki');
+insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (2,'2104452103','',4,0,'1980-04-02','Giannia Giannakaki');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (2,2,'Antiopis','84','11364','Athens');
 
-insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (3,'2231054788','Snake',1,95,'1994-01-01','Dimitris Dimitropoulos');
+insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (3,'2231054788','Snake',1,0,'1994-01-01','Dimitris Dimitropoulos');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (3,3,'Athanasiou Diakou','156','35100','Lamia');
 
-insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (4,'2231047478','Turtle',5,48,'1966-08-08','Akis Akakios');
+insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (4,'2231047478','Turtle',5,0,'1966-08-08','Akis Akakios');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (4,4,'Akakias','12','35100','Lamia');
 
-insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (5,'2721000234','Cat',3,24,'1979-02-08','Aleksandra Aleksandridi');
+insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (5,'2721000234','Cat',3,0,'1979-02-08','Aleksandra Aleksandridi');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (5,5,'28hs Oktombriou','421','24100','Kalamata');
 
-insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (6,'2721099456','',7,26,'1958-09-04','Panos Panopoulos');
+insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (6,'2721099456','',7,0,'1958-09-04','Panos Panopoulos');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (6,6,'Skoufa','19','24100','Kalamata');
 
 /* agores  '2008-11-09 15:45:2' DATETIME - format: YYYY-MM-DD HH:MI:SS*/
 
 
 /****************************************************************************************************************************/
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-02 13:34:21',8 , 114, 'Credit Card', 1,2);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-02 13:34:21',0, 0, 'Credit Card', 1,2);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-02 13:34:21', 1, '6941035879',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-02 13:34:21', 1, '7784859699',2); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-02 13:34:21', 1, '9986157468',4); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-02 13:34:21', 1, '6495687410',1); 
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-14 15:00:01', 11,117.54 , 'Credit Card', 1,2);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-14 15:00:01', 0,0 , 'Credit Card', 1,2);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-14 15:00:01', 1,'0012121036',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-14 15:00:01', 1,'0182740844',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-14 15:00:01', 1,'0645158001',2); 
@@ -998,13 +998,13 @@ insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-14 15:00:01', 1,'1000000230',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-14 15:00:01', 1,'1000488743',2); 
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-02-14 15:00:01',6 ,78.6 , 'Cash', 1,3);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-02-14 15:00:01',0,0, 'Cash', 1,3);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-02-14 15:00:01', 1,'1010101010',2); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-02-14 15:00:01', 1,'1010144512',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-02-14 15:00:01', 1,'1119786455',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-02-14 15:00:01', 1,'1212120003',2); 
 /****************************************************************************************************************/
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-03-04 10:00:24',13, 432.79 , 'Credit Card', 2,3);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-03-04 10:00:24',0,0, 'Credit Card', 2,3);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-04 10:00:24',2,'6495687410',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-04 10:00:24',2,'6584756985',1);  
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-04 10:00:24',2,'7774464647',2); 
@@ -1014,7 +1014,7 @@ insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-04 10:00:24',2,'4689751247',1);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-04 10:00:24',2,'6458954112',1);
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-25 17:00:00',7, 24.76, 'Cash', 2,4);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-25 17:00:00',0, 0, 'Cash', 2,4);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-25 17:00:00',2,'9986157468',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-25 17:00:00',2,'9647851112',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-25 17:00:00',2,'3659568874',1); 
@@ -1023,24 +1023,24 @@ insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-25 17:00:00',2,'3333333212',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-25 17:00:00',2,'7946842152',1); 
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-26 17:00:00', 14, 30.86, 'Cash', 2,3);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-26 17:00:00', 0, 0, 'Cash', 2,3);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-26 17:00:00',2,'7774464231',1);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-26 17:00:00',2,'7774464647',1);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-26 17:00:00',2,'7784547843',12);
 /*******************************************************************************************************************/
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-01 19:04:23', 1, 500, 'Credit Card', 3,8);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-01 19:04:23', 0, 0, 'Credit Card', 3,8);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-01 19:04:23',3,'3330323201',1);
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-02-01 21:00:00', 1, 100, 'Cash', 3,9);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-02-01 21:00:00', 0, 0, 'Cash', 3,9);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-02-01 21:00:00',3,'6941035879',1);
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-02 20:00:00', 3, 359, 'Cash', 3,10);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-02 20:00:00', 0, 0, 'Cash', 3,10);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-02 20:00:00',3,'1010144512',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-02 20:00:00',3,'1033659896',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-02 20:00:00',3,'6458954112',1); 
 /***********************************************************************************/
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-04 11:00:21',13, 432.79 , 'Credit Card', 4,8);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-04 11:00:21',0, 0 , 'Credit Card', 4,8);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-04 11:00:21',4,'6495687410',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-04 11:00:21',4,'6584756985',1);  
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-04 11:00:21',4,'7774464647',2); 
@@ -1050,7 +1050,7 @@ insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-04 11:00:21',4,'4689751247',1);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-04 11:00:21',4,'6458954112',1);
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-25 8:00:00',7, 24.76, 'Credit Card', 4,9);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-25 8:00:00',0, 0, 'Credit Card', 4,9);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-25 8:00:00',4,'9986157468',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-25 8:00:00',4,'9647851112',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-25 8:00:00',4,'3659568874',1); 
@@ -1059,13 +1059,13 @@ insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-25 8:00:00',4,'3333333212',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-25 8:00:00',4,'7946842152',1); 
 
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-26 17:00:00', 14, 30.86, 'Cash', 4,10);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-01-26 17:00:00', 0, 0, 'Cash', 4,10);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-26 17:00:00',4,'7774464231',1);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-26 17:00:00',4,'7774464647',1);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-01-26 17:00:00',4,'7784547843',12);
 
 /***************************************************************************************************************/
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-03-11 14:22:10', 10, 24.32, 'Cash', 5,5);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-03-11 14:22:10', 0, 0, 'Cash', 5,5);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-11 14:22:10',5,'4385784111',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-11 14:22:10',5,'4475837200',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-11 14:22:10',5,'5555555555',1); 
@@ -1078,7 +1078,7 @@ insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-03-11 14:22:10',5,'3666321005',1); 
 
 /***************************************************************************************************************/
-insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-21 16:22:40', 14, 263.28 , 'Credit Card', 6,6);
+insert into Transaction(Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values ('2020-04-21 16:22:40', 0, 0 , 'Credit Card', 6,6);
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-21 16:22:40',6,'5555555555',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-21 16:22:40',6,'1000000230',1); 
 insert into TransactionContainsProduct(Date_time, Card, Barcode, Piecies) values('2020-04-21 16:22:40',6,'2103254875',1); 

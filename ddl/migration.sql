@@ -7,6 +7,7 @@ create table Stores(
 	Operating_hours varchar(11) not null default '09:00-21:00',
 	Size_ float,
 	check (Size_ > 0),
+	check (Store_id >= 1),
 	unique(Store_id),
 	primary key(Store_id)
 );
@@ -16,8 +17,10 @@ create table StorePhoneNo(
 	Phone_Id int not null AUTO_INCREMENT,
 	Store_id int not null ,
 	unique(Phone_id),
-	primary key(Phone_Id),
+	primary key(Phone_Id,Store_id),
 	foreign key (Store_id) references Stores(Store_id)
+	on delete cascade
+	on update cascade
 );
 
 create table StoreAddress(
@@ -27,9 +30,11 @@ create table StoreAddress(
 	Number_ varchar(4),
 	Postal_code varchar(5),
 	City varchar(255),
-	primary key(Adr_id),
 	unique(Adr_id,Store_id),
+	primary key(Store_id, Adr_id),
 	foreign key (Store_id) references Stores(Store_id)
+	on delete cascade
+	on update cascade
 );
 
 create table Customer(
@@ -37,11 +42,11 @@ create table Customer(
 	Phone varchar(10) not null,
 	Pet varchar(255),
 	Family_members int,
-	Points int,
+	Points float,
 	Date_of_birth date,
 	Name varchar(255),
 	check (Family_members > 0),
-	check (Points > 0),
+	check (Points >= 0),
 	unique(Card),
 	primary key(Card)
 );
@@ -56,6 +61,8 @@ create table CustomerAddress(
 	primary key(Adr_id),
 	unique(Adr_id,Card),
 	foreign key (Card) references Customer(Card)
+	on delete cascade
+	on update cascade
 );
 
 create table Category(
@@ -69,8 +76,12 @@ create table StoreProvidesCategory(
 	Store_id int not null,
 	Category_id int not null,
 	unique (Store_id,Category_id),
-	foreign key(Store_id) references Stores(Store_id),
+	foreign key(Store_id) references Stores(Store_id)
+	on delete cascade
+	on update cascade,
 	foreign key(Category_id) references Category(Category_id)
+	on delete cascade
+	on update cascade
 );
 
 create table Products (
@@ -83,7 +94,9 @@ create table Products (
 	check (Price > 0),
 	check (First_transaction in (0,1)),
 	unique(Barcode,Category_id),
-	foreign key (Category_id) references Category(Category_id),
+	foreign key (Category_id) references Category(Category_id)
+	on delete cascade
+	on update cascade,
 	primary key(Barcode)
 );
 
@@ -94,7 +107,9 @@ create table HadOlderPrice(
 	Barcode varchar(10) not null,
 	check (Start_date < End_date),
 	check (Price > 0),
-	foreign key(Barcode) references Products(Barcode),
+	foreign key(Barcode) references Products(Barcode)
+	on delete cascade
+	on update cascade,
 	primary key(Start_date,Barcode)
 );
 
@@ -103,24 +118,32 @@ create table StoreOffersProduct(
 	Barcode varchar(10) not null,
 	Alley int not null,
 	Shelf int not null,
-	foreign key(Store_id) references Stores(Store_id),
-	foreign key(Barcode) references Products(Barcode),
+	foreign key(Store_id) references Stores(Store_id)
+	on delete cascade
+	on update cascade,
+	foreign key(Barcode) references Products(Barcode)
+	on delete cascade
+	on update cascade,
 	unique (Store_id,Barcode),
 	primary key (Store_id,Barcode)
 );
 
 create table Transaction(
 	Date_time datetime not null,
-	Total_piecies int not null,
-	Total_amount float not null,
+	Total_piecies int default 0,
+	Total_amount float default 0,
 	Payment_method varchar(255) not null,
 	Card int not null,
 	Store_id int not null,
-	check (Total_piecies > 0),
-	check (Total_amount > 0),
+	check (Total_piecies >= 0),
+	check (Total_amount >= 0),
 	check (Payment_method in ('Cash','Credit card')),
-	foreign key(Card) references Customer(Card),
-	foreign key(Store_id) references Stores(Store_id),
+	foreign key(Card) references Customer(Card)
+	on delete cascade
+	on update cascade,
+	foreign key(Store_id) references Stores(Store_id)
+	on delete cascade
+	on update cascade,
 	primary key(Date_time,Card)
 );
 
@@ -129,7 +152,11 @@ create table TransactionContainsProduct(
 	Card int not null,
 	Barcode varchar(10) not null,
 	Piecies int not null default 1,
-	foreign key(Date_time, Card) references Transaction(Date_time,Card),
-	foreign key(Barcode) references Products(Barcode)
+	foreign key(Date_time, Card) references Transaction(Date_time,Card) 
+	on delete cascade
+	on update cascade,
+	foreign key(Barcode) references Products(Barcode) 
+	on delete cascade
+	on update cascade
 );
 
