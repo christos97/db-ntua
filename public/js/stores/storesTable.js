@@ -16,14 +16,6 @@ $(document).ready(function() {
      
      */
      var table = $('#storesTable').DataTable( {
-        buttons: [
-            {
-                text: "Button",
-                action: function(e, dt, node, config ){
-                    console.log("?????")
-                }
-            }
-        ],
          paging: true,
          orderCellsTop: true,
          fixedHeader: true

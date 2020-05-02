@@ -2,7 +2,7 @@ extends ../layout
 block content
     include ../includes/navbar
     script(src="../js/stores/storesTable.js")      
-    .container(id="wrapper" style="margin-top: 3rem;")
+    .container(style="margin-top: 3rem;")
         table#storesTable.table.table-bordered.table-light
             thead.thead-dark
                 tr  
@@ -12,7 +12,7 @@ block content
                     th Number
                     th Postal Code
                     th Operating Hours
-                    th m2 
+                    th m2
             tbody
                 each store in stores   
                     tr      

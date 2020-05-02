@@ -21,9 +21,6 @@ block content
         h3(style="text-align:center; margin: 2rem 1rem 2rem 1rem; padding: 0.5rem;") Customer Transactions
         .row
             .col(style="margin: 2rem 1rem 2rem 1rem;") 
-                label(for="date_slider") Date range:
-                input#date_slider.js-range-slider(name="amount_slider" type="text" value="")
-            .col(style="margin: 2rem 1rem 2rem 1rem;") 
                 label(for="pieces_slider") # of products:
                 input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="" style="width: 100%; margin: 2rem 1rem 2rem 1rem;")
             .col(style="margin: 2rem 1rem 2rem 1rem;")         
@@ -31,7 +28,7 @@ block content
                 input#amount_slider.js-range-slider(name="amount_slider" type="text" value="" style="width: 100%; margin: 2rem 1rem 2rem 1rem;")
             .col(style="margin: 2rem 1rem 2rem 1rem;") 
                 .btn-group.btn-group-toggle(data-toggle="buttons" id='radio_buttons')
-                    label.btn.btn-primary(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem;") Cash
+                    label.btn.btn-primary.active(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem;") Cash
                         input(type="radio" name="payment_method" value='Cash')
                     label.btn.btn-primary(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem") Credit Card
                         input(type="radio" name="payment_method" value='Credit Card')
@@ -40,18 +37,21 @@ block content
                 table#customerTransactionsTable.table.table-bordered.table-light(style="margin: 2rem 2rem 2rem 0rem;")
                     thead.thead-dark 
                         tr  
-                            th(scope="col" data-field='Card') Card
-                            th(scope="col" data-field='Date_time') Date Time
-                            th(scope="col" data-field='Total_piecies') Total pieces
-                            th(scope="col" data-field='Total_amount') Total Amount
-                            th(scope="col" data-field='Payment_method') Payment Method
+                            th Card
+                            th Date Time
+                            th Total pieces
+                            th Total Amount
+                            th Payment Method
+                            th Store
                     tbody
-                        tr 
-                            td#customer_card #{customer[0].Card}
-                            td#date_time YYYY-MM-DD UTC
-                            td#number_of_pieces (#ofpieces,prod)
-                            td#total_amount Total $
-                            td#payment_method Cash || Card
+                        each trans in transactions
+                            tr 
+                                td#customer_card #{customer[0].Card}
+                                td#date_time #{trans.Date_time}
+                                td#number_of_pieces #{trans.Total_piecies}
+                                td#total_amount #{trans.Total_amount}
+                                td#payment_method #{trans.Payment_method}
+                                td#store #{trans.Street} #{trans.Number_}
     .container-fluid 
         .row
             .col
