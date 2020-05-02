@@ -24,10 +24,15 @@ router.get('/:card_id', (req, res) => {
 
 // Transactions
 router.post('/transactions',(req, res) => {
-    let min_price = req.body.min_price
-    let max_price = req.body.max_price
-    let sql = 'SELECT Products.Barcode, Products.Price, Products.Brand_name ,Products.Name AS prod_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id WHERE Products.Price>=? AND Products.Price<=?'
-    db.query(sql, [parseFloat(min_price),parseFloat(max_price)], (err,result) => {
+    let card= req.body.card,
+        min_price = req.body.min_price,
+        max_price = req.body.max_price,
+        min_pieces = req.body.min_pieces,
+        max_pieces = req.body.max_pieces,
+        payment_method = req.body.payment_method
+    console.log(min_price, max_price, min_pieces,max_pieces)
+    let sql = 'SELECT  Card, Date_time, Total_piecies, Total_amount, Payment_method FROM Transaction WHERE Card=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? AND Total_piecies<=? AND Payment_method=?'
+    db.query(sql, [parseInt(card), parseFloat(min_price),parseFloat(max_price),parseInt(min_pieces),parseInt(max_pieces),payment_method], (err,result) => {
         if (err) throw err
         console.log(result)
         res.status(200).send(result)

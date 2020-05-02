@@ -71,7 +71,7 @@ create table StoreProvidesCategory(
 
 create table Products (
 	Barcode varchar(10) not null unique,
-	Price decimal(6,3) not null,
+	Price decimal(6,2) not null,
 	Name varchar(255) not null,
 	Brand_name varchar(255) default '',
 	First_transaction int not null default 0,
@@ -85,7 +85,7 @@ create table Products (
 
 create table HadOlderPrice(
 	Start_date date not null,
-	Price decimal(6,3) not null,
+	Price decimal(6,2) not null,
 	End_date date not null,
 	Barcode varchar(10) not null,
 	check (Start_date < End_date),
@@ -111,10 +111,12 @@ create table Transaction(
 	Total_amount float not null,
 	Payment_method varchar(255) not null,
 	Card int not null,
+	Store_id int not null,
 	check (Total_piecies > 0),
 	check (Total_amount > 0),
 	check (Payment_method in ('Cash','Credit card')),
 	foreign key(Card) references Customer(Card),
+	foreign key(Store_id) references Stores(Store_id),
 	primary key(Date_time,Card)
 );
 
@@ -126,4 +128,3 @@ create table TransactionContainsProduct(
 	foreign key(Date_time, Card) references Transaction(Date_time,Card),
 	foreign key(Barcode) references Products(Barcode)
 );
-

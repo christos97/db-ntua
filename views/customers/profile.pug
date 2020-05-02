@@ -9,7 +9,7 @@ block content
             .col    
                 .card.bg-dark(style="padding:0.5rem;  border: 3px inset grey; width: 100%; margin: 3rem 0rem 2rem 1rem;")
                     .card-body(style="color: lightgrey; text-align: center;")
-                        h3.card-title #{customer[0].Name} | Card ID: #{customer[0].Card} | Card Points: #{customer[0].Points}
+                        h3.card-title #{customer[0].Name} , Card ID: #{customer[0].Card} , Card Points: #{customer[0].Points}
                         br
                         h4 City: #{customer[0].City} | Address: #{customer[0].Street} #{customer[0].Number_}, #{customer[0].Postal_code}
                         h4 Visits : Store A , Store B
@@ -18,7 +18,7 @@ block content
                         h4 Transactions per week: ? | Amount spent per week: ?
                         h4 Transactions per month: ? | Amount spent per month: ?
         .row
-        h2(style="text-align:center; margin: 2rem 1rem 2rem 1rem; padding: 0.5rem;") Customer Transactions
+        h3(style="text-align:center; margin: 2rem 1rem 2rem 1rem; padding: 0.5rem;") Customer Transactions
         .row
             .col(style="margin: 2rem 1rem 2rem 1rem;") 
                 label(for="date_slider") Date range:
@@ -30,28 +30,28 @@ block content
                 label(for="amount_slider") Amount range:
                 input#amount_slider.js-range-slider(name="amount_slider" type="text" value="" style="width: 100%; margin: 2rem 1rem 2rem 1rem;")
             .col(style="margin: 2rem 1rem 2rem 1rem;") 
-                .btn-group.btn-group-toggle(data-toggle="buttons")
+                .btn-group.btn-group-toggle(data-toggle="buttons" id='radio_buttons')
                     label.btn.btn-primary(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem;") Cash
-                        input#cash(type="radio" name="cash")
-                    label.btn.btn-primary(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem") Card
-                        input#card(type="radio" name="card")
+                        input(type="radio" name="payment_method" value='Cash')
+                    label.btn.btn-primary(style="padding: 0.5rem; border-radius:15px; margin: 1rem 0.5rem 0rem 0.5rem") Credit Card
+                        input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
                 table#customerTransactionsTable.table.table-bordered.table-light(style="margin: 2rem 2rem 2rem 0rem;")
                     thead.thead-dark 
                         tr  
-                            th(scope="col" data-field='Barcode') Barcode
-                            th(scope="col" data-field='Brand_name') Brand_name
-                            th(scope="col" data-field='Price') Price
-                            th(scope="col" data-field='categ_name') categ_name
-                            th(scope="col" data-field='prod_name') prod_name  
+                            th(scope="col" data-field='Card') Card
+                            th(scope="col" data-field='Date_time') Date Time
+                            th(scope="col" data-field='Total_piecies') Total pieces
+                            th(scope="col" data-field='Total_amount') Total Amount
+                            th(scope="col" data-field='Payment_method') Payment Method
                     tbody
                         tr 
-                            td #{customer[0].Card}
-                            td YYYY-MM-DD UTC
-                            td (#ofpieces,prod)
-                            td Total $
-                            td Cash || Card
+                            td#customer_card #{customer[0].Card}
+                            td#date_time YYYY-MM-DD UTC
+                            td#number_of_pieces (#ofpieces,prod)
+                            td#total_amount Total $
+                            td#payment_method Cash || Card
     .container-fluid 
         .row
             .col
