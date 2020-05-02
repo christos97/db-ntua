@@ -22,4 +22,17 @@ router.get('/:card_id', (req, res) => {
     })
 })
 
+// Transactions
+router.post('/transactions',(req, res) => {
+    let min_price = req.body.min_price
+    let max_price = req.body.max_price
+    let sql = 'SELECT Products.Barcode, Products.Price, Products.Brand_name ,Products.Name AS prod_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id WHERE Products.Price>=? AND Products.Price<=?'
+    db.query(sql, [parseFloat(min_price),parseFloat(max_price)], (err,result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).send(result)
+    })
+ })
+
+
 module.exports = router;

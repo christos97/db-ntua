@@ -40,11 +40,11 @@ block content
                 table#customerTransactionsTable.table.table-bordered.table-light(style="margin: 2rem 2rem 2rem 0rem;")
                     thead.thead-dark 
                         tr  
-                            th Card
-                            th(scope="col" data-field='transaction_date') Date
-                            th(scope="col" data-field='pieces') Pieces per Product
-                            th(scope="col" data-field='amount') Amount
-                            th(scope="col" data-field='payment_method') Payment Method 
+                            th(scope="col" data-field='Barcode') Barcode
+                            th(scope="col" data-field='Brand_name') Brand_name
+                            th(scope="col" data-field='Price') Price
+                            th(scope="col" data-field='categ_name') categ_name
+                            th(scope="col" data-field='prod_name') prod_name  
                     tbody
                         tr 
                             td #{customer[0].Card}
