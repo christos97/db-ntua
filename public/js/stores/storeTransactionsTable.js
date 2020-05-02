@@ -53,7 +53,7 @@ $(document).ready(function() {
         onFinish: function(data){
             min_amount = data.from
             max_amount = data.to
-            axios.post('http://localhost:3000/customers/transactions',{
+            axios.post('http://localhost:3000/stores/transactions',{
                 store: store_id,
                 min_price: data.from,
                 max_price: data.to,
@@ -84,7 +84,7 @@ $(document).ready(function() {
         onFinish: function(data){
             min_pieces = data.from
             max_pieces = data.to
-            axios.post('http://localhost:3000/customers/transactions',{
+            axios.post('http://localhost:3000/stores/transactions',{
                 store: store_id,
                 min_price: min_amount,
                 max_price: max_amount,
@@ -106,8 +106,7 @@ $(document).ready(function() {
                 break;
             }
         }
-        axios.post('http://localhost:3000/customers/transactions',{
-                store : store_id,
+        axios.post('http://localhost:3000/stores/transactions',{
                 min_price: min_amount,
                 max_price: max_amount,
                 min_pieces : min_pieces,

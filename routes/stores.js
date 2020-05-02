@@ -32,5 +32,23 @@ router.get('/:store_id', (req, res) => {
         })
     })
 })
+router.post('/transactions',(req, res) => {
+    let hd = req.headers.referer,
+        min_price = req.body.min_price,
+        max_price = req.body.max_price,
+        min_pieces = req.body.min_pieces,
+        max_pieces = req.body.max_pieces,
+        payment_method = req.body.payment_method
 
+    let id = hd.split('/')
+    let store_id= id[4]
+
+    let sql = 'SELECT Transaction.Card, Transaction.Date_time, Transaction.Total_piecies, Transaction.Total_amount, Transaction.Payment_method, StoreAddress.Street, StoreAddress.Number_, Customer.Name, Customer.Card FROM Transaction JOIN StoreAddress ON StoreAddress.Store_id=Transaction.Store_id JOIN Customer ON Customer.Card=Transaction.Card WHERE Transaction.Store_id=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? AND Total_piecies<=? AND Payment_method=?'
+    db.query(sql, [parseInt(store_id), parseFloat(min_price),parseFloat(max_price),parseInt(min_pieces),parseInt(max_pieces),payment_method], (err,result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).send(result)
+    })
+    
+})
 module.exports = router
