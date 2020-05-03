@@ -18,14 +18,15 @@ $(document).ready(function() {
     const updateTable = function (json) {
         table.clear()
         for (let i=0; i<json.data.length; i++){
-           table.row.add({
-                'Customer_card' : json.data[i].Card,
-                'Customer_name' : json.data[i].Name,
-                'Date_time' : json.data[i].Date_time,
-                'Total_piecies': json.data[i].Total_piecies,
-                'Total_amount': json.data[i].Total_amount,
-                'Payment_method': json.data[i].Payment_method
-           })
+            let trans = json.data[i]
+            table.row.add({
+                    'Customer_card' : trans.Card,
+                    'Customer_name' : trans.Name,
+                    'Date_time' : trans.Date_time,
+                    'Total_piecies': trans.Total_piecies,
+                    'Total_amount': trans.Total_amount,
+                    'Payment_method': trans.Payment_method
+            })
         }
         table.draw() 
     }

@@ -13,16 +13,17 @@ $(document).ready(function() {
         ]
     } );
        
-    const updateTable = function (json) {
+    const updateTable = (json) => {
         table.clear()
         for (let i=0; i<json.data.length; i++){
-           table.row.add({
-                'Date_time' : (json.data[i].Date_time),
-                'Total_piecies': json.data[i].Total_piecies,
-                'Total_amount': json.data[i].Total_amount,
-                'Payment_method': json.data[i].Payment_method,
-                'Store' : `${json.data[i].Street} ${json.data[i].Number_}`
-           })
+            let trans = json.data[i]
+            table.row.add({
+                    'Date_time' : (trans.Date_time),
+                    'Total_piecies': trans.Total_piecies,
+                    'Total_amount': trans.Total_amount,
+                    'Payment_method': trans.Payment_method,
+                    'Store' : `${trans.Street} ${trans.Number_}`
+            })
         }
         table.draw() 
     }
@@ -60,7 +61,11 @@ $(document).ready(function() {
                     payment_method: payment_method
                 })
                 .then((result) => updateTable(result) )
-        }
+                .catch( (err) => {
+                    if (err.response.status == 404) 
+                        table.clear().draw()
+                })
+        }   
     })
 
     
@@ -89,7 +94,11 @@ $(document).ready(function() {
                     max_pieces : data.to,
                     payment_method: payment_method
                 })
-                .then(( result) => updateTable(result))
+                .then(( result) => updateTable(result) )
+                .catch( (err) => {
+                    if (err.response.status == 404) 
+                        table.clear().draw()
+                })
         }
     })   
 
@@ -112,6 +121,10 @@ $(document).ready(function() {
                 payment_method: payment_method
             })
             .then(( result) => updateTable(result))
+            .catch( (err) => {
+                if (err.response.status == 404) 
+                    table.clear().draw()
+            })
     }
     
 
