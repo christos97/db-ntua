@@ -16,14 +16,16 @@ $(document).ready(function() {
     const updateTable = (json) => {
         table.clear()
         for (let i=0; i<json.data.length; i++){
-            let trans = json.data[i]
-            table.row.add({
+            let trans = json.data[i],
+                tranasaction = {
                     'Date_time' : (trans.Date_time),
                     'Total_piecies': trans.Total_piecies,
                     'Total_amount': trans.Total_amount,
                     'Payment_method': trans.Payment_method,
                     'Store' : `${trans.Street} ${trans.Number_}`
-            })
+                }
+
+            table.row.add(tranasaction)
         }
         table.draw() 
     }
@@ -67,8 +69,6 @@ $(document).ready(function() {
                 })
         }   
     })
-
-    
         
     $("#pieces_slider").ionRangeSlider({
         type: "double",
@@ -103,7 +103,9 @@ $(document).ready(function() {
     })   
 
     const btn = document.querySelector('#radio_buttons');
+    
     btn.onclick = () => {
+        
         const rbs = document.querySelectorAll('input[name="payment_method"]');
         for (let rb of rbs) {
             if (rb.checked) {
@@ -126,7 +128,4 @@ $(document).ready(function() {
                     table.clear().draw()
             })
     }
-    
-
-
 } );
