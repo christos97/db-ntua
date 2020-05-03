@@ -1,0 +1,41 @@
+.card.bg-dark {
+    padding:0.5rem;  
+    border: 3px inset grey; 
+    width: 100%; 
+    margin: 3rem 0rem 2rem 1rem;
+}
+
+h3 {
+    text-align:center; 
+    margin: 2rem 1rem 2rem 1rem; 
+    padding: 0.5rem;    
+}
+.card-body{
+    color: lightgrey; 
+    text-align: center;
+}
+
+.col {
+    margin: 2rem 1rem 2rem 1rem;
+}
+
+label {
+    text-align:center; 
+    padding:0.5rem; 
+    font-size:18px;
+}
+
+label.btn.btn-primary {
+    padding: 0.5rem; 
+    border-radius:15px; 
+    margin: 2rem 0.5rem 0rem 0.2rem
+}
+
+input.slider.js-range-slider{
+    width: 100%; 
+    margin: 2rem 1rem 2rem 1rem;
+}
+
+.btn-group.btn-group-toggle {
+    margin-top: 2rem;
+}

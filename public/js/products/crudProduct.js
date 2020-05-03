@@ -1,4 +1,4 @@
-validateInput = function (body) {
+validateInput =  (body) => {
     
     for (let f in body){
     
@@ -29,8 +29,10 @@ validateInput = function (body) {
 }
 
 
-addProduct = function () {
+addProduct =  () => {
+    
     url = 'http://localhost:3000/products/addProduct'
+
     let body = {
         barcode: document.getElementById('barcode').value,
         price: document.getElementById('price').value,
@@ -39,15 +41,21 @@ addProduct = function () {
         category_id: document.querySelector('input[name="category"]').value
     }
     
-    if(!validateInput(body)) return
+    if (!validateInput(body)) return
     
-    axios.post(url, body)
-         .then( (result) => alert(result.data) )
-         .catch( (error) => alert(error) )    
+    axios
+        .post(url, body)
+        .then( (result) => alert(result.data) )
+        .catch( (error) => alert(error) )
+    
+    for (let f in body) 
+        $(`input[name=${f}`).val(''); 
 }
 
 
-editProduct = function () {
+editProduct = () => {
+
+    url = 'http://localhost:3000/products/editProduct'
 
     let body = {
         product: document.querySelector('input[name="product"]').value,
@@ -58,26 +66,33 @@ editProduct = function () {
         category_id: document.querySelector('input[name="category"]').value
     }
     
-    if(!validateInput(body)) return
-   
-    url = 'http://localhost:3000/products/editProduct'
-    axios.post(url, body)
-        .then( (result) => {
-            alert(result.data) 
-        })
-        .catch( (error) => alert(error) )    
+    if (!validateInput(body)) return
+    
+    axios
+        .post(url, body)
+        .then( (result) => alert(result.data) )
+        .catch( (error) => alert(error) )
+
+    for (let f in body) 
+        $(`input[name=${f}`).val('');     
 }
 
-deleteProduct = function () {
+deleteProduct = () => {
+    
     let barcode = document.querySelector('input[name="product"]').value
+    
     if (barcode == ""){
         alert('Please Provide all fields')
         barcode.innerHTML = "";
         return
     }    
+
     url = 'http://localhost:3000/products/deleteProduct'
-    axios.post(url,{ barcode: barcode })
-         .then( (result) => alert(result.data) )
-         .catch( (error) => alert(error) )
+    
+    axios
+        .post(url,{ barcode: barcode })
+        .then( (result) => alert(result.data) )
+        .catch( (error) => alert(error) )
+    
     barcode.innerHTML = "";    
 }

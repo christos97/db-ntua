@@ -14,9 +14,7 @@ $(document).ready(function() {
         ]
     } );
 
-
-    //let store_id = document.querySelector('#store_id').innerHTML
-       
+    
     const update = function (json) {
         table.clear()
         for (let i=0; i<json.data.length; i++){
@@ -53,15 +51,18 @@ $(document).ready(function() {
         onFinish: function(data){
             min_amount = data.from
             max_amount = data.to
-            axios.post('http://localhost:3000/stores/transactions',{
-                store: store_id,
-                min_price: data.from,
-                max_price: data.to,
-                min_pieces: min_pieces,
-                max_pieces: max_pieces,
-                payment_method: selectedValue
-            })
-                 .then((result) => update(result) )
+
+            axios
+                .post('http://localhost:3000/stores/transactions',{
+                    store: store_id,
+                    min_price: data.from,
+                    max_price: data.to,
+                    min_pieces: min_pieces,
+                    max_pieces: max_pieces,
+                    payment_method: selectedValue
+                })
+                .then( (result) => update(result) )
+                .catch( (err) => alert(err) )
         }
     })
 
@@ -84,20 +85,24 @@ $(document).ready(function() {
         onFinish: function(data){
             min_pieces = data.from
             max_pieces = data.to
-            axios.post('http://localhost:3000/stores/transactions',{
-                store: store_id,
-                min_price: min_amount,
-                max_price: max_amount,
-                min_pieces : data.from,
-                max_pieces : data.to,
-                payment_method: selectedValue
-            })
-                 .then(( result) => update(result))
+            
+            axios
+                .post('http://localhost:3000/stores/transactions',{
+                    store: store_id,
+                    min_price: min_amount,
+                    max_price: max_amount,
+                    min_pieces : data.from,
+                    max_pieces : data.to,
+                    payment_method: selectedValue
+                })
+                .then( (result) => update(result) )
+                .catch( (err) => alert(err) )
         }
     })   
 
     const btn = document.querySelector('#radio_buttons');
     let selectedValue='';
+    
     btn.onclick = () => {
         const rbs = document.querySelectorAll('input[name="payment_method"]');
         for (let rb of rbs) {
@@ -106,14 +111,16 @@ $(document).ready(function() {
                 break;
             }
         }
-        axios.post('http://localhost:3000/stores/transactions',{
+        axios
+            .post('http://localhost:3000/stores/transactions',{
                 min_price: min_amount,
                 max_price: max_amount,
                 min_pieces : min_pieces,
                 max_pieces : max_pieces,
                 payment_method: selectedValue
             })
-                 .then(( result) => update(result))
+                .then( (result) => update(result) )
+                .catch( (err) => alert(err) )
     }
     
 
