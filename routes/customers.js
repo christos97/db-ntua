@@ -32,16 +32,13 @@ router.get('/:card_id', (req, res) => {
 
 // Transactions per customer (for ajax calls with parameters)
 router.post('/transactions',(req, res) => {
-    let hd = req.headers.referer,      // Catch incoming request's url (http://localhost:3000/customers/:card_id) to get :card_id (eg: '2') and parseInt 
+    let card = ((req.headers.referer).split('/'))[4],      // Catch incoming request's url (http://localhost:3000/customers/:card_id) to get :card_id (eg: '2') and parseInt 
         min_price = req.body.min_price,
         max_price = req.body.max_price,
         min_pieces = req.body.min_pieces,
         max_pieces = req.body.max_pieces,
         payment_method = req.body.payment_method
     
-    let id = hd.split('/')
-    let card= id[4]
-    console.log(card)
     let sql = 'SELECT Transaction.Date_time, Transaction.Total_piecies, Transaction.Total_amount, Transaction.Payment_method, StoreAddress.Street, StoreAddress.Number_ FROM Transaction JOIN StoreAddress ON StoreAddress.Store_id=Transaction.Store_id WHERE Transaction.Card=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? AND Total_piecies<=? AND Payment_method=?'
     db.query(sql, [parseInt(card), parseFloat(min_price),parseFloat(max_price),parseInt(min_pieces),parseInt(max_pieces),payment_method], (err,result) => {
         if (err) 

@@ -13,23 +13,22 @@ $(document).ready(function() {
         ]
     } );
        
-    const updateTable = (json) => {
+    const updateTable = (transactions) => {
         table.clear()
-        for (let i=0; i<json.data.length; i++){
-            let trans = json.data[i],
-                tranasaction = {
-                    'Date_time' : (trans.Date_time),
-                    'Total_piecies': trans.Total_piecies,
-                    'Total_amount': trans.Total_amount,
-                    'Payment_method': trans.Payment_method,
-                    'Store' : `${trans.Street} ${trans.Number_}`
-                }
-
-            table.row.add(tranasaction)
+        for (let trans of transactions){
+            new_tranasaction = {
+                'Date_time' : (trans.Date_time),
+                'Total_piecies': trans.Total_piecies,
+                'Total_amount': trans.Total_amount,
+                'Payment_method': trans.Payment_method,
+                'Store' : `${trans.Street} ${trans.Number_}`
+            }
+            table.row.add(new_tranasaction)
         }
         table.draw() 
     }
 
+    const url = 'http://localhost:3000/customers/transactions'
     let payment_method='';
     let min_amount,
         max_amount,
@@ -55,14 +54,14 @@ $(document).ready(function() {
             max_amount = data.to
 
             axios
-                .post('http://localhost:3000/customers/transactions',{
+                .post(url,{
                     min_price: data.from,
                     max_price: data.to,
                     min_pieces: min_pieces,
                     max_pieces: max_pieces,
                     payment_method: payment_method
                 })
-                .then((result) => updateTable(result) )
+                .then((result) => updateTable(result.data) )
                 .catch( (err) => {
                     if (err.response.status == 404) 
                         table.clear().draw()
@@ -87,14 +86,14 @@ $(document).ready(function() {
             max_pieces = data.to
             
             axios
-                .post('http://localhost:3000/customers/transactions',{
+                .post(url,{
                     min_price: min_amount,
                     max_price: max_amount,
                     min_pieces : data.from,
                     max_pieces : data.to,
                     payment_method: payment_method
                 })
-                .then(( result) => updateTable(result) )
+                .then(( result) => updateTable(result.data) )
                 .catch( (err) => {
                     if (err.response.status == 404) 
                         table.clear().draw()
@@ -115,14 +114,14 @@ $(document).ready(function() {
         }
         
         axios
-            .post('http://localhost:3000/customers/transactions',{
+            .post(url,{
                 min_price: min_amount,
                 max_price: max_amount,
                 min_pieces : min_pieces,
                 max_pieces : max_pieces,
                 payment_method: payment_method
             })
-            .then(( result) => updateTable(result))
+            .then(( result) => updateTable(result.data))
             .catch( (err) => {
                 if (err.response.status == 404) 
                     table.clear().draw()
