@@ -15,7 +15,7 @@ $(document).ready(function() {
     } );
 
     
-    const update = function (json) {
+    const updateTable = function (json) {
         table.clear()
         for (let i=0; i<json.data.length; i++){
            table.row.add({
@@ -54,15 +54,17 @@ $(document).ready(function() {
 
             axios
                 .post('http://localhost:3000/stores/transactions',{
-                    store: store_id,
                     min_price: data.from,
                     max_price: data.to,
                     min_pieces: min_pieces,
                     max_pieces: max_pieces,
                     payment_method: selectedValue
                 })
-                .then( (result) => update(result) )
-                .catch( (err) => alert(err) )
+                .then( (result) => updateTable(result) )
+                .catch( (err) => {
+                    if (err.response.status == 404) 
+                        table.clear().draw()
+                })
         }
     })
 
@@ -73,9 +75,9 @@ $(document).ready(function() {
     $("#pieces_slider").ionRangeSlider({
         type: "double",
         min: 0,
-        max: 100,
+        max: 50,
         from: 1,
-        to: 100,
+        to: 50,
         grid: false,
         skin: 'round',
         onStart: function (data) {
@@ -88,15 +90,17 @@ $(document).ready(function() {
             
             axios
                 .post('http://localhost:3000/stores/transactions',{
-                    store: store_id,
                     min_price: min_amount,
                     max_price: max_amount,
                     min_pieces : data.from,
                     max_pieces : data.to,
                     payment_method: selectedValue
                 })
-                .then( (result) => update(result) )
-                .catch( (err) => alert(err) )
+                .then( (result) => updateTable(result) )
+                .catch( (err) => {
+                    if (err.response.status == 404) 
+                        table.clear().draw()
+                })
         }
     })   
 
@@ -119,10 +123,11 @@ $(document).ready(function() {
                 max_pieces : max_pieces,
                 payment_method: selectedValue
             })
-                .then( (result) => update(result) )
-                .catch( (err) => alert(err) )
+                .then( (result) => updateTable(result) )
+                .catch( (err) => {
+                    if (err.response.status == 404) 
+                        table.clear().draw()
+                })
     }
-    
-
 
 } );

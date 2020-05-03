@@ -38,7 +38,6 @@ block content
                 table#customerTransactionsTable.table.table-bordered.table-light(style="margin: 2rem 2rem 2rem 0rem;")
                     thead.thead-dark 
                         tr  
-                            th Card
                             th Date Time
                             th Total pieces
                             th Total Amount
@@ -47,7 +46,6 @@ block content
                     tbody
                         each trans in transactions
                             tr 
-                                td#customer_card #{customer[0].Card}
                                 td#date_time #{trans.Date_time}
                                 td#number_of_pieces #{trans.Total_piecies}
                                 td#total_amount #{trans.Total_amount}
