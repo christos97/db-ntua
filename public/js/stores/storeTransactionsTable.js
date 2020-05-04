@@ -13,6 +13,12 @@ $(document).ready(function() {
             { data: 'Payment_method'}
         ]
     } );
+
+    $('#storeTransactionsTable tbody tr td').on('click',  function () {
+        var transaction_id = table.cell( this ).data();
+        console.log(transaction_id)
+        //window.location = `http://localhost:3000/stores/${store_id[0]}`
+    } );
     
     const updateTable = (transactions) => {
         table.clear()

@@ -1,13 +1,16 @@
-const express = require('express'),
-      createError = require('http-errors'),
-      path = require('path'),
-      logger = require('morgan'),
-      cors = require('cors'),
-      apiRouter = require('./routes/api'),
-      dashboardRouter = require('./routes/dashboard'),
-      productsRouter = require('./routes/products'),
-      storesRouter = require('./routes/stores'),
-      customersRouter = require('./routes/customers')
+const 
+    express = require('express'),
+    createError = require('http-errors'),
+    path = require('path'),
+    fs = require ('fs'),
+    logger = require('morgan'),
+    cors = require('cors'),
+    indexRouter = require('./routes/index')
+    apiRouter = require('./routes/api'),
+    dashboardRouter = require('./routes/dashboard'),
+    productsRouter = require('./routes/products'),
+    storesRouter = require('./routes/stores'),
+    customersRouter = require('./routes/customers')
 
 // Initialize application
 const app = express()
@@ -21,22 +24,19 @@ app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Basic routing
-app.get('/', (req, res) => { res.redirect('/dashboard'); });
+// Routing
+app.use('/',indexRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/products', productsRouter)
 app.use('/stores', storesRouter)
 app.use('/customers', customersRouter)
-
-// Only json responses for charts etc
 app.use('/api', apiRouter)
 
-// catch 404 and forward to error handler
+
+// Template error handling
 app.use( (req, res, next) => {
   next(createError(404));
 });
-
-// error handler for development mode
 app.use( (err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

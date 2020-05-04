@@ -1,7 +1,10 @@
-var mysql = require('mysql');
-var config = require ('./config/dbConfig')
+const mysql = require('mysql');
 
-var db  = mysql.createConnection(config.pool_bundle);
-
+const db = mysql.createConnection({
+    host : 'localhost',
+    user : 'root',
+    password : 'Skatakia1234#',
+    database: 'db_ntua'
+})
 module.exports = db;
 
