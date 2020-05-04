@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
     temp_conn.connect ( (err) => {
         if (err) throw err
         temp_conn.query("DROP DATABASE IF EXISTS db_ntua;", (err, result) => {
+            console.log("Database db_ntua dropped")
             if (err) throw err;
         });
         temp_conn.query("CREATE DATABASE db_ntua;", (err, result) => {
