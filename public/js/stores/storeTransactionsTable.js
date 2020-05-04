@@ -47,9 +47,9 @@ $(document).ready(function() {
     $("#amount_slider").ionRangeSlider({
         type: "double",
         min: 0,
-        max: 500,
+        max: 1000,
         from: 0,
-        to: 500,
+        to: 1000,
         grid: false,
         skin: 'round',
         

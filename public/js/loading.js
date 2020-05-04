@@ -1,10 +1,24 @@
 $(document).ready(function() { 
     
-    const wait = (timeout) => {
+    const fetchLast = (timeout) => {
         window.setTimeout( () => {
-            window.location = 'http://localhost:3000/dashboard'
+            console.log("timeout")
+            window.setInterval( () => {
+                console.log("interval")
+                axios.get('http://localhost:3000/api/database_up')
+                    .then( (result) => {
+                        console.log(result)
+                        if(result.length > 0)
+                            console.log(result.data)
+                            window.location = 'http://localhost:3000/dashboard'
+                            return
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                }, 10000)
         },timeout)
     }
     
-    wait(180000) 
+    fetchLast(5000)
 });
