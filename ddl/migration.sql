@@ -160,3 +160,12 @@ create table TransactionContainsProduct(
 	on update cascade
 );
 
+delimiter $$
+create function randdt (date_from datetime, date_to datetime)
+returns datetime
+begin
+	declare result datetime;
+	set result = (select FROM_UNIXTIME(UNIX_TIMESTAMP(date_from) + FLOOR(RAND()*(UNIX_TIMESTAMP(date_to) - UNIX_TIMESTAMP(date_from) + 1))));
+	return result;
+end$$
+delimiter ;
