@@ -1,12 +1,7 @@
 const mysql = require('mysql');
+const config = require('./config/dbConfig')
 
 // Actual connection
-const db = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : 'Skatakia1234#',
-    database: 'db_ntua',
-    
-})
+const db = mysql.createConnection(config.conn_bundle)
 module.exports = db;
 

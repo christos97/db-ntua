@@ -10,14 +10,15 @@ $(document).ready(function() {
             { data: 'Date_time'},
             { data: 'Total_piecies'},
             { data: 'Total_amount'},
-            { data: 'Payment_method'}
+            { data: 'Payment_method'},
+            { data: 'Receipt'}
         ]
     } );
 
     $('#storeTransactionsTable tbody tr td').on('click',  function () {
-        var transaction_id = table.cell( this ).data();
-        console.log(transaction_id)
-        //window.location = `http://localhost:3000/stores/${store_id[0]}`
+        var trans_id = table.cell( this ).data()
+        console.log(trans_id)
+        window.location = `http://localhost:3000/stores/transactions/${trans_id}`
     } );
     
     const updateTable = (transactions) => {
@@ -111,7 +112,6 @@ $(document).ready(function() {
     })   
 
     const btn = document.querySelector('#radio_buttons');
-    
     btn.onclick = () => {
         const rbs = document.querySelectorAll('input[name="payment_method"]');
         for (let rb of rbs) {
@@ -134,4 +134,6 @@ $(document).ready(function() {
                     table.clear().draw()
             })
             }
+        
+    
 } );

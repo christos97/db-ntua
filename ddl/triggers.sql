@@ -7,6 +7,12 @@ begin
 			insert into HadOlderPrice(Start_date, End_date, Price, Barcode) values (DATE_ADD(@maxenddate, interval 1 day), CURDATE(), old.Price, new.Barcode);
 		end if;
 end
+create trigger after_delete_StoreProvidesCategory
+after delete
+on StoreProvidesCategory for each row
+begin
+	delete from StoreOffersProduct where Store_id = old.Store_id and (Barcode in (select Barcode from Products where Category_id = old.Category_id));
+end
 create trigger after_transcontprod_insert
 after insert
 on TransactionContainsProduct for each row
@@ -19,10 +25,4 @@ begin
 	update Customer
 		set Points = Points + @newpoints
 		where (Card = new.Card);
-end
-create trigger after_delete_StoreProvidesCategory
-after delete
-on StoreProvidesCategory for each row
-begin
-	delete from StoreOffersProduct where Store_id = old.Store_id and (Barcode in (select Barcode from Products where Category_id = old.Category_id));
 end

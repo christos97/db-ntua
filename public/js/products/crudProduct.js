@@ -2,7 +2,7 @@ validateInput =  (body) => {
     
     for (let f in body){
     
-        if (body[f] == ""){
+        if (body[f] === ""){
             alert("Please provide all fields")
             return 0
         }
@@ -12,6 +12,7 @@ validateInput =  (body) => {
             case 'barcode':
                 if (body[f].length !=10){
                     alert("Barcode length must be 10, provided: " + body[f].length)
+                    $(`input[name=${f}`).val(''); 
                     return 0
                 }
                 break
@@ -19,11 +20,12 @@ validateInput =  (body) => {
             case 'price':
                 if (!body[f].match(/[+-]?([0-9]*[.])?[0-9]+/)){
                     alert("Price can contain only numbers and a dot (.)")
+                    $(`input[name=${f}`).val(''); 
                     return 0
                 }
                 break     
         }
-        $(`input[name=${f}`).val('');     
+        //$(`input[name=${f}`).val('');     
     }
      return 1   
 }
@@ -34,6 +36,7 @@ postData = (url,body) => {
     .then( (result) => alert(result.data) )
     .catch( (error) => alert(error) )
 }
+
 addProduct =  () => {
     
     url = 'http://localhost:3000/products/addProduct'

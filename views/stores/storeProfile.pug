@@ -29,20 +29,23 @@ block content
             .col
                 .btn-group.btn-group-toggle(data-toggle="buttons" id='radio_buttons')
                     label.btn.btn-primary Cash
-                        input(type="radio" name="payment_method" value='Cash') 
+                        input(type="radio" name="payment_method" value='Cash')
+                    label.btn.btn-light.active All
+                        input(type="radio" name="payment_method" value='All') 
                     label.btn.btn-primary Credit Card
                         input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
-                table#storeTransactionsTable.table.table-bordered.table-light(style="margin: 2rem 2rem 2rem 0rem;")
-                    thead.thead-dark 
+                table#storeTransactionsTable.table.table-bordered.table-light(style="margin: 1rem 2rem 2rem 0rem;")
+                    thead.thead-dark
                         tr  
-                            th Customer Card
+                            th Card Number
                             th Customer Name
                             th Date
                             th Total pieces
                             th Total Amount
                             th Payment Method
+                            th Receipt Number
                     tbody
                         each trans in transactions
                             tr 
@@ -52,6 +55,4 @@ block content
                                 td#number_of_pieces #{trans.Total_piecies}
                                 td#total_amount #{trans.Total_amount}
                                 td#payment_method #{trans.Payment_method}
-                                    
-
-        
+                                td#receipt #{trans.Trans_id}

@@ -39,7 +39,6 @@ router.get('/freq_bought_together',(req, res) => {
    })
 })
 
-// genika des ta onomata twn charts kai ftiakse antistoixa GET endpoints me underscore
 
 module.exports = router;
 

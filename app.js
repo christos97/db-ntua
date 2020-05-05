@@ -2,7 +2,6 @@ const
     express = require('express'),
     createError = require('http-errors'),
     path = require('path'),
-    fs = require ('fs'),
     logger = require('morgan'),
     cors = require('cors'),
     indexRouter = require('./routes/index')
