@@ -129,6 +129,7 @@ create table StoreOffersProduct(
 );
 
 create table Transaction(
+	Trans_id int not null unique,
 	Date_time datetime not null,
 	Total_piecies int default 0,
 	Total_amount float default 0,
@@ -144,15 +145,14 @@ create table Transaction(
 	foreign key(Store_id) references Stores(Store_id)
 	on delete cascade
 	on update cascade,
-	primary key(Date_time,Card)
+	primary key(Trans_id)
 );
 
 create table TransactionContainsProduct(
-	Date_time datetime not null,
-	Card int not null,
+	Trans_id int not null,
 	Barcode varchar(10) not null,
 	Piecies int not null default 1,
-	foreign key(Date_time, Card) references Transaction(Date_time,Card) 
+	foreign key(Trans_id) references Transaction(Trans_id) 
 	on delete cascade
 	on update cascade,
 	foreign key(Barcode) references Products(Barcode) 
