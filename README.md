@@ -1,11 +1,22 @@
 # db-ntua
 Project for class SQL Databases @ece-NTUA 2020, simple CMS App  
 
-Basic Express-Pug Application
+## Basic Express-Pug Application with Bootstrap and JQuery Datatables
 
-git clone https://github.com/christos97/db-ntua &&
-cd db_ntua &&
+### Requires node & mysql server installed , tested on Chrome and Ubuntu 18.04 LTS
+
+```sh
+git clone https://github.com/christos97/db-ntua
+cd db-ntua 
 npm install && npm start
+```
 
-Γενικά φτιαξε το db config και παιζει να σου πεταξει ερρορ η βαση , κανε alter user απο το cli της mysql
-
+Change db-ntua/config/dbConfig Database Password (default ='')
+If you get access denied open mysql cli 
+```sh
+mysql -uroot -p
+```
+Enter your password and paste
+```
+ALTER USER root@localhost IDENTIFIED BY '' REPLACE prev_password
+```
