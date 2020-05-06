@@ -89,7 +89,7 @@ create table Products (
 	Price decimal(6,3) not null,
 	Name varchar(255) not null,
 	Brand_name varchar(255) default '',
-	First_transaction int not null default 0,
+	Store_label int not null default 0,
 	Category_id int not null,
 	check (Price > 0),
 	check (First_transaction in (0,1)),
