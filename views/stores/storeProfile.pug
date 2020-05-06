@@ -21,10 +21,10 @@ block content
         h3 Store Transactions
         .row    
             .col
-                label(for="pieces_slider") # of products:
+                label(for="pieces_slider") Total pieces bought:
                 input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="")
             .col     
-                label(for="amount_slider") Amount range:
+                label(for="amount_slider") Total amount:
                 input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
             .col
                 .btn-group.btn-group-toggle(data-toggle="buttons" id='radio_buttons')
@@ -56,3 +56,5 @@ block content
                                 td#total_amount #{trans.Total_amount}
                                 td#payment_method #{trans.Payment_method}
                                 td#receipt #{trans.Trans_id}
+                            
+                                                    

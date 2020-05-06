@@ -7,7 +7,7 @@ $(document).ready(function() {
         columns: [
             { data: 'Customer_card'},
             { data: 'Customer_name'},
-            { data: 'Date_time'},
+            { data: 'Date_time'},   
             { data: 'Total_piecies'},
             { data: 'Total_amount'},
             { data: 'Payment_method'},
@@ -15,26 +15,29 @@ $(document).ready(function() {
         ]
     } );
 
-    $('#storeTransactionsTable tbody tr td').on('click',  function () {
-        var trans_id = table.cell( this ).data()
-        console.log(trans_id)
-        window.location = `http://localhost:3000/stores/transactions/${trans_id}`
+    $('#storeTransactionsTable tbody tr').on('click',  function () {
+        let receipt = table.row( this ).data().Receipt
+        window.location = `http://localhost:3000/stores/transactions/${receipt}`
     } );
     
     const updateTable = (transactions) => {
         table.clear()
         for (let trans of transactions){
-            new_transaction = {
-                'Customer_card' : trans.Card,
-                'Customer_name' : trans.Name,
-                'Date_time' : trans.Date_time,
+            table.row.add({
+                'Customer_card': trans.Card,
+                'Customer_name': trans.Name,
+                'Date_time': trans.Date_time,
                 'Total_piecies': trans.Total_piecies,
                 'Total_amount': trans.Total_amount,
-                'Payment_method': trans.Payment_method
-            }   
-            table.row.add(new_transaction)
+                'Payment_method': trans.Payment_method,
+                'Receipt': trans.Trans_id
+            })   
         }    
-        table.draw() 
+        table.draw()
+        table.on('click','tbody tr',  function () {
+            let receipt = table.row( this ).data().Receipt
+            window.location = `http://localhost:3000/stores/transactions/${receipt}`
+        } ); 
     }
 
     const url = 'http://localhost:3000/stores/transactions'

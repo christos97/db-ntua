@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-    var table = $('#customerTransactionsTable').DataTable( {
+    let table = $('#customerTransactionsTable').DataTable( {
         paging: true,
         orderCellsTop: true,
         fixedHeader: true,
@@ -9,23 +9,35 @@ $(document).ready(function() {
             { data: 'Total_piecies'},
             { data: 'Total_amount'},
             { data: 'Payment_method'},
-            { data: 'Store'}
+            { data: 'Store'},
+            { data: 'Receipt'}
         ]
     } );
+
+    $('#customerTransactionsTable tbody tr').on('click',  function () {
+        let receipt = table.row( this ).data().Receipt
+        window.location = `http://localhost:3000/customers/transactions/${receipt}`
+    } );
+    
        
     const updateTable = (transactions) => {
         table.clear()
         for (let trans of transactions){
-            new_tranasaction = {
-                'Date_time' : (trans.Date_time),
+            table.row.add({
+                'Date_time' : trans.Date_time,
                 'Total_piecies': trans.Total_piecies,
                 'Total_amount': trans.Total_amount,
                 'Payment_method': trans.Payment_method,
-                'Store' : `${trans.Street} ${trans.Number_}`
-            }
-            table.row.add(new_tranasaction)
+                'Store' : `${trans.Street} ${trans.Number_}`,
+                'Receipt': trans.Trans_id
+            })
+            table.on('click','tbody tr',  function () {
+                let receipt = table.row( this ).data().Receipt
+                window.location = `http://localhost:3000/customers/transactions/${receipt}`
+            } )
         }
         table.draw() 
+
     }
 
     const url = 'http://localhost:3000/customers/transactions'

@@ -1,14 +1,14 @@
-validateInput =  (body) => {
+const validateInput =  (body) => {
     
     for (let f in body){
-    
+        
         if (body[f] === ""){
             alert("Please provide all fields")
             return 0
         }
 
         switch(f) {
-            
+
             case 'barcode':
                 if (body[f].length !=10){
                     alert("Barcode length must be 10, provided: " + body[f].length)
@@ -25,21 +25,20 @@ validateInput =  (body) => {
                 }
                 break     
         }
-        //$(`input[name=${f}`).val('');     
     }
      return 1   
 }
 
-postData = (url,body) => {
+const postData = (url, body) => {
     axios
-    .post(url, body)
-    .then( (result) => alert(result.data) )
-    .catch( (error) => alert(error) )
+        .post(url, body)
+        .then( (result) => alert(result.data) )
+        .catch( (error) => alert(error) )
 }
 
 addProduct =  () => {
     
-    url = 'http://localhost:3000/products/addProduct'
+    let url = 'http://localhost:3000/products/addProduct'
 
     let body = {
         barcode: document.getElementById('barcode').value,
@@ -52,7 +51,7 @@ addProduct =  () => {
     if (!validateInput(body)) 
         return
     else
-        postData(url,body)
+        postData(url, body)
     
     for (let f in body) 
         $(`input[name=${f}`).val(''); 
@@ -60,7 +59,7 @@ addProduct =  () => {
 
 editProduct = () => {
 
-    url = 'http://localhost:3000/products/editProduct'
+    let url = 'http://localhost:3000/products/editProduct'
 
     let body = {
         product: document.querySelector('input[name="product"]').value,
@@ -74,7 +73,7 @@ editProduct = () => {
     if (!validateInput(body)) 
         return
     else
-        postData(url,body)
+        postData(url, body)
 
     for (let f in body) 
         $(`input[name=${f}`).val('');     
@@ -82,13 +81,12 @@ editProduct = () => {
 
 deleteProduct = () => {
     
-    url = 'http://localhost:3000/products/deleteProduct'
+    let url = 'http://localhost:3000/products/deleteProduct'
     
     let body = { barcode : document.querySelector('input[name="product"]').value }
 
     if (!validateInput(body)) 
         return
     else
-        postData(url,body)
-    
+        postData(url, body)
 }

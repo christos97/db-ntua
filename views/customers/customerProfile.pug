@@ -45,6 +45,7 @@ block content
                             th Total Amount
                             th Payment Method
                             th Store
+                            th Receipt
                     tbody
                         each trans in transactions
                             tr 
@@ -53,6 +54,7 @@ block content
                                 td#total_amount #{trans.Total_amount}
                                 td#payment_method #{trans.Payment_method}
                                 td#store #{trans.Street} #{trans.Number_}
+                                td#receipt #{trans.Trans_id}
     .container-fluid 
         .row
             .col
