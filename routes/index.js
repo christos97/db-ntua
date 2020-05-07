@@ -61,7 +61,7 @@ router.get('/init_db', (req, res) => {
             }
         })
     }
-    let i=1
+   
     const create_tables = () => {
         read.eachLine('./ddl/migration.sql', (create_table) => {
             db.query(create_table, (err, result)=> {
@@ -75,8 +75,7 @@ router.get('/init_db', (req, res) => {
     create_tables()
     setTimeout(create_triggers,20000)
     setTimeout(insert_data,25000)
-    
-    
+
     res.redirect('/load')
 })
 

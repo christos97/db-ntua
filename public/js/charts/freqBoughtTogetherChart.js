@@ -23,10 +23,10 @@ class FrequentlyBoughtTogetherChart extends React.Component {
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'horizontalBar',
                 data: {
-                    labels: [result[0].Name + " + " +result[1].Name,"random","random","random","random","random"],
+                    labels: [result[0].nam1 + " + " +result[0].nam2, result[1].nam1 + " + " +result[1].nam2,result[2].nam1 + " + " +result[2].nam2 ,result[3].nam1 + " + " +result[3].nam2,result[4].nam1 + " + " +result[4].nam2,result[5].nam1 + " + " +result[5].nam2],
                     datasets: [{
                         label: 'Frequently Bought Together',
-                        data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
+                        data: [result[0].cnt, result[1].cnt, result[2].cnt, result[3].cnt, result[4].cnt, result[5].cnt], // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

@@ -8,10 +8,14 @@ class VisitingHoursPerAgeChart extends React.Component {
     
     componentDidMount() {
     
-        fetch("http://localhost:3000/api/freq_bought_together")
+        fetch("http://localhost:3000/api/most_visited_hours_per_age_bracket")
         .then(res => res.json())
         .then(
           (result) => {
+            console.log(result)
+            for (let data of result) {
+                console.log(data)
+            }
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'line',
@@ -48,17 +52,7 @@ class VisitingHoursPerAgeChart extends React.Component {
                             'rgba(255, 206, 86, 1)',
                         ],
                         borderWidth: 2
-                    },
-                    {
-                        label: '65+',
-                        fill:false,
-                        data: [15, 12, 19, 7, 10, 6], // times bought together...result[..].whatever
-                        borderColor: [
-                            'rgba(39, 183, 36, 1)',
-                        ],
-                        borderWidth: 2
-                    }
-                ]
+                    }]
                 },
                 options: {
                     legend: {

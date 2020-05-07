@@ -19,10 +19,9 @@ create trigger after_transcontprod_insert
 after insert
 on TransactionContainsProduct for each row
 begin
-	set @timeoftrans := (select Date_time from Transaction where Trans_id = new.Trans_id);
-	set @prod_pr := (select Price from HadOlderPrice where new.Barcode = Barcode and @timeoftrans >= Start_date and @timeoftrans <= End_date); 
+	set @prod_pr := (select Price from HadOlderPrice where new.Barcode = Barcode ); 
 	if @prod_pr is null then
-		set @prod_pr := (select Price from Products where Barcode = new.Barcode);
+		set @prod_pr := (select Price from Products where Barcode = new.Barcode );
 	end if;
 	set @newpoints = 0.1 * new.Piecies * @prod_pr; 
 	update Transaction

@@ -9,18 +9,32 @@ class TopSellingSpotsChart extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:3000/api/freq_bought_together")
+        fetch("http://localhost:3000/api/top_selling_spots")
         .then(res => res.json())
         .then(
-          (result) => {
+          (spots) => {
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'horizontalBar',
                 data: {
-                    labels: ["random","random","random","random","random","random"],
+                    labels: [
+                        'A ' + spots[0].Alley + ', S ' + spots[0].Shelf,
+                        'A ' + spots[1].Alley + ', S ' + spots[1].Shelf,
+                        'A ' + spots[2].Alley + ', S ' + spots[2].Shelf,
+                        'A ' + spots[3].Alley + ', S ' + spots[3].Shelf,
+                        'A ' + spots[4].Alley + ', S ' + spots[4].Shelf,
+                        'A ' + spots[5].Alley + ', S ' + spots[5].Shelf
+                    ],
                     datasets: [{
                         label: '',
-                        data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
+                        data: [
+                            spots[0].place_sells, 
+                            spots[1].place_sells,
+                            spots[2].place_sells,
+                            spots[3].place_sells,
+                            spots[4].place_sells,
+                            spots[5].place_sells
+                        ], 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

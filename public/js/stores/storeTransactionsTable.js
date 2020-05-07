@@ -5,9 +5,9 @@ $(document).ready(function() {
         orderCellsTop: true,
         fixedHeader: true,
         columns: [
-            { data: 'Customer_card'},
-            { data: 'Customer_name'},
-            { data: 'Date_time'},   
+            { data: 'Date_time'}, 
+            { data: 'Customer_name'}, 
+            { data: 'Customer_card'}, 
             { data: 'Total_piecies'},
             { data: 'Total_amount'},
             { data: 'Payment_method'},
@@ -23,10 +23,12 @@ $(document).ready(function() {
     const updateTable = (transactions) => {
         table.clear()
         for (let trans of transactions){
+            let utc_date = new Date(trans.Date_time)
+            let date = (utc_date.toString()).split('GMT')
             table.row.add({
+                'Date_time': date[0],
                 'Customer_card': trans.Card,
                 'Customer_name': trans.Name,
-                'Date_time': trans.Date_time,
                 'Total_piecies': trans.Total_piecies,
                 'Total_amount': trans.Total_amount,
                 'Payment_method': trans.Payment_method,

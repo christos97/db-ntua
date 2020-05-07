@@ -1,9 +1,0 @@
-KATASTHMATA
-athens: 1,2,3,4
-kalamata: 5,6,7
-lamia : 8,9,10
-
-PELATES
-athens: 1,2
-lamia: 3,4
-kalamata:5,6

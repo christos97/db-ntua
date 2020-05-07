@@ -3,6 +3,10 @@ block content
     include ../includes/navbar
     script(src="../js/customers/customerTable.js")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    -   const fixDate = (utc) => {
+        -   let date = (utc.toString()).split(' ')
+        -   return date[1] + ' ' + date[2] + ' ' + date[3] 
+    -   }
     .container(style="margin-top: 3rem;")
         .row
             table#customerTable.table.table-bordered.table-light
@@ -24,7 +28,7 @@ block content
                         tr      
                             td #{customer.Card}
                             td #{customer.Name}
-                            td #{customer.Date_of_birth}
+                            td #{fixDate(customer.Date_of_birth)}
                             td #{customer.City} 
                             td #{customer.Street}
                             td #{customer.Number_}

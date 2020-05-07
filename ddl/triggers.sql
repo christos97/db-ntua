@@ -21,8 +21,8 @@ begin
 	set @newpoints = 0.1 * new.Piecies * @prod_pr; 
 	update Transaction
 		set Total_piecies = Total_piecies + new.Piecies, Total_amount = Total_amount + new.Piecies * @prod_pr 
-		where (Date_time = new.Date_time and Card = new.Card);
+		where (Trans_id = new.Trans_id);
 	update Customer
 		set Points = Points + @newpoints
-		where (Card = new.Card);
+		where (Card = (select Card from Transaction where Trans_id = new.Trans_id));
 end

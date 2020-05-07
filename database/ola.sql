@@ -1,9 +1,0 @@
-source ./migration.sql;
-source ./triggers.sql;
-source ./inserts.sql;
-source ./seeding/new_inserts_1.sql;
-source ./seeding/new_inserts_2.sql;
-source ./seeding/new_inserts_3.sql;
-source ./seeding/new_inserts_4.sql;
-source ./seeding/new_inserts_5.sql;
-source ./seeding/new_inserts_6.sql;

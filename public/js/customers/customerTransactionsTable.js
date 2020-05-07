@@ -23,8 +23,10 @@ $(document).ready(function() {
     const updateTable = (transactions) => {
         table.clear()
         for (let trans of transactions){
+            let utc_date = new Date(trans.Date_time)
+            let date = (utc_date.toString()).split('GMT')
             table.row.add({
-                'Date_time' : trans.Date_time,
+                'Date_time' : date[0],
                 'Total_piecies': trans.Total_piecies,
                 'Total_amount': trans.Total_amount,
                 'Payment_method': trans.Payment_method,
@@ -50,20 +52,27 @@ $(document).ready(function() {
     $("#amount_slider").ionRangeSlider({
         type: "double",
         min: 0,
-        max: 1000,
+        max: 1500,
         from: 0,
-        to: 1000,
+        to: 1500,
         grid: false,
         skin: 'round',
         
         onStart: function (data) {
-            min_amount = data.from
-            max_amount = data.to
+            min_amount = data.min
+            max_amount = data.max
         },
 
         onFinish: function(data){
             min_amount = data.from
             max_amount = data.to
+            let body = {
+                min_price: data.from,
+                max_price: data.to,
+                min_pieces: min_pieces,
+                max_pieces: max_pieces,
+                payment_method: payment_method
+            }
 
             axios
                 .post(url,{
@@ -74,7 +83,7 @@ $(document).ready(function() {
                     payment_method: payment_method
                 })
                 .then((result) => updateTable(result.data) )
-                .catch( (err) => {
+                .catch((err) => {
                     if (err.response.status == 404) 
                         table.clear().draw()
                 })
@@ -90,8 +99,8 @@ $(document).ready(function() {
         grid: false,
         skin: 'round',
         onStart: function (data) {
-            min_pieces = data.from
-            max_pieces = data.to
+            min_pieces = data.min
+            max_pieces = data.max
         },
         onFinish: function(data){
             min_pieces = data.from

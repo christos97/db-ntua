@@ -4,7 +4,10 @@ block content
     link(rel="stylesheet", href="../stylesheets/table.css")
     script(src="../js/stores/storeTransactionsTable.js")
     script(type ='text/babel' src="../js/charts/storeSalesPerCategoryChart.js")
-    .container-fluid
+    - const parseDate = (utc) => {
+        - return (utc.toString()).split('GMT')[0] 
+    - }
+    .container
         .row
             .col
                 .card.bg-dark
@@ -13,48 +16,46 @@ block content
                         h2 Street:  #{store[0].Street} #{store[0].Number_}
                         h4 Postal Code: #{store[0].Postal_code}
                         h4 Operating Hours: #{store[0].Operating_hours}
-                        h4 Size : #{store[0].Size_} 
+                        h4 Size : #{store[0].Size_}  &#13217;
             .col
                 h4(style="margin-bottom: 1rem; text-align: center;") Products sold per category
                 #store_sales_per_category_chart
-        .row
-        h3 Store Transactions
         .row    
-            .col
-                label(for="pieces_slider") Total pieces bought:
+            .col(style="margin-left:4rem;")
+                label(for="pieces_slider") Total pieces bought
                 input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="")
             .col     
-                label(for="amount_slider") Total amount:
+                label(for="amount_slider") Total amount &#36;
                 input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
             .col
                 .btn-group.btn-group-toggle(data-toggle="buttons" id='radio_buttons')
                     label.btn.btn-primary Cash
                         input(type="radio" name="payment_method" value='Cash')
-                    label.btn.btn-light.active All
+                    label.btn.btn-primary.active All
                         input(type="radio" name="payment_method" value='All') 
                     label.btn.btn-primary Credit Card
                         input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
                 table#storeTransactionsTable.table.table-bordered.table-light(style="margin: 1rem 2rem 2rem 0rem;")
+                    h3 Transactions in store
                     thead.thead-dark
-                        tr  
-                            th Card Number
+                        tr 
+                            th Date 
                             th Customer Name
-                            th Date
+                            th Card Number
                             th Total pieces
-                            th Total Amount
+                            th Total Amount &#36;
                             th Payment Method
                             th Receipt Number
                     tbody
                         each trans in transactions
                             tr 
-                                td#customer_card #{trans.Card}
+                                td#date_time #{parseDate(trans.Date_time)}
                                 td#customer_name #{trans.Name}
-                                td#date_time #{trans.Date_time}
+                                td#customer_card #{trans.Card}
                                 td#number_of_pieces #{trans.Total_piecies}
                                 td#total_amount #{trans.Total_amount}
                                 td#payment_method #{trans.Payment_method}
                                 td#receipt #{trans.Trans_id}
-                            
                                                     

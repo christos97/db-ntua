@@ -5,6 +5,9 @@ block content
     script(src="../js/customers/customerTransactionsTable.js")
     script(type ='text/babel' src="../js/charts/top10PerCustomerChart.js")
     script(type ='text/babel' src="../js/charts/customerVisitingHoursChart.js")
+    - const parseDate = (utc) => {
+        - return (utc.toString()).split('GMT')[0]
+    - } 
     .container
         .row
             .col    
@@ -15,54 +18,54 @@ block content
                         h4 City: #{customer[0].City},  Address: #{customer[0].Street} #{customer[0].Number_}, #{customer[0].Postal_code}
                         h4 Phone: #{customer[0].Phone}
                         h4 Family members: #{customer[0].Family_members}, Pet: #{customer[0].Pet} 
-                        h4 Transactions per week: ? , Amount spent per week: ?
-                        h4 Transactions per month: ? , Amount spent per month: ?
-    .container-fluid    
-        .row
-        h3 Customer Transactions
-        .row
+                        h4 Transactions per week: ? 
+                        h4 Amount spent per week: ?
+                        h4 Transactions per month: ?  
+                        h4 Amount spent per month: ?
             .col
-                label(for="pieces_slider") Total pieces 
+                h3 Customer Visiting Hours
+                .chart-container(style="margin: 3rem 1rem 1rem 0rem; ")
+                    #customer_visiting_hours_chart 
+        .row
+            .col(style="margin-left:4rem;")
+                label(for="pieces_slider") Total pieces bought
                 input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="")
             .col       
-                label(for="amount_slider") Total amount 
+                label(for="amount_slider") Total amount &#36;
                 input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
             .col 
                 .btn-group.btn-group-toggle(data-toggle="buttons" id='radio_buttons')
                     label.btn.btn-primary Cash
                         input(type="radio" name="payment_method" value='Cash')
-                    label.btn.btn-light.active All
+                    label.btn.btn-primary.active All
                         input(type="radio" name="payment_method" value='All')
                     label.btn.btn-primary Credit Card
                         input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
                 table#customerTransactionsTable.table.table-bordered.table-light(style="margin: 2rem 2rem 2rem 0rem;")
+                    h3 Customer Transactions
                     thead.thead-dark 
                         tr  
                             th Date Time
                             th Total pieces
-                            th Total Amount
+                            th Total Amount &#36;
                             th Payment Method
                             th Store
                             th Receipt
                     tbody
                         each trans in transactions
                             tr 
-                                td#date_time #{trans.Date_time}
+                                td#date_time #{parseDate(trans.Date_time)}
                                 td#number_of_pieces #{trans.Total_piecies}
                                 td#total_amount #{trans.Total_amount}
                                 td#payment_method #{trans.Payment_method}
                                 td#store #{trans.Street} #{trans.Number_}
                                 td#receipt #{trans.Trans_id}
-    .container-fluid 
+    .container 
         .row
             .col
                 h3 Top 10 customer products
                 .chart-container(style="margin: 3rem 1rem 2rem 0rem; ")
-                    #top_10_per_customer_chart
-            .col
-                h3 Customer Visiting Hours
-                .chart-container(style="margin: 3rem 1rem 1rem 0rem; ")
-                    #customer_visiting_hours_chart
+                    #top_10_per_customer_chart   
       

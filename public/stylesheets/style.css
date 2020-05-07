@@ -37,12 +37,10 @@
     background: #4CAF50;
     cursor: pointer;
   }
-a.btn.btn-dark.btn-block{
-    
-    margin-bottom: 1.5rem;
+a.btn.btn-dark{
+    margin: 1rem 0rem 0.5rem 0.5rem;
     font-size: x-large;
     border-radius: 15px;
-    border: 2.5px inset whitesmoke;
     padding: 1rem;
     width: 80%;
     text-align: center;

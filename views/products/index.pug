@@ -4,12 +4,12 @@ block content
     script(src="../js/products/productsTable.js")
     .container(style="position: relative;  margin-top: 3rem;")
         .row
+            .col(style="margin-left: 3rem;")
+                a.btn.btn-dark(href= "/products/addProduct" role="button") Add Product
             .col
-                a.btn.btn-dark.btn-block(href= "/products/addProduct" role="button") Add Product
+                a.btn.btn-dark(href= "/products/editProduct" role="button") Edit Product       
             .col
-                a.btn.btn-dark.btn-block(href= "/products/editProduct" role="button") Edit Product       
-            .col
-                a.btn.btn-dark.btn-block(href= "/products/deleteProduct" role="button") Delete Product       
+                a.btn.btn-dark(href= "/products/deleteProduct" role="button") Delete Product       
     .container(id="wrapper" style="margin-top: 3rem;")
         table#productTable.table.table-bordered.table-light
             thead.thead-dark

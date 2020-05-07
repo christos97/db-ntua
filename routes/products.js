@@ -37,7 +37,7 @@ router.get('/deleteProduct', (req, res) => {
     })
 })
 router.post('/addProduct', (req, res, next) => {
-    let query = 'INSERT INTO Products (Barcode,Price,Name,Brand_name,First_transaction,Category_id) VALUES (?,?,?,?,1,?)'
+    let query = 'INSERT INTO Products (Barcode,Price,Name,Brand_name, Store_label,Category_id) VALUES (?,?,?,?,0,?)'
     let bind = [
         req.body.barcode,
         parseFloat(req.body.price), 

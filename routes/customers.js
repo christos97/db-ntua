@@ -50,8 +50,8 @@ router.post('/transactions',(req, res) => {
     let card = parseInt(((req.headers.referer).split('/'))[4]), // Catch incoming request's url (http://localhost:3000/customers/:card_id) to get :card_id (eg: '2') and parseInt 
         min_price = parseFloat(req.body.min_price),
         max_price = parseFloat(req.body.max_price),
-        min_pieces = parseInt(req.body.min_pieces),
-        max_pieces = parseInt(req.body.max_pieces),
+        min_pieces = parseFloat(req.body.min_pieces),
+        max_pieces = parseFloat(req.body.max_pieces),
         payment_method = req.body.payment_method
 
     if (payment_method === '') 
