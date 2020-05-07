@@ -1,5 +1,6 @@
-## Project for Relational Databases class @ece-NTUA 2020 
+## Project for Relational Databases class @ece-NTUA 2020
 
+- MySQL 
 - Express.js
 - Pug.js 
 - Bootstrap 4 
