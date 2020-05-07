@@ -204,7 +204,7 @@ insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(69, (s
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(69, (select Barcode from Products order by rand() limit 1),1);
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(69, (select Barcode from Products order by rand() limit 1),1);
 
-insert into Transaction(Trans_id, Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values (70, '2020-03-26',0, 0, 'Credit Card', 2,2);
+insert into Transaction(Trans_id, Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values (70, '2020-03-26 17:52:00',0, 0, 'Credit Card', 2,2);
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(70, (select Barcode from Products order by rand() limit 1),1);
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(70, (select Barcode from Products order by rand() limit 1),1);
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(70, (select Barcode from Products order by rand() limit 1),1);

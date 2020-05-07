@@ -962,22 +962,28 @@ insert into StoreOffersProduct(Store_id, Barcode, Alley, Shelf) values (10,'6666
 /****************************************************************************************************************/
 
 /* PELATES */ /* ta points logika tha einai to 10% epi ths timhs twn proiontwn */
+/*42*/
 insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (1,'2104547954','Dog',2,0,'1978-02-08','Giorgos Giorgopoulos');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (1,1,'Eksikiou','4','11845','Athens');
 
+/*40*/
 insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (2,'2104452103','',4,0,'1980-04-02','Giannia Giannakaki');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (2,2,'Antiopis','84','11364','Athens');
 
+/*26*/
 insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (3,'2231054788','Snake',1,0,'1994-01-01','Dimitris Dimitropoulos');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (3,3,'Athanasiou Diakou','156','35100','Lamia');
 
+/*54*/
 insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (4,'2231047478','Turtle',5,0,'1966-08-08','Akis Akakios');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (4,4,'Akakias','12','35100','Lamia');
 
+/*41*/
 insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (5,'2721000234','Cat',3,0,'1979-02-08','Aleksandra Aleksandridi');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (5,5,'28hs Oktombriou','421','24100','Kalamata');
 
-insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (6,'2721099456','',7,0,'1958-09-04','Panos Panopoulos');
+/*70*/
+insert into Customer(Card, Phone, Pet, Family_members, Points, Date_of_birth, Name) values (6,'2721099456','',7,0,'1950-09-04','Panos Panopoulos');
 insert into CustomerAddress(Card, Adr_id, Street, Number_, Postal_code, City) values (6,6,'Skoufa','19','24100','Kalamata');
 
 /* agores  '2008-11-09 15:45:2' DATETIME - format: YYYY-MM-DD HH:MI:SS*/
@@ -1050,7 +1056,7 @@ insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(1091,'
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(1091,'4689751247',1);
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(1091,'6458954112',1);
 
-insert into Transaction(Trans_id, Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values (1101,'2020-01-25 8:00:00',0, 0, 'Credit Card', 4,9);
+insert into Transaction(Trans_id, Date_time,Total_piecies, Total_amount, Payment_method, Card, Store_id) values (1101,'2020-01-25 18:00:00',0, 0, 'Credit Card', 4,9);
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(1101,'9986157468',1); 
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(1101,'9647851112',1); 
 insert into TransactionContainsProduct(Trans_id, Barcode, Piecies) values(1101,'3659568874',1); 
