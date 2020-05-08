@@ -73,8 +73,8 @@ router.get('/init_db', (req, res) => {
 
     // Build Database
     create_tables()
-    setTimeout(create_triggers,20000)
-    setTimeout(insert_data,25000)
+    setTimeout(create_triggers,4000)
+    setTimeout(insert_data,6000)
 
     res.redirect('/load')
 })
