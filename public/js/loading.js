@@ -7,9 +7,9 @@ $(document).ready(function() {
                 axios.get('http://localhost:3000/api/database_up')
                     .then( () => window.location = 'http://localhost:3000/dashboard' )
                     .catch((err) => console.log(err))
-                }, 1000)
+                }, 20000)
         },timeout)
     }
     
-    fetchLast(5000)
+    fetchLast(100000)
 });
