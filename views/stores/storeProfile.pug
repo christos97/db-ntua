@@ -1,7 +1,7 @@
 extends ../layout
 block content
     include ../includes/navbar
-    link(rel="stylesheet", href="../stylesheets/table.css")
+    link(rel="stylesheet", href="../stylesheets/style.css")
     script(src="../js/stores/storeTransactionsTable.js")
     script(type ='text/babel' src="../js/charts/storeSalesPerCategoryChart.js")
     - const parseDate = (utc) => {
@@ -37,7 +37,7 @@ block content
                         input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
-                table#storeTransactionsTable.table.table-bordered.table-light(style="margin: 1rem 2rem 2rem 0rem;")
+                table#storeTransactionsTable.table.table-bordered.table-light.table-hover
                     h3 Transactions in store
                     thead.thead-dark
                         tr 

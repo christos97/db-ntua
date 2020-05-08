@@ -15,7 +15,7 @@ $(document).ready(function() {
     } );
 
     $('#customerTransactionsTable tbody tr').on('click',  function () {
-        let receipt = table.row( this ).data().Receipt
+        let receipt = ((table.row( this ).data().Receipt).toString()).split('<')[0]        
         window.location = `http://localhost:3000/customers/transactions/${receipt}`
     } );
     
@@ -31,10 +31,11 @@ $(document).ready(function() {
                 'Total_amount': trans.Total_amount,
                 'Payment_method': trans.Payment_method,
                 'Store' : `${trans.Street} ${trans.Number_}`,
-                'Receipt': trans.Trans_id
+                'Receipt': trans.Trans_id + '<i class="fas fa-file-invoice-dollar" style="margin-left: 0.5rem;" ></i>'
             })
+    
             table.on('click','tbody tr',  function () {
-                let receipt = table.row( this ).data().Receipt
+                let receipt = ((table.row( this ).data().Receipt).toString()).split('<')[0]        
                 window.location = `http://localhost:3000/customers/transactions/${receipt}`
             } )
         }

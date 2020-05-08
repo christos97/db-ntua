@@ -1,11 +1,9 @@
-const router      = require("express").Router();
-const util = require('util')
+const router = require("express").Router();
 const db = require('../db');
 
 // All customers and info table
 router.get('/', (req,res) => {
-    let sql = 
-    'SELECT * FROM CustomerAddress JOIN Customer ON Customer.Card=CustomerAddress.Card'    
+    let sql = 'SELECT * FROM CustomerAddress as ca JOIN Customer as c ON c.Card=ca.Card'    
     db.query(sql, (err,result) => {
         if (err) throw err;
         res.render('customers/index', { customers : result })
@@ -15,10 +13,10 @@ router.get('/', (req,res) => {
 // Customer Profile / All transactions
 router.get('/:card_id', (req, res) => {
     let card = parseInt(req.params.card_id)
-    let sql1 = 
-    'SELECT * FROM CustomerAddress JOIN Customer ON Customer.Card=CustomerAddress.Card  WHERE Customer.Card=?'
+    let sql1 = 'SELECT * FROM CustomerAddress as ca JOIN Customer as c ON c.Card=ca.Card  WHERE c.Card=?'
     let sql2 = 
-    'SELECT Transaction.Trans_id, Transaction.Card, Transaction.Date_time, Transaction.Total_piecies, Transaction.Total_amount, Transaction.Payment_method, StoreAddress.Street, StoreAddress.Number_ FROM Transaction JOIN StoreAddress ON StoreAddress.Store_id=Transaction.Store_id WHERE Transaction.Card=?'
+    'SELECT t.Trans_id, t.Card, t.Date_time, t.Total_piecies, t.Total_amount, t.Payment_method, sa.Street, sa.Number_ ' +
+    'FROM Transaction as t JOIN StoreAddress as sa ON sa.Store_id=t.Store_id WHERE t.Card=?'
     db.query(sql1,[card], (err, profile) => {
         if (err) 
             res.status(500).send(err);
@@ -58,10 +56,10 @@ router.post('/transactions',(req, res) => {
         payment_method = 'All'
 
     let sql = 
-    'SELECT Transaction.Trans_id, Transaction.Date_time, Transaction.Total_piecies,' + 
-    'Transaction.Total_amount, Transaction.Payment_method, StoreAddress.Street, StoreAddress.Number_ '+
-    'FROM Transaction JOIN StoreAddress ON StoreAddress.Store_id=Transaction.Store_id '+
-    'WHERE Transaction.Card=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? AND Total_piecies<=?'
+    'SELECT t.Trans_id, t.Date_time, t.Total_piecies,' + 
+    't.Total_amount, t.Payment_method, sa.Street, sa.Number_ '+
+    'FROM Transaction as t JOIN StoreAddress as sa ON sa.Store_id=t.Store_id '+
+    'WHERE t.Card=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? AND Total_piecies<=?'
     
     let bind = [card, min_price, max_price, min_pieces, max_pieces]
     
@@ -80,12 +78,13 @@ router.post('/transactions',(req, res) => {
     let referer = req.headers.referer,
         trans_id = parseInt(req.params.trans_id),
         sql = 
-    'SELECT Transaction.Total_amount as total_amount,Transaction.Total_piecies as total_pieces,TransactionContainsProduct.Piecies as product_pieces, Products.Name as product_name, Products.Price as product_price, Category.Name as product_category ' +
-    'FROM TransactionContainsProduct ' + 
-    'JOIN Products ON TransactionContainsProduct.Barcode=Products.Barcode ' +
-    'JOIN Category ON Products.Category_id=Category.Category_id ' +
-    'JOIN Transaction ON Transaction.Trans_id=TransactionContainsProduct.Trans_id '+
-    'WHERE TransactionContainsProduct.Trans_id=?'
+    'SELECT t.Total_amount as total_amount,t.Total_piecies as total_pieces, tcp.Piecies as product_pieces,'+
+    'p.Name as product_name, p.Price as product_price, c.Name as product_category ' +
+    'FROM TransactionContainsProduct as tcp ' + 
+    'JOIN Products as p ON tcp.Barcode=p.Barcode ' +
+    'JOIN Category as c ON p.Category_id=c.Category_id ' +
+    'JOIN Transaction as t ON t.Trans_id=tcp.Trans_id '+
+    'WHERE tcp.Trans_id=?'
 
     db.query(sql, [trans_id], (err, result) => {  
         if (err) 

@@ -5,11 +5,14 @@ block content
     .container(style="position: relative;  margin-top: 3rem;")
         .row
             .col(style="margin-left: 3rem;")
-                a.btn.btn-dark(href= "/products/addProduct" role="button") Add Product
+                a.btn.btn-success(href= "/products/addProduct" role="button") Add Product
+                    i.fas.fa-plus-circle(style="margin-left:2rem;")
             .col
-                a.btn.btn-dark(href= "/products/editProduct" role="button") Edit Product       
+                a.btn.btn-info(href= "/products/editProduct" role="button") Edit Product
+                    i.far.fa-edit(style="margin-left:2rem;")       
             .col
-                a.btn.btn-dark(href= "/products/deleteProduct" role="button") Delete Product       
+                a.btn.btn-danger(href= "/products/deleteProduct" role="button") Delete Product
+                    i.fa.fa-trash(style="margin-left:2rem;")       
     .container(id="wrapper" style="margin-top: 3rem;")
         table#productTable.table.table-bordered.table-light
             thead.thead-dark

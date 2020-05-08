@@ -2,27 +2,29 @@ extends ../layout
 block content
     include ../includes/navbar
     script(src="../js/customers/customerTable.js")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    -   const fixDate = (utc) => {
-        -   let date = (utc.toString()).split(' ')
-        -   return date[1] + ' ' + date[2] + ' ' + date[3] 
-    -   }
+    - const fixDate = (utc) => {
+        -  let date = (utc.toString()).split(' ')
+        -  return date[2] + ' ' + date[1] + ' ' + date[3] 
+    - }
+    - const checkPets = (pets) => {
+        - if (pets === '') return '-'
+        - else return pets
+    - }
     .container(style="margin-top: 3rem;")
         .row
-            table#customerTable.table.table-bordered.table-light
+            table#customerTable.table.table-bordered.table-light.table-hover
                 thead.thead-dark
                     tr  
-                        th(scope="col" data-field='card') Card ID
-                        th(scope="col" data-field='name') Full Name
-                        th(scope="col" data-field='date_of_birth') Date of Birth
-                        th(scope="col" data-field='city') City
-                        th(scope="col" data-field='street') Street
-                        th(scope="col" data-field='number') Number 
-                        th(scope="col" data-field='postal_code') Postal Code
-                        th(scope="col" data-field='phone') Phone
-                        th(scope="col" data-field='family_memebers') Family Members
-                        th(scope="col" data-field='pet') Pets
-                        th(scope="col" data-field='points') Points
+                        th Card ID
+                        th Full Name
+                        th Date of Birth
+                        th City
+                        th Address
+                        th Postal Code
+                        th Phone
+                        th Family Members
+                        th Pets
+                        th Points
                 tbody
                     each customer in customers   
                         tr      
@@ -30,10 +32,9 @@ block content
                             td #{customer.Name}
                             td #{fixDate(customer.Date_of_birth)}
                             td #{customer.City} 
-                            td #{customer.Street}
-                            td #{customer.Number_}
+                            td #{customer.Street} #{customer.Number_}
                             td #{customer.Postal_code}
                             td #{customer.Phone}
                             td #{customer.Family_members}
-                            td #{customer.Pet}
+                            td #{checkPets(customer.Pet)}
                             td #{customer.Points}

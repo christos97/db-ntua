@@ -3,23 +3,21 @@ block content
     include ../includes/navbar
     script(src="../js/stores/storesTable.js")      
     .container(style="margin-top: 3rem;")
-        table#storesTable.table.table-bordered.table-light
+        table#storesTable.table.table-bordered.table-light.table-hover
             thead.thead-dark
                 tr  
                     th ID
                     th City
-                    th Street
-                    th Number
+                    th Address
                     th Postal Code
                     th Operating Hours
-                    th m2
+                    th Size
             tbody
                 each store in stores   
                     tr      
                         td #{store.Store_id}
                         td #{store.City}
-                        td #{store.Street}
-                        td #{store.Number_}
+                        td #{store.Street} #{store.Number_}
                         td #{store.Postal_code} 
                         td #{store.Operating_hours}
-                        td #{store.Size_}
+                        td #{store.Size_} &#13217;

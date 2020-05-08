@@ -31,4 +31,3 @@ router.get('/most_profitable_hours',(req, res) => select(views[3], res))
 router.get('/most_visited_hours_per_age_bracket',(req, res) => select(views[4], res))
 
 module.exports = router;
-

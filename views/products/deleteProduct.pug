@@ -1,5 +1,6 @@
 extends ../layout
 block content
+    script(src="../js/products/crudProduct.js")
     .container(style="width: 70%")
         .row
             form(id="editForm")
@@ -11,6 +12,9 @@ block content
                         each prod in products
                             option.form-control(value=`${prod.Barcode}`) #{prod.Name} 
         .row(style='margin: 2rem 30% 1rem 30%;')
-            a.button.btn.btn-dark(style="padding: 1rem; margin-right: 1.5rem; border-radius:15px;" href="/products" type="button") Back        
-            button.btn.btn-dark(style=" padding: 1rem; border-radius:15px;" id='submit-btn' type='submit' onClick="deleteProduct()") Delete product
-            script(src="../js/products/crudProduct.js")
+            .col
+                a.btn.btn-dark(href="/products" type="button")
+                    i.fas.fa-long-arrow-alt-left
+            .col
+                button.btn.btn-danger(id='submit-btn' type='submit' onClick="deleteProduct()")
+                    i.fa.fa-trash

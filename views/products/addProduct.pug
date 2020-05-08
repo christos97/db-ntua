@@ -1,6 +1,7 @@
 extends ../layout
 block content
-    .container(style="width: 50%")
+    script(src="../js/products/crudProduct.js")
+    .container(style="width: 60%")
         .row
             form 
             .col
@@ -24,6 +25,8 @@ block content
                         option.form-control(value="6")  Pets 
         .row(style='margin: 2rem 30% 1rem 30%;')
             .col
-                a.button.btn.btn-dark(style="padding: 1rem; margin-right: 1.5rem; border-radius:15px;" href="/products" type="button") Back        
-                button.btn.btn-dark(style=" padding: 1rem; border-radius:15px;" id='submit-btn' type='submit' onClick="addProduct()") Add 
-                script(src="../js/products/crudProduct.js")
+                a.btn.btn-dark(style="width:100%;" href="/products" type="button")
+                    i.fas.fa-long-arrow-alt-left        
+            .col    
+                button.btn.btn-success(style="width:100%;" id='submit-btn' type='submit' onClick="addProduct()")
+                    i.fas.fa-plus-circle 
