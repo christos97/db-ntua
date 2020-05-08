@@ -7,19 +7,25 @@ class PercentagePerCategoryChart extends React.Component {
     }
     
     componentDidMount() {
-    
-        fetch("http://localhost:3000/api/freq_bought_together")
+        let percentage =[]
+        fetch("http://localhost:3000/api/prefered_products_per_category")
         .then(res => res.json())
-        .then(
-          (result) => {
+        .then((result) => {
+            for (let res of result) {
+                if (res.Percentage < 1 ) 
+                    percentage.push(res.Percentage*10000%100)
+                else 
+                    percentage.push(res.Percentage*100)
+            }
+            
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'bar',
                 data: {
                     labels: ["Fresh","Frozen","Liquor & Spirits","Self Care","Home","Pet"],
                     datasets: [{
-                        label: 'Percentage (of total sales) of our products in each category',
-                        data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
+                        label: 'Percentage of total sales',
+                        data: percentage, 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

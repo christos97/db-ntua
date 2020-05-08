@@ -9,32 +9,22 @@ class TopSellingSpotsChart extends React.Component {
     }
 
     componentDidMount() {
+        let spot_position = [] , spot_sells = []
         fetch("http://localhost:3000/api/top_selling_spots")
         .then(res => res.json())
-        .then(
-          (spots) => {
+        .then((spots) => {
+            for (let spot of spots){ 
+                spot_position.push('Alley: ' + spot.Alley + ', Shelf: ' + spot.Shelf)
+                spot_sells.push(spot.place_sells)
+            }
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'horizontalBar',
                 data: {
-                    labels: [
-                        'A ' + spots[0].Alley + ', S ' + spots[0].Shelf,
-                        'A ' + spots[1].Alley + ', S ' + spots[1].Shelf,
-                        'A ' + spots[2].Alley + ', S ' + spots[2].Shelf,
-                        'A ' + spots[3].Alley + ', S ' + spots[3].Shelf,
-                        'A ' + spots[4].Alley + ', S ' + spots[4].Shelf,
-                        'A ' + spots[5].Alley + ', S ' + spots[5].Shelf
-                    ],
+                    labels: spot_position,
                     datasets: [{
                         label: '',
-                        data: [
-                            spots[0].place_sells, 
-                            spots[1].place_sells,
-                            spots[2].place_sells,
-                            spots[3].place_sells,
-                            spots[4].place_sells,
-                            spots[5].place_sells
-                        ], 
+                        data: spot_sells, 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

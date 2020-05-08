@@ -49,22 +49,22 @@ router.get('/init_db', (req, res) => {
     }
     
     const create_triggers = () => {
-        let trigger=''
+        let trigger = ''
         read.eachLine('./ddl/triggers.sql', (trigger_row) => {
             trigger= trigger.concat(trigger_row, ' ')
             if (trigger_row === 'end') {
                 sequelize.query(trigger, (err, res)=> { 
                     if (err) throw err
-                    console.log(trigger)      
+                    console.log(res)  
                 })
-                trigger=''
+                trigger = ''
             }
         })
     }
    
     const create_tables = () => {
         read.eachLine('./ddl/migration.sql', (create_table) => {
-            db.query(create_table, (err, result)=> {
+            db.query(create_table, (err, res)=> {
                 if (err) throw err
                 console.log(create_table)
             })

@@ -11,22 +11,22 @@ class FrequentlyBoughtTogetherChart extends React.Component {
     }
     
     componentDidMount() {
-    
+        let products = [], count =[]
         fetch("http://localhost:3000/api/freq_bought_together")
         .then(res => res.json())
-        .then(
-          (result) => {
-            
-            this.setState({products: [...this.state.products, result]})
-            
+        .then((result) => {
+            for (let res of result ){
+                products.push(res.nam1 + ' & ' +res.nam2)
+                count.push(res.cnt)
+            }
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'horizontalBar',
                 data: {
-                    labels: [result[0].nam1 + " + " +result[0].nam2, result[1].nam1 + " + " +result[1].nam2,result[2].nam1 + " + " +result[2].nam2 ,result[3].nam1 + " + " +result[3].nam2,result[4].nam1 + " + " +result[4].nam2,result[5].nam1 + " + " +result[5].nam2],
+                    labels: products,
                     datasets: [{
                         label: 'Frequently Bought Together',
-                        data: [result[0].cnt, result[1].cnt, result[2].cnt, result[3].cnt, result[4].cnt, result[5].cnt], // times bought together...result[..].whatever
+                        data: count,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

@@ -12,20 +12,29 @@ class VisitingHoursPerAgeChart extends React.Component {
         .then(res => res.json())
         .then(
           (result) => {
-            console.log(result)
+            let br1=[0], br2=[0] , br3=[0]
             for (let data of result) {
-                console.log(data)
+                if (data.Age_range === '<=30' && data.Time_range)
+                    br1.push(data.Visits)
+                else if (data.Age_range === '31-45' && data.Time_range) 
+                    br2.push(data.Visits)
+                else if(data.Time_range)
+                    br3.push(data.Visits)
             }
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'line',
                 data: {
-                    labels: ["09:00","10:00","11:00","12:00","13:00","14:00",
-                    "15:00","16:00","17:00","18:00","19:00","20:00","21:00"],
+                    labels: [
+                        "09:00","10:00","11:00","12:00",
+                        "13:00","14:00","15:00",
+                        "16:00","17:00","18:00",
+                        "19:00","20:00","21:00"
+                    ],
                     datasets: [{
                         label: '<30',
                         fill:false,
-                        data: [5, 8, 12, 5, 6, 3], // times bought together...result[..].whatever
+                        data: br1, 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                         ],
@@ -37,8 +46,7 @@ class VisitingHoursPerAgeChart extends React.Component {
                     {
                         label: '31-45',
                         fill:false,
-                        data: [12, 19, 3, 5, 2, 9], // times bought together...result[..].whatever
-
+                        data: br2, 
                         borderColor: [
                             'rgba(54, 162, 235, 1)',
                         ],
@@ -47,7 +55,7 @@ class VisitingHoursPerAgeChart extends React.Component {
                     {
                         label: '46-65',
                         fill:false,
-                        data: [2, 6, 14, 12, 9, 2], // times bought together...result[..].whatever
+                        data: br3, 
                         borderColor: [
                             'rgba(255, 206, 86, 1)',
                         ],

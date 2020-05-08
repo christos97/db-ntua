@@ -11,15 +11,14 @@ const
     storesRouter = require('./routes/stores'),
     customersRouter = require('./routes/customers')
 
-// Initialize application
 const app = express()
 
 // Basic express-pug setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(logger('dev'));
-app.use(express.json());
 app.use(cors())
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -30,7 +29,6 @@ app.use('/products', productsRouter)
 app.use('/stores', storesRouter)
 app.use('/customers', customersRouter)
 app.use('/api', apiRouter)
-
 
 // Template error handling
 app.use( (req, res, next) => {

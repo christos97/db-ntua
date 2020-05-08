@@ -7,23 +7,23 @@ class ProfitTimelineChart extends React.Component {
     }
     
     componentDidMount() {
-    
-        fetch("http://localhost:3000/api/freq_bought_together")
+        let profit = []
+        fetch("http://localhost:3000/api/most_profitable_hours")
         .then(res => res.json())
-        .then(
-          (result) => {
+        .then((result) => {
+            for (let res of result) 
+                profit.push(Math.round(res.profit))
+
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
-
                 type: 'line',
-
                 data: {
                     labels: ["09:00","10:00","11:00","12:00","13:00","14:00",
                     "15:00","16:00","17:00","18:00","19:00","20:00","21:00"],
                     datasets: [{
                         label: '<30',
                         fill:false,
-                        data: [5, 8, 12, 5, 6, 3], // times bought together...result[..].whatever
+                        data: profit, 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                         ],
