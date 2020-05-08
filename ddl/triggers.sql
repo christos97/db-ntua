@@ -3,9 +3,12 @@ after update
 on Products for each row
 begin
 	set @maxenddate := (select MAX(End_date) from HadOlderPrice where Barcode = new.Barcode);
-		if old.Price <> new.Price then 
-			insert into HadOlderPrice(Start_date, End_date, Price, Barcode) values (DATE_ADD(@maxenddate, interval 1 day), CURDATE(), old.Price, new.Barcode);
-		end if;
+	if @maxendddate is null then
+		set @maxenddate := '2019-12-31';
+	end if;
+	if old.Price <> new.Price then 
+		insert into HadOlderPrice(Start_date, End_date, Price, Barcode) values (DATE_ADD(@maxenddate, interval 1 day), CURDATE(), old.Price, new.Barcode);
+	end if;
 end
 create trigger after_delete_StoreProvidesCategory
 after delete

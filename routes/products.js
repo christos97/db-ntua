@@ -14,12 +14,20 @@ const exec = (query, bind, res) => {
 // Index
 router.get('/', (req, res) => {
     let query = 'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id'
+    
     db.query(query, (err, result) => {
         if (err) throw err
         res.render('products/index', { products: result })
     })
 })
 
+router.get('/update_products_table', (req, res) => {
+    let query = 'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id'
+    db.query(query, (err, result) => {
+        if (err) throw err
+        res.status(200).send(result)
+    })
+})
 router.get('/addProduct', (req, res) => 
     res.render('products/addProduct'))
 
@@ -49,18 +57,20 @@ router.post('/addProduct', (req, res, next) => {
 })
 
 router.post('/editProduct',(req, res, next) => {
-    let query = 'UPDATE Products SET Barcode=?, Price=?, Name=?, Brand_name=?, First_transaction=1, Category_id=? WHERE Barcode=?'
+    let query = 'UPDATE Products SET Barcode=?, Price=?, Name=?, Brand_name=?, Category_id=? WHERE Barcode=?'
     let bind = [
-        req.body.barcode, 
+        req.body.new_barcode, 
         parseFloat(req.body.price), 
         req.body.name, req.body.brand, 
         parseInt(req.body.category_id), 
-        req.body.product
+        req.body.prev_barcode
     ]
+    console.log(query,bind)
     exec(query, bind, res)
 })
 
-router.post('/deleteProduct', (req, res) => 
-    exec('DELETE FROM Products WHERE Barcode=?', [req.body.barcode], res))
+router.post('/deleteProduct', (req, res) =>{ 
+    console.log(req.body.barcode)
+    exec('DELETE FROM Products WHERE Barcode=?', [req.body.barcode], res)})
 
 module.exports = router;

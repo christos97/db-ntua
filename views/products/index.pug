@@ -2,26 +2,114 @@ extends ../layout
 block content
     include ../includes/navbar
     script(src="../js/products/productsTable.js")
+    script(src="../js/products/crudProduct.js")
+    #addProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                h3.modal-header.text-center Add Product
+                    button#add-close-btn.close(type='button', data-dismiss='modal', aria-label='Close' onClick='updateProductsTable()')
+                        span(aria-hidden='true') ×
+                .modal-body.mx-3
+                    .row
+                        form 
+                        .col 
+                            .form-group
+                                input#add_barcode.form-control(placeholder='Barcode' name='barcode')    
+                            .form-group
+                                input#add_price.form-control(placeholder='Price' name='price')
+                            .form-group
+                                input#add_name.form-control(placeholder='Product Name' name='name')
+                            .form-group
+                                input#add_brand.form-control(placeholder='Brand' name='brand')    
+                            .form-group
+                                input(type='text' name='category' list='categoryList')
+                                datalist#categoryList
+                                    option.form-control(value="1")  Fresh
+                                    option.form-control(value="2")  Frozen
+                                    option.form-control(value="3")  Liquors and Spirits
+                                    option.form-control(value="4")  Self Care
+                                    option.form-control(value="5")  Home
+                                    option.form-control(value="6")  Pets 
+                    .row(style='margin: 2rem 30% 1rem 30%;')     
+                        .col    
+                            button.btn.btn-success(style="width:100%;" id='submit-btn' type='submit' onClick="addProduct()")
+                                i.fas.fa-plus-circle
+    #editProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='editProductLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                h3.modal-header.text-center Edit Product
+                    button#edit-close-btn.close(type='button', data-dismiss='modal', aria-label='Close' onClick='updateProductsTable()')
+                        span(aria-hidden='true') ×
+                .modal-body.mx-3
+                    .row
+                        form  
+                        .col
+                            .form-group
+                                label(for='previous_barcode') Give existing product barcode
+                                input#edit_previous_barcode.form-control(placeholder='Existing Barcode' name='previous_barcode') 
+                            .form-group
+                                label(for='barcode') Barcode
+                                input#edit_barcode.form-control(placeholder='Barcode' name='barcode')    
+                            .form-group
+                                label(for='price') Price
+                                input#edit_price.form-control(placeholder='Price' name='price')
+                            .form-group
+                                label(for='name') Name
+                                input#edit_name.form-control(placeholder='Product Name' name='name')
+                            .form-group
+                                label(for='brand') Brand
+                                input#edit_brand.form-control(placeholder='Brand' name='brand')    
+                            .form-group
+                                label(for='edit_category') Category
+                                input(type='text' name='edit_category' list='edit_categoryList')
+                                datalist#edit_categoryList
+                                    option.form-control(value="1")  Fresh
+                                    option.form-control(value="2")  Frozen
+                                    option.form-control(value="3")  Liquors and Spirits
+                                    option.form-control(value="4")  Self Care
+                                    option.form-control(value="5")  Home
+                                    option.form-control(value="6")  Pets 
+                    .row(style='margin: 2rem 30% 1rem 30%;')     
+                        .col
+                            button.btn.btn-info(style=" padding: 1rem; border-radius:15px;" id='submit-btn' type='submit' onClick="editProduct()")
+                                i.far.fa-edit
+    #deleteProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteProductLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                h3.modal-header.text-center Select product to delete
+                    button#delete-close-btn.close(type='button', data-dismiss='modal', aria-label='Close' onClick='updateProductsTable()')
+                        span(aria-hidden='true') ×
+                .modal-body.mx-3
+                    .row
+                        form(id="editForm")
+                        .col(style="margin-right: 2rem;")
+                            .form-group
+                                label(for='delete_barcode') Give product barcode
+                                input#delete_barcode.form-control(placeholder='Barcode' name='delete_barcode') 
+                    .row(style='margin: 2rem 30% 1rem 30%;')
+                        .col
+                            button.btn.btn-danger(id='submit-btn' type='submit' onClick="deleteProduct()")
+                                i.fa.fa-trash
     .container(style="position: relative;  margin-top: 3rem;")
         .row
             .col(style="margin-left: 3rem;")
-                a.btn.btn-success(href= "/products/addProduct" role="button") Add Product
-                    i.fas.fa-plus-circle(style="margin-left:2rem;")
+                a.btn.btn-success(href= "#" data-toggle='modal' data-target='#addProductModal' role="button") Add Product
+                    i.fa.fa-trash(style="margin-left:2rem;")
             .col
-                a.btn.btn-info(href= "/products/editProduct" role="button") Edit Product
+                a.btn.btn-info(href= "#" data-toggle='modal' data-target='#editProductModal' role="button") Edit Product
                     i.far.fa-edit(style="margin-left:2rem;")       
             .col
-                a.btn.btn-danger(href= "/products/deleteProduct" role="button") Delete Product
-                    i.fa.fa-trash(style="margin-left:2rem;")       
+                a.btn.btn-danger(href= "#" data-toggle='modal' data-target='#deleteProductModal' role="button") Delete Product
+                    i.fa.fa-trash(style="margin-left:2rem;")
     .container(id="wrapper" style="margin-top: 3rem;")
         table#productTable.table.table-bordered.table-light
             thead.thead-dark
                 tr  
-                    th(scope="col" data-field='barcode') Barcode
-                    th(scope="col" data-field='price') Price
-                    th(scope="col" data-field='name') Name
-                    th(scope="col" data-field='brand') Brand
-                    th(scope="col" data-field='category') Category 
+                    th Barcode
+                    th Price
+                    th Name
+                    th Brand
+                    th Category 
             tbody
                 each product in products   
                     tr      

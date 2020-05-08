@@ -36,16 +36,16 @@ const postData = (url, body) => {
         .catch( (error) => alert(error) )
 }
 
-addProduct =  () => {
+const addProduct =  () => {
     
     let url = 'http://localhost:3000/products/addProduct'
 
     let body = {
-        barcode: document.getElementById('barcode').value,
-        price: document.getElementById('price').value,
-        name: document.getElementById('name').value,
-        brand: document.getElementById('brand').value,
-        category_id: document.querySelector('input[name="category"]').value
+        barcode: document.getElementById('add_barcode').value,
+        price: document.getElementById('add_price').value,
+        name: document.getElementById('add_name').value,
+        brand: document.getElementById('add_brand').value,
+        category_id: document.querySelector('input[name="add_category"]').value
     }
     
     if (!validateInput(body)) 
@@ -57,17 +57,17 @@ addProduct =  () => {
         $(`input[name=${f}`).val(''); 
 }
 
-editProduct = () => {
+const editProduct = () => {
 
     let url = 'http://localhost:3000/products/editProduct'
 
     let body = {
-        product: document.querySelector('input[name="product"]').value,
-        barcode: document.getElementById('barcode').value,
-        price: document.getElementById('price').value,
-        name: document.getElementById('name').value,
-        brand: document.getElementById('brand').value,
-        category_id: document.querySelector('input[name="category"]').value
+        prev_barcode: document.getElementById('edit_previous_barcode').value,
+        new_barcode: document.getElementById('edit_barcode').value,
+        price: document.getElementById('edit_price').value,
+        name: document.getElementById('edit_name').value,
+        brand: document.getElementById('edit_brand').value,
+        category_id: document.querySelector('input[name="edit_category"]').value
     }
     
     if (!validateInput(body)) 
@@ -79,14 +79,15 @@ editProduct = () => {
         $(`input[name=${f}`).val('');     
 }
 
-deleteProduct = () => {
+const deleteProduct = () => {
     
     let url = 'http://localhost:3000/products/deleteProduct'
     
-    let body = { barcode : document.querySelector('input[name="product"]').value }
+    let body = { barcode : document.getElementById('delete_barcode').value }
 
     if (!validateInput(body)) 
         return
     else
         postData(url, body)
 }
+

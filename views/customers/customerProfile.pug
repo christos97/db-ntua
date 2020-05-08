@@ -35,14 +35,12 @@ block content
             .col 
                 h5.label(for='radio_buttons' style="margin: 0rem 0.5rem 0.5rem 0.65rem") Payment method
                 .btn-group.btn-group-toggle(data-toggle="buttons" id='radio_buttons')
-                    label.btn.btn-primary 
-                        i.fas.fa-money-bill(style="margin-left:0.5rem;")
-                            input(type="radio" name="payment_method" value='Cash')
-                    label.btn.btn-primary.active All
+                    label.btn.btn-primary Cash
+                        input(type="radio" name="payment_method" value='Cash')
+                    label.btn.btn-primary All
                         input(type="radio" name="payment_method" value='All')
-                    label.btn.btn-primary
-                        i.fas.fa-credit-card
-                            input(type="radio" name="payment_method" value='Credit Card')
+                    label.btn.btn-primary Credit Card
+                        input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
                 table#customerTransactionsTable.table.table-bordered.table-light.table-hover(style="margin: 2rem 2rem 2rem 0rem;")

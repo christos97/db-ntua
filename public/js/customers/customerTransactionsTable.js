@@ -21,7 +21,6 @@ $(document).ready(function() {
     
        
     const updateTable = (transactions) => {
-        table.clear()
         for (let trans of transactions){
             let utc_date = new Date(trans.Date_time)
             let date = (utc_date.toString()).split('GMT')
