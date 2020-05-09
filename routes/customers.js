@@ -31,20 +31,20 @@ router.get('/:card_id', (req, res) => {
     })
 })
 
+const exec = (sql, bind, res) => {
+    db.query(sql, bind, (err, transactions) => {
+        if (err) 
+            res.status(500).send(err)    // Internal Server error
+        if (transactions.length > 0){
+            res.status(200).send(transactions)
+            }    // Ok
+        else    
+            res.status(404).send()    // Empty result return 404 not found
+    })
+}
 // Transactions per customer (for ajax calls with parameters)
 router.post('/transactions',(req, res) => {
 
-    const findTransactions = (sql, bind) => {
-        db.query(sql, bind, (err, transactions) => {
-            if (err) 
-                res.status(500).send(err)    // Internal Server error
-            if (transactions.length > 0)
-                res.status(200).send(transactions)    // Ok
-            else    
-                res.status(404).send()    // Empty result return 404 not found
-        })
-    }
-    
     let card = parseInt(((req.headers.referer).split('/'))[4]), // Catch incoming request's url (http://localhost:3000/customers/:card_id) to get :card_id (eg: '2') and parseInt 
         min_price = parseFloat(req.body.min_price),
         max_price = parseFloat(req.body.max_price),
@@ -54,7 +54,7 @@ router.post('/transactions',(req, res) => {
 
     if (payment_method === '') 
         payment_method = 'All'
-
+    
     let sql = 
     'SELECT t.Trans_id, t.Date_time, t.Total_piecies,' + 
     't.Total_amount, t.Payment_method, sa.Street, sa.Number_ '+
@@ -64,39 +64,27 @@ router.post('/transactions',(req, res) => {
     let bind = [card, min_price, max_price, min_pieces, max_pieces]
     
     if (payment_method === 'All')
-        findTransactions(sql, bind)
+        exec(sql, bind, res)
     else{
         sql += ' AND Payment_method=?'
         bind.push(payment_method)
-        findTransactions(sql, bind)
+        console.log(sql)
+        exec(sql, bind, res)
     }
  })
 
- router.get('/transactions/:trans_id', (req, res) => {
-    
-    // Product name (barcode), Category, Pieces per Product
-    let referer = req.headers.referer,
-        trans_id = parseInt(req.params.trans_id),
-        sql = 
-    'SELECT t.Total_amount as total_amount,t.Total_piecies as total_pieces, tcp.Piecies as product_pieces,'+
-    'p.Name as product_name, p.Price as product_price, c.Name as product_category ' +
-    'FROM TransactionContainsProduct as tcp ' + 
-    'JOIN Products as p ON tcp.Barcode=p.Barcode ' +
-    'JOIN Category as c ON p.Category_id=c.Category_id ' +
-    'JOIN Transaction as t ON t.Trans_id=tcp.Trans_id '+
-    'WHERE tcp.Trans_id=?'
-
-    db.query(sql, [trans_id], (err, result) => {  
-        if (err) 
-            res.status(500).send()     // Internal Server error
-        if (result.length > 0){    
-            res.render('receipt', {     // Ok
-                receipt: result,
-                ref: referer
-            }) 
-        }else
-            res.status(404).send()      // Empty result return 404 not found
-    })
-})
+ router.get('/transactions/:trans_id', (req, res) =>     
+    exec(
+        'SELECT t.Total_amount as total_amount,t.Total_piecies as total_pieces, tcp.Piecies as product_pieces,'+
+        'p.Name as product_name, p.Price as product_price, c.Name as product_category ' +
+        'FROM TransactionContainsProduct as tcp ' + 
+        'JOIN Products as p ON tcp.Barcode=p.Barcode ' +
+        'JOIN Category as c ON p.Category_id=c.Category_id ' +
+        'JOIN Transaction as t ON t.Trans_id=tcp.Trans_id '+
+        'WHERE tcp.Trans_id=?',
+        parseInt(req.params.trans_id),
+        res
+    )
+)
 
 module.exports = router;

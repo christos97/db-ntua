@@ -1,10 +1,12 @@
 $(document).ready(function() {
  
-    var table = $('#customerTable').DataTable( {
-        paging: true,
+    var table = $('#customerTable').DataTable({
+        paging: false,
         orderCellsTop: true,
-        fixedHeader: true
-    } );
+        fixedHeader: true,
+        bFilter: true,
+        bInfo : false
+    });
 
 
     $('#customerTable tbody tr').on('click',  function () {

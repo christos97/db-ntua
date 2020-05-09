@@ -1,9 +1,11 @@
 $(document).ready(function() {
     
      var table = $('#storesTable').DataTable( {
-         paging: true,
+         paging: false,
          orderCellsTop: true,
-         fixedHeader: true
+         fixedHeader: true,
+         bFilter: true,
+         bInfo : false
      } );
  
  

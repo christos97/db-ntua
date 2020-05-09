@@ -6,8 +6,8 @@ const exec = (query, bind, res) => {
     db.query(query,bind, (err, result) => {
         if (err) 
             res.status(500).send('500: Internal server error')
-        else
-            res.status(200).send('200: Ok')
+        console.log(result)
+        res.status(200).send()
     })
 }
 

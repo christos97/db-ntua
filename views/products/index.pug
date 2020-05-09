@@ -29,7 +29,14 @@ block content
                                     option.form-control(value="4")  Self Care
                                     option.form-control(value="5")  Home
                                     option.form-control(value="6")  Pets 
-                    .row(style='margin: 2rem 30% 1rem 30%;')     
+                    .row(style='margin: 2rem 30% 1rem 30%;')
+                        .col
+                            #product_added.alert.alert-success.collapse(role='alert')
+                                p Product added
+                                    i.fas.fa-check-circle
+                            #product_not_added.alert.alert-danger.collapse(role='alert')
+                                p Something went wrong
+                                    i.fas.fa-exclamation-circle  
                         .col    
                             button.btn.btn-success(style="width:100%;" id='add-btn' type='submit')
                                 i.fas.fa-plus-circle
@@ -63,7 +70,14 @@ block content
                                     option.form-control(value="4")  Self Care
                                     option.form-control(value="5")  Home
                                     option.form-control(value="6")  Pets 
-                    .row(style='margin: 2rem 30% 1rem 30%;')     
+                    .row(style='margin: 2rem 30% 1rem 30%;')
+                        .col
+                            #product_edited.alert.alert-success.collapse(role='alert')
+                                p Product edited
+                                    i.fas.fa-check-circle
+                            #product_not_edited.alert.alert-danger.collapse(role='alert')
+                                p Something went wrong
+                                    i.fas.fa-exclamation-circle     
                         .col
                             button.btn.btn-info(style=" padding: 1rem; border-radius:15px;" id='edit-btn' type='submit')
                                 i.far.fa-edit
@@ -75,12 +89,19 @@ block content
                         i.far.fa-window-close
                 .modal-body.mx-3.bg-light
                     .row
-                        form(id="editForm")
+                        form(id="deleteForm")
                         .col(style="margin-right: 2rem;")
                             .form-group
                                 label(for='delete_barcode') Give product barcode
-                                input#delete_barcode.form-control(placeholder='Barcode' name='delete_barcode') 
+                                input#delete_barcode.form-control( placeholder='Barcode' name='delete_barcode') 
                     .row(style='margin: 2rem 30% 1rem 30%;')
+                        .col
+                            #product_deleted.alert.alert-success.collapse(role='alert')
+                                p Product deleted
+                                    i.fas.fa-check-circle
+                            #product_not_deleted.alert.alert-danger.collapse(role='alert')
+                                p Something went wrong
+                                    i.fas.fa-exclamation-circle
                         .col
                             button.btn.btn-danger(id='delete-btn' type='submit')
                                 i.fa.fa-trash
