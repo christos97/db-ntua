@@ -1,8 +1,7 @@
 extends ../layout
 block content
     include ../includes/navbar
-    script(src="../js/products/productsTable.js")
-    script(src="../js/products/crudProduct.js")
+    script(src="../js/products.js")
     #addProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
         .modal-dialog(role='document')
             .modal-content
@@ -32,7 +31,7 @@ block content
                                     option.form-control(value="6")  Pets 
                     .row(style='margin: 2rem 30% 1rem 30%;')     
                         .col    
-                            button.btn.btn-success(style="width:100%;" id='submit-btn' type='submit' onClick="addProduct()")
+                            button.btn.btn-success(style="width:100%;" id='add-btn' type='submit')
                                 i.fas.fa-plus-circle
     #editProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='editProductLabel', aria-hidden='true')
         .modal-dialog(role='document')
@@ -71,7 +70,7 @@ block content
                                     option.form-control(value="6")  Pets 
                     .row(style='margin: 2rem 30% 1rem 30%;')     
                         .col
-                            button.btn.btn-info(style=" padding: 1rem; border-radius:15px;" id='submit-btn' type='submit' onClick="editProduct()")
+                            button.btn.btn-info(style=" padding: 1rem; border-radius:15px;" id='edit-btn' type='submit')
                                 i.far.fa-edit
     #deleteProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteProductLabel', aria-hidden='true')
         .modal-dialog(role='document')
@@ -88,7 +87,7 @@ block content
                                 input#delete_barcode.form-control(placeholder='Barcode' name='delete_barcode') 
                     .row(style='margin: 2rem 30% 1rem 30%;')
                         .col
-                            button.btn.btn-danger(id='submit-btn' type='submit' onClick="deleteProduct()")
+                            button.btn.btn-danger(id='delete-btn' type='submit')
                                 i.fa.fa-trash
     .container(style="position: relative;  margin-top: 3rem;")
         .row

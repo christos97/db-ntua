@@ -14,7 +14,6 @@ const exec = (query, bind, res) => {
 // Index
 router.get('/', (req, res) => {
     let query = 'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id'
-    
     db.query(query, (err, result) => {
         if (err) throw err
         res.render('products/index', { products: result })
@@ -28,22 +27,7 @@ router.get('/update_products_table', (req, res) => {
         res.status(200).send(result)
     })
 })
-router.get('/addProduct', (req, res) => 
-    res.render('products/addProduct'))
 
-router.get('/editProduct', (req, res) => {
-    db.query('SELECT Barcode,Name FROM Products', (err, result) => {
-        if (err) throw err
-        res.render('products/editProduct', { products: result })
-    })
-})
-
-router.get('/deleteProduct', (req, res) => {
-    db.query('SELECT Barcode,Name FROM Products', (err, result) => {
-        if (err) throw err
-        res.render('products/deleteProduct', { products: result })
-    })
-})
 router.post('/addProduct', (req, res, next) => {
     let query = 'INSERT INTO Products (Barcode,Price,Name,Brand_name, Store_label,Category_id) VALUES (?,?,?,?,0,?)'
     let bind = [
@@ -69,8 +53,7 @@ router.post('/editProduct',(req, res, next) => {
     exec(query, bind, res)
 })
 
-router.post('/deleteProduct', (req, res) =>{ 
-    console.log(req.body.barcode)
-    exec('DELETE FROM Products WHERE Barcode=?', [req.body.barcode], res)})
+router.post('/deleteProduct', (req, res) =>
+    exec('DELETE FROM Products WHERE Barcode=?', [req.body.barcode], res))
 
 module.exports = router;
