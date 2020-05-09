@@ -13,7 +13,7 @@ const select = (sql, res) => {
 }
 
 // Check database ready
-router.get('/database_up', (err, res) => select('select * from TransactionContainsProduct where Trans_id=240', res))
+router.get('/database_up', (err, res) => select("select * from information_schema.VIEWS where DEFINER='root@localhost' AND TABLE_NAME=Most_visited_hours_per_age_pracket;", res))
 
 const views = [
     'select * from Frequently_bought_together',
