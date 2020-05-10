@@ -1,5 +1,6 @@
 source ./migration.sql;
 source ./triggers.sql;
+source ./checks.sql;
 source ./indexes.sql;
 source ./inserts.sql;
 source ./seeding/new_inserts_1.sql;

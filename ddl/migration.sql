@@ -6,8 +6,6 @@ create table Stores(
 	Store_id int not null AUTO_INCREMENT unique,
 	Operating_hours varchar(11) not null default '09:00-21:00',
 	Size_ float,
-	check (Size_ > 0),
-	check (Store_id >= 1),
 	unique(Store_id),
 	primary key(Store_id)
 );
@@ -45,8 +43,6 @@ create table Customer(
 	Points float,
 	Date_of_birth date,
 	Name varchar(255),
-	check (Family_members > 0),
-	check (Points >= 0),
 	unique(Card),
 	primary key(Card)
 );
@@ -91,8 +87,6 @@ create table Products (
 	Brand_name varchar(255) default '',
 	Store_label int not null default 0,
 	Category_id int not null,
-	check (Price > 0),
-	check (First_transaction in (0,1)),
 	unique(Barcode,Category_id),
 	foreign key (Category_id) references Category(Category_id)
 	on delete cascade
@@ -105,8 +99,6 @@ create table HadOlderPrice(
 	Price decimal(6,3) not null,
 	End_date date not null,
 	Barcode varchar(10) not null,
-	check (Start_date < End_date),
-	check (Price > 0),
 	foreign key(Barcode) references Products(Barcode)
 	on delete cascade
 	on update cascade,
@@ -136,9 +128,6 @@ create table Transaction(
 	Payment_method varchar(255) not null,
 	Card int not null,
 	Store_id int not null,
-	check (Total_piecies >= 0),
-	check (Total_amount >= 0),
-	check (Payment_method in ('Cash','Credit card')),
 	foreign key(Card) references Customer(Card)
 	on delete cascade
 	on update cascade,

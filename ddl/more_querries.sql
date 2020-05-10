@@ -1,0 +1,1 @@
+create view Products_sold_per_category as
