@@ -33,6 +33,10 @@ $(document).ready(function() {
 
     var table = $('#productTable').DataTable( {
         paging: true,
+        orderCellsTop: true,
+        fixedHeader: true,
+        bFilter: true,
+        bInfo : true,
         columns: [
             { data: 'Barcode'},
             { data: 'Price'},

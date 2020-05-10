@@ -83,7 +83,7 @@ $(document).ready(function() {
                 'Total_piecies': trans.Total_piecies,
                 'Total_amount': trans.Total_amount,
                 'Payment_method': trans.Payment_method,
-                'Receipt': trans.Trans_id + '<a class="btn btn-dark" style="margin: 0rem 0rem 0rem 2.6rem; font-size: small; width:50%;" href="#" data-toggle="modal" data-target="#receiptModal" role="button"><i class="fas fa-file-invoice-dollar"></i></a>'
+                'Receipt': trans.Trans_id + '<a class="btn btn-secondary" style="margin: 0rem 0rem 0rem 2.6rem; border-radius:8px;" href="#" data-toggle="modal" data-target="#receiptModal" role="button"><i class="fas fa-file-invoice-dollar"></i></a>'
             })          
         }    
         store_table.draw()

@@ -4,7 +4,7 @@ $(document).ready(function() {
         paging: false,
         orderCellsTop: true,
         fixedHeader: true,
-        bFilter: true,
+        bFilter: false,
         bInfo : false
     });
 

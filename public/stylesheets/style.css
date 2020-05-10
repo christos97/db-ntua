@@ -5,34 +5,48 @@
   
   body {
     padding: 40px;
-    background-color: rgba(247, 247, 247, 0.995);
+    background-color: rgb(255, 255, 255);
   }
-
 
 p {
   font-size: medium;
   text-align:center; 
   margin: 0rem 1rem 1rem 0.5rem;
 }
+h5.label {
+  margin: 1.5rem 0.5rem 1.5rem 0.2rem;
+  text-align:center;
+  padding: 0.3rem;
+}
+.modal-content.bg-light {
+  border-radius:15px;
+  border: 2px outset rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+table thead {
+   
+  color: white;
+}
 
+.table.table-borderless.table-light.table-striped.table-hover.shadow-lg {
+  background-color: white;
+}
 i.fas.fa-check-circle {
   margin: 0.5rem 0.5rem 0rem 0.5rem;
 }
-button.btn.btn-dark {
-  margin: 1rem 0rem 0.5rem 0.5rem;
-  font-size: large;
-  border-radius: 15px;
-  padding: 1rem;
-  width: 80%;
-  text-align: center;
-}
+
 
 button.btn.btn-info {
   margin: 1rem 0rem 0.5rem 0.5rem;
   font-size: large;
-  border-radius: 15px;
-  padding: 1rem;
-  width: 80%;
+  border-radius: 12px;
+  padding: 0.7rem;
+  width: 85%;
   text-align: center;
 }
 button.btn.btn-success {
@@ -52,12 +66,7 @@ button.btn.btn-danger {
   text-align: center;
 }
 a.btn.btn-dark {
-    margin: 1rem 0rem 0.5rem 0.5rem;
-    font-size: large;
-    border-radius: 15px;
-    padding: 1rem;
-    width: 80%;
-    text-align: center;
+    margin: 1rem 0rem 0.5rem 0.5rem; font-size: large; border-radius: 15px; padding: 1rem;  width: 80%;text-align: center;
 }
 a.btn.btn-success {
   margin: 1rem 0rem 0.5rem 0.5rem;
@@ -77,6 +86,11 @@ a.btn.btn-danger {
     text-align: center;
 }
 
+a.btn.btn-secondary {
+  margin: 0rem 0rem 0rem 2.6rem; 
+  border-radius:8px;
+}
+
 a.btn.btn-info {
   margin: 1rem 0rem 0.5rem 0.5rem;
   font-size: large;
@@ -87,21 +101,22 @@ a.btn.btn-info {
   color: white;
 }
 
-.card.bg-dark {
-  padding:0.5rem;  
-  border: 3px inset grey; 
-  width: 100%; 
-  margin: 2rem 1rem 0rem 1rem;
-}
+
 
 h3 {
   text-align:center; 
-  margin: 1rem 1rem 1rem 1rem; 
+  margin: 3rem 1rem 1rem 1rem; 
   padding: 0.5rem;    
 }
 .card-body{
   color: lightgrey; 
   text-align: center;
+}
+
+.card.bg-secondary.shadow-lg {
+  border-radius: 15px; 
+  border-color: lightgrey;
+  margin: 3rem 0rem 0rem 1rem;
 }
 
 .col {
@@ -117,7 +132,7 @@ label {
 label.btn {
   padding: 0.5rem; 
   border-radius:15px; 
-  margin: 2rem 0.5rem 0rem 0.2rem
+  margin: 2rem 0.5rem 2rem 0.2rem
 }
 
 .btn-group.btn-group-toggle {

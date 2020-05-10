@@ -83,12 +83,12 @@ $(document).ready(function() {
                 'Total_amount': trans.Total_amount,
                 'Payment_method': trans.Payment_method,
                 'Store' : `${trans.Street} ${trans.Number_}`,
-                'Receipt': trans.Trans_id + '<a class="btn btn-dark" style="margin: 0rem 0rem 0rem 2.6rem; font-size: small; width:50%;" href="#" data-toggle="modal" data-target="#receiptModal" role="button"><i class="fas fa-file-invoice-dollar"></i></a>'
+                'Receipt': trans.Trans_id + '<a class="btn btn-secondary" style="margin: 0rem 0rem 0rem 2.6rem; border-radius:8px;" href="#" data-toggle="modal" data-target="#receiptModal" role="button"><i class="fas fa-file-invoice-dollar"></i></a>'
             })
             customer_table.draw()
             $('#customerTransactionsTable tbody tr').on('click',  function () {
                 let trans_id = ((customer_table.row( this ).data().Receipt).toString()).split('<')[0]
-                console.log('2')
+                console.log(trans_id)
                 axios
                     .get(`http://localhost:3000/customers/transactions/${trans_id}`)
                     .then( (result) => updateReceiptTable(result.data))
