@@ -9,6 +9,8 @@ class Top10PerCustomerChart extends React.Component {
     }
 
     componentDidMount() {
+        let customer_id = ((document.baseURI).split('/'))[4]
+
         fetch("http://localhost:3000/api/freq_bought_together")
         .then(res => res.json())
         .then(
