@@ -8,4 +8,4 @@
 
 ### An thes na kaneis merge pare OLO ton kwdika apo OLA ta arxeia ths bashs giati exoun ginei mikroallaes se OLA ta arxeia.
 
-###to more_querries.sql den periexetai sto ola dioti einai querries p prepei na kaneis copy paste :) 
+### to more_querries.sql den periexetai sto ola dioti einai querries p prepei na kaneis copy paste :) 
