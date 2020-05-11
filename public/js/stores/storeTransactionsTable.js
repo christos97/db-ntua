@@ -62,9 +62,8 @@ $(document).ready(function() {
    
     $('#storeTransactionsTable tbody tr').on('click',  function () {
         let trans_id = ((store_table.row( this ).data().Receipt).toString()).split('<')[0]
-        console.log(trans_id)
         axios
-            .get(`http://localhost:3000/stores/transactions/${trans_id}`)
+            .get(`http://localhost:3000/api/transactions/${trans_id}`)
             .then( (result) => updateReceiptTable(result.data))
             .catch((err) => alert(err))
     } );
@@ -89,9 +88,8 @@ $(document).ready(function() {
         store_table.draw()
         $('#storeTransactionsTable tbody tr').on('click',  function () {
             let trans_id = ((store_table.row( this ).data().Receipt).toString()).split('<')[0]
-            console.log('2')
             axios
-                .get(`http://localhost:3000/stores/transactions/${trans_id}`)
+                .get(`http://localhost:3000/api/transactions/${trans_id}`)
                 .then( (result) => updateReceiptTable(result.data))
                 .catch((err) => alert(err))
         } ); 
@@ -108,9 +106,9 @@ $(document).ready(function() {
     $("#amount_slider").ionRangeSlider({
         type: "double",
         min: 0,
-        max: 1000,
+        max: 1500,
         from: 0,
-        to: 1000,
+        to: 1500,
         grid: false,
         skin: 'round',
         
@@ -142,9 +140,9 @@ $(document).ready(function() {
     $("#pieces_slider").ionRangeSlider({
         type: "double",
         min: 0,
-        max: 50,
+        max: 25,
         from: 1,
-        to: 50,
+        to: 25,
         grid: false,
         skin: 'round',
         onStart: function (data) {

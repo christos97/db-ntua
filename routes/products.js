@@ -37,19 +37,20 @@ router.post('/addProduct', (req, res, next) => {
         req.body.brand,
         parseInt(req.body.category_id)
     ]
+    console.log('Add: \n', bind)
     exec(query, bind, res)
 })
 
 router.post('/editProduct',(req, res, next) => {
-    let query = 'UPDATE Products SET Barcode=?, Price=?, Name=?, Brand_name=?, Category_id=? WHERE Barcode=?'
+    let query = 'UPDATE Products SET Price=?, Name=?, Brand_name=?, Category_id=? WHERE Barcode=?'
     let bind = [
-        req.body.new_barcode, 
-        parseFloat(req.body.price), 
-        req.body.name, req.body.brand, 
+        parseFloat(req.body.price),
+        req.body.name,  
+        req.body.brand, 
         parseInt(req.body.category_id), 
-        req.body.prev_barcode
+        req.body.barcode
     ]
-    console.log(query,bind)
+    console.log("Edit: \n", bind)
     exec(query, bind, res)
 })
 

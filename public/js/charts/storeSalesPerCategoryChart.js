@@ -1,5 +1,5 @@
 'use strict';
-
+Chart.defaults.global.legend.display = false;
 class StoreSalesPerCategoryChart extends React.Component {
     constructor(props) {
         super(props)
@@ -18,7 +18,7 @@ class StoreSalesPerCategoryChart extends React.Component {
                 data: {
                     labels: ["Fresh","Frozen","Liquor & Spirits","Self Care","Home","Pet"],
                     datasets: [{
-                        label: 'Percentage of total sales in catgeory',
+                        label: "",
                         data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',

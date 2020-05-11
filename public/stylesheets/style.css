@@ -4,6 +4,8 @@
   }
   
   body {
+    font-family: 'Nunito Sans';
+    font-size: large;
     padding: 40px;
     background-color: rgb(255, 255, 255);
   }
@@ -29,26 +31,22 @@ h5.label {
   background-clip: padding-box;
 }
 table thead {
-   
+  background-color: lightslategrey;
   color: white;
+  font-weight: normal;
 }
 
-.table.table-borderless.table-light.table-striped.table-hover.shadow-lg {
+.table.table-borderless.table-light.table-striped.table-hover.shadow {
   background-color: white;
+  border-spacing: 0; 
+  border-collapse: collapse; 
 }
 i.fas.fa-check-circle {
   margin: 0.5rem 0.5rem 0rem 0.5rem;
 }
 
 
-button.btn.btn-info {
-  margin: 1rem 0rem 0.5rem 0.5rem;
-  font-size: large;
-  border-radius: 12px;
-  padding: 0.7rem;
-  width: 85%;
-  text-align: center;
-}
+
 button.btn.btn-success {
   margin: 1rem 0rem 0.5rem 0.5rem;
   font-size: large;
@@ -65,9 +63,7 @@ button.btn.btn-danger {
   width: 80%;
   text-align: center;
 }
-a.btn.btn-dark {
-    margin: 1rem 0rem 0.5rem 0.5rem; font-size: large; border-radius: 15px; padding: 1rem;  width: 80%;text-align: center;
-}
+
 a.btn.btn-success {
   margin: 1rem 0rem 0.5rem 0.5rem;
     font-size: large;
@@ -91,32 +87,25 @@ a.btn.btn-secondary {
   border-radius:8px;
 }
 
-a.btn.btn-info {
-  margin: 1rem 0rem 0.5rem 0.5rem;
-  font-size: large;
-  border-radius: 15px;
-  padding: 1rem;
-  width: 80%;
-  text-align: center;
-  color: white;
+.card.bg-secondary.shadow{
+  width:80%; 
+  margin: left; 
+  margin-top:18%;
 }
 
+.card.shadow {
+  background-color: lightslategrey;
+  border-color: 0.2px solid lightslategrey;
+  margin-top: 5%;
+  border-radius: 15px;
+  text-align: center;
+}
 
 
 h3 {
   text-align:center; 
   margin: 3rem 1rem 1rem 1rem; 
   padding: 0.5rem;    
-}
-.card-body{
-  color: lightgrey; 
-  text-align: center;
-}
-
-.card.bg-secondary.shadow-lg {
-  border-radius: 15px; 
-  border-color: lightgrey;
-  margin: 3rem 0rem 0rem 1rem;
 }
 
 .col {
@@ -131,8 +120,9 @@ label {
 
 label.btn {
   padding: 0.5rem; 
-  border-radius:15px; 
-  margin: 2rem 0.5rem 2rem 0.2rem
+  border-radius:15px;
+  font-size: large; 
+  margin: 2.4rem 0.25rem 0rem 0.25rem
 }
 
 .btn-group.btn-group-toggle {

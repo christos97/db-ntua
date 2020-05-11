@@ -68,7 +68,6 @@ router.post('/transactions',(req, res) => {
     else{
         sql += ' AND Payment_method=?'
         bind.push(payment_method)
-        console.log(sql)
         exec(sql, bind, res)
     }
  })

@@ -66,7 +66,7 @@ $(document).ready(function() {
         let trans_id = ((customer_table.row( this ).data().Receipt).toString()).split('<')[0]
         console.log('1')
         axios
-            .get(`http://localhost:3000/customers/transactions/${trans_id}`)
+            .get(`http://localhost:3000/api/transactions/${trans_id}`)
             .then( (result) => updateReceiptTable(result.data))
             .catch((err) => alert(err)) 
     } )
@@ -90,7 +90,7 @@ $(document).ready(function() {
                 let trans_id = ((customer_table.row( this ).data().Receipt).toString()).split('<')[0]
                 console.log(trans_id)
                 axios
-                    .get(`http://localhost:3000/customers/transactions/${trans_id}`)
+                    .get(`http://localhost:3000/api/transactions/${trans_id}`)
                     .then( (result) => updateReceiptTable(result.data))
                     .catch((err) => alert(err)) 
             } )
@@ -148,9 +148,9 @@ $(document).ready(function() {
     $("#pieces_slider").ionRangeSlider({
         type: "double",
         min: 0,
-        max: 50,
+        max: 25,
         from: 1,
-        to: 50,
+        to: 25,
         grid: false,
         skin: 'round',
         onStart: function (data) {

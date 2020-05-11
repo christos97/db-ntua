@@ -10,7 +10,7 @@ block content
     .container
         .row
             .col
-                .card.bg-secondary.shadow-lg
+                .card.shadow(style="margin-top: 10%;")
                     .card-body.text-white
                         i.fas.fa-store.fa-2x(style="margin-bottom: 1.5rem;")
                         h4 City:    #{store[0].City} 
@@ -19,26 +19,31 @@ block content
                         h4 Operating Hours: #{store[0].Operating_hours}
                         h4 Size : #{store[0].Size_}  &#13217;
             .col
-                h3 Products sold per category
                 .card.shadow.bg-white(style="border-radius: 15px; border-color:white;")
                     .card-body
-                        #store_sales_per_category_chart
+                        h4.card-title Products sold per category
+                            .chart-container(style='margin-top: 5%;')
+                                #store_sales_per_category_chart
         .row    
-            .col(style="margin-left:4rem;")
-                h5.label(for="pieces_slider") Total pieces bought
-                input#pieces_slider.js-range-slider(name="pieces_slider" type="text" value="")
-            .col     
-                h5.label(for="amount_slider") Total amount spent
-                input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
             .col
-                h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
-                .btn-group.btn-group-toggle(style="margin:0.5rem 0rem 0rem 2.8rem;" data-toggle="buttons" id='radio_buttons')
-                    label.btn.btn-secondary Cash
-                        input(type="radio" name="payment_method" value='Cash')
-                    label.btn.btn-secondary.active All
-                        input(type="radio" name="payment_method" value='All') 
-                    label.btn.btn-secondary Credit Card
-                        input(type="radio" name="payment_method" value='Credit Card')
+                .card.shadow.bg-white(style="border-radius: 15px; border-color:white;")
+                    .card-body.text-dark
+                        .row 
+                            .col
+                                h5.label(for="pieces_slider") Total pieces bought
+                                input#pieces_slider.js-range-slider(name="pieces_slider" type="text" value="")
+                            .col     
+                                h5.label(for="amount_slider") Total amount spent (&#36;)
+                                input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
+                            .col
+                                h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
+                                .btn-group.btn-group-toggle(style="margin:0rem 0rem 2rem 1rem;" data-toggle="buttons" id='radio_buttons')
+                                    label.btn.btn-primary Cash
+                                        input(type="radio" name="payment_method" value='Cash')
+                                    label.btn.btn-primary.active All
+                                        input(type="radio" name="payment_method" value='All') 
+                                    label.btn.btn-primary Credit Card
+                                        input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
                 #receiptModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='receiptLabel', aria-hidden='true')
@@ -49,7 +54,7 @@ block content
                                     i.far.fa-window-close
                             .modal-body.mx-3.bg-light
                                 table#receiptTable.table-sm.table-bordereless.table-light.table-striped.shadow(style="margin: 1rem 2rem 2rem 0rem; widht:80%;")
-                                    thead.bg-info
+                                    thead.bg-light.text-dark
                                         tr  
                                             th Product
                                             th Pieces 
@@ -57,14 +62,14 @@ block content
                                             th Price per unit
                             .modal-footer.bg-light
                                 table#receiptTotalTable.table-sm.table-borderless.table-light.table-striped.shadow
-                                    thead.bg-info
+                                    thead.bg-light.text-dark
                                         tr
                                             th Total pieces 
                                             th Total amount         
         .row
-            table#storeTransactionsTable.table.table-borderless.table-light.table-striped.table-hover.shadow-lg(style="margin: 2rem 2rem 2rem 0rem;")
+            table#storeTransactionsTable.table.table-borderless.table-light.table-striped.shadow(style="margin: 2rem 2rem 2rem 0rem;")
                 h3(style="margin-left:0rem; margin-top: 0rem;") Transactions in store
-                thead.bg-info
+                thead
                     tr 
                         th Date 
                         th Customer Name

@@ -67,6 +67,15 @@ $(document).ready(function() {
             .catch( (err) => alert('Error updating table'))
     }
     
+    $('#product_added').hide();
+    $('#product_not_added').hide();
+
+    $('#product_edited').hide();
+    $('#product_not_edited').hide();
+
+    $('#product_deleted').hide();
+    $('#product_not_deleted').hide();
+
     const displayAlert = (alert) => {
         $(alert).show();
         setTimeout(() => { 
@@ -106,8 +115,7 @@ $(document).ready(function() {
         let success = '#product_edited'
         let error = '#product_not_edited'
         let body = {
-            prev_barcode: document.getElementById('edit_previous_barcode').value,
-            new_barcode: document.getElementById('edit_barcode').value,
+            barcode: document.getElementById('edit_barcode').value,
             price: document.getElementById('edit_price').value,
             name: document.getElementById('edit_name').value,
             brand: document.getElementById('edit_brand').value,

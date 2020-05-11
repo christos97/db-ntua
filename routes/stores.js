@@ -11,6 +11,15 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/update_stores_table', (req, res) => {
+    let query = 'SELECT * FROM StoreAddress JOIN Stores ON Stores.Store_id=StoreAddress.Store_id'
+    db.query(query, (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).send(result)
+    })
+})
+
 // Store Profile
 router.get('/:store_id', (req, res) => {
     let store_id = parseInt(req.params.store_id),
@@ -42,6 +51,69 @@ const exec = (sql, search , res) => {
             res.status(404).send()      // Empty result return 404 not found
     })
 }
+router.post('/addStore', (req, res, next) => {
+    let sql1 = 'INSERT INTO Stores (Store_id, Operating_hours, Size_) VALUES (?,?,?)'
+    let bind1 = [
+        parseInt(req.body.store_id),
+        req.body.oper_hours, 
+        parseInt(req.body.size)
+    ]
+    let sql2= 'INSERT INTO StoreAddress(Store_id ,Adr_id, Street,Number_, Postal_code, City) VALUES (?,?,?,?,?,?)'
+    let bind2 =[
+        parseInt(req.body.store_id),
+        parseInt(req.body.store_id),
+        req.body.street,
+        parseInt(req.body.number),
+        req.body.postal_code,
+        req.body.city
+    ]
+    console.log('Add: \n', bind1 , bind2)
+    db.query(sql1, bind1, (err,result1) => {
+        console.log(result1)  
+        if (err) res.status(500).send()     
+        if (result1){ 
+            db.query( sql2, bind2, (err, result2) => {
+                if (err) res.status(500).send()
+                console.log(result2)
+                res.status(200).send()
+            })      
+        } 
+        else
+            res.status(404).send()      
+    })
+})
+
+
+
+router.post('/editStore',(req, res) => {
+    let sql = 'UPDATE Stores as s, StoreAddress as sa '+
+    'SET s.Operating_hours=?, s.Size_=? ,sa.Street=?, sa.Number_=?, sa.Postal_code=?, sa.City=? '+
+    'WHERE s.Store_id=? AND sa.Store_id=?'
+    let bind = [
+        req.body.oper_hours,  
+        parseInt(req.body.size),
+        req.body.street,
+        req.body.number,
+        req.body.postal_code,
+        req.body.city,
+        parseInt(req.body.store_id),
+        parseInt(req.body.store_id) 
+    ]
+    console.log(req.body)
+    db.query(sql, bind, (err, result) => {
+        if (err) res.status(500).send()
+        console.log(result)
+        res.status(200).send()
+    })
+})
+
+router.post('/deleteStore', (req, res) =>{
+    let sql ='delete from Stores where Store_id=?'
+    db.query(sql, [parseInt(req.body.store_id)], (err, result) => {
+        if (err) res.status(500).send()
+        res.status(200).send()
+    })
+})
 
 // Handles Transaction Table
 router.post('/transactions', (req, res) => {
@@ -52,37 +124,28 @@ router.post('/transactions', (req, res) => {
         min_pieces = parseFloat(req.body.min_pieces),
         max_pieces = parseFloat(req.body.max_pieces),
         payment_method = req.body.payment_method
-
-    if (payment_method === '') payment_method = 'All'
         
-    if (payment_method === 'All'){
-        let sql = 
-        'SELECT Transaction.Trans_id, Transaction.Card, Transaction.Date_time, Transaction.Total_piecies, Transaction.Total_amount, Transaction.Payment_method, StoreAddress.Street, StoreAddress.Number_, Customer.Name, Customer.Card FROM Transaction JOIN StoreAddress ON StoreAddress.Store_id=Transaction.Store_id JOIN Customer ON Customer.Card=Transaction.Card WHERE Transaction.Store_id=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? AND Total_piecies<=?',
-        search = [store_id, min_price, max_price, min_pieces, max_pieces]
-        exec(sql, search, res)
-    }
+    let bind = [store_id, min_price, max_price, min_pieces, max_pieces]
+    let sql = 
+    'SELECT t.Trans_id, t.Card, t.Date_time, t.Total_piecies, '+
+    't.Total_amount, t.Payment_method, sa.Street, sa.Number_, c.Name, c.Card '+
+    'FROM Transaction as t '+
+    'JOIN StoreAddress as sa ON sa.Store_id=t.Store_id '+
+    'JOIN Customer as c ON c.Card=t.Card '+
+    'WHERE t.Store_id=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? '+
+    'AND Total_piecies<=?';
+        
+    if (payment_method === '') 
+        payment_method = 'All'
+        
+    if (payment_method === 'All')
+        exec(sql, bind, res)
     else{
-        let sql = 'SELECT Transaction.Trans_id, Transaction.Card, Transaction.Date_time, Transaction.Total_piecies, Transaction.Total_amount, Transaction.Payment_method, StoreAddress.Street, StoreAddress.Number_, Customer.Name, Customer.Card FROM Transaction JOIN StoreAddress ON StoreAddress.Store_id=Transaction.Store_id JOIN Customer ON Customer.Card=Transaction.Card WHERE Transaction.Store_id=? AND Total_amount>=? AND Total_amount<=? AND Total_piecies>=? AND Total_piecies<=? AND Payment_method=?',
-        search = [store_id, min_price, max_price, min_pieces, max_pieces, payment_method]
-        exec(sql, search, res)
+        sql += ' AND Payment_method=?'
+        bind.push(payment_method)
+        exec(sql, bind, res)
     }
 })
-
-// Handles Receipt Modal Table
-router.get('/transactions/:trans_id', (req, res) => 
-    exec 
-    (   'SELECT t.Total_amount as total_amount,t.Total_piecies as total_pieces, '+
-        'tcp.Piecies as product_pieces, p.Name as product_name, '+
-        'p.Price as product_price, c.Name as product_category ' +
-        'FROM TransactionContainsProduct as tcp ' + 
-        'JOIN Products as p ON tcp.Barcode=p.Barcode ' +
-        'JOIN Category as c ON p.Category_id=c.Category_id ' +
-        'JOIN Transaction as t ON t.Trans_id=tcp.Trans_id '+
-        'WHERE tcp.Trans_id=?',
-        parseInt(req.params.trans_id), 
-        res 
-    )
-)
 
 
 module.exports = router

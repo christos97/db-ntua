@@ -39,7 +39,7 @@ block content
                                     i.fas.fa-exclamation-circle  
                         .col    
                             button.btn.btn-success(id='add-btn' type='submit')
-                                i.fas.fa-plus-circle
+                                i.fas.fa-plus
     #editProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='editProductLabel', aria-hidden='true')
         .modal-dialog(role='document')
             .modal-content.bg-light
@@ -51,10 +51,9 @@ block content
                         form  
                         .col
                             .form-group
-                                label(for='previous_barcode') Give existing product barcode
-                                input#edit_previous_barcode.form-control(placeholder='Existing Barcode' name='previous_barcode') 
-                            .form-group
-                                input#edit_barcode.form-control(placeholder='New barcode' name='barcode')    
+                                label(for='barcode') Edit product by barcode
+                                input#edit_barcode.form-control(placeholder='Product barcode' name='barcode')    
+                            br
                             .form-group
                                 input#edit_price.form-control(placeholder='New price' name='price')
                             .form-group
@@ -79,7 +78,7 @@ block content
                                 p Something went wrong
                                     i.fas.fa-exclamation-circle     
                         .col
-                            button.btn.btn-secondary(style="margin: 1rem 0rem 0.5rem 0.5rem; font-size: large; border-radius: 15px; padding: 1rem;  width: 80%;text-align: center;" id='edit-btn' type='submit')
+                            button.btn.btn-info.text-white(style=" margin: 1rem 0rem 0.5rem 0.5rem; font-size: large; border-radius: 15px; padding: 1rem;  width: 80%;text-align: center;" id='edit-btn' type='submit')
                                 i.fas.fa-edit
     #deleteProductModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteProductLabel', aria-hidden='true')
         .modal-dialog(role='document')
@@ -92,7 +91,7 @@ block content
                         form(id="deleteForm")
                         .col(style="margin-right: 2rem;")
                             .form-group
-                                label(for='delete_barcode') Give product barcode
+                                label(for='delete_barcode') Delete product by barcode
                                 input#delete_barcode.form-control( placeholder='Barcode' name='delete_barcode') 
                     .row(style='margin: 2rem 30% 1rem 30%;')
                         .col
@@ -109,16 +108,14 @@ block content
         .row
             .col(style="margin-left: 3rem;")
                 a.btn.btn-success.shadow(href= "#" data-toggle='modal' data-target='#addProductModal' role="button") Add Product
-                    i.fas.fa-plus-circle(style="margin-left:2rem;")
             .col
-                a.btn.btn-secondary.shadow(style=' margin: 1rem 0rem 0.5rem 0.5rem; font-size: large;border-radius: 15px;padding: 1rem;width: 80%; text-align: center;' href= "#" data-toggle='modal' data-target='#editProductModal' role="button") Edit Product
-                    i.fas.fa-edit(style="margin-left:2rem;")       
+                a.btn.btn-info.shadow(style=' margin: 1rem 0rem 0.5rem 0.5rem; font-size: large;border-radius: 15px;padding: 1rem;width: 80%; text-align: center;' href= "#" data-toggle='modal' data-target='#editProductModal' role="button") Edit Product 
             .col
                 a.btn.btn-danger.shadow(href= "#" data-toggle='modal' data-target='#deleteProductModal' role="button") Delete Product
-                    i.fas.fa-trash(style="margin-left:2rem;")
     .container(id="wrapper" style="margin-top: 3rem;")
+        h3 Products
         table#productTable.table.table-borderless.table-light.table-striped.table-hover.shadow-lg
-            thead.bg-info
+            thead
                 tr  
                     th Barcode
                     th Price

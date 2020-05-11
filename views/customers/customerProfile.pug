@@ -6,43 +6,61 @@ block content
     script(type ='text/babel' src="../js/charts/customerVisitingHoursChart.js")
     - const parseDate = (utc) => {
         - return (utc.toString()).split('GMT')[0]
+    - }
+    - const checkPets = (pets) => {
+        - if (pets === '') return '-'
+        - else return pets
     - } 
     .container
         .row
             .col    
-                .card.bg-secondary.shadow-lg
+                .card.bg-secondary.shadow
                     .card-body.text-white
                         i.fas.fa-user.fa-2x(style="margin-bottom: 1.5rem;")
-                        h4.card-title #{customer[0].Name} 
-                        h4 Card ID: #{customer[0].Card}  Card Points: #{customer[0].Points}
-                        h4 City: #{customer[0].City},  Address: #{customer[0].Street} #{customer[0].Number_}, #{customer[0].Postal_code}
-                        h4 Phone: #{customer[0].Phone}
-                        h4 Family members: #{customer[0].Family_members}, Pet: #{customer[0].Pet} 
-                        h4 Transactions per week: ? 
-                        h4 Amount spent per week: ?
-                        h4 Transactions per month: ?  
-                        h4 Amount spent per month: ?
+                        h5.card-title #{customer[0].Name} 
+                        h5 Card ID: #{customer[0].Card}  
+                        h5 Card Points: #{customer[0].Points}
+                        h5 Address: #{customer[0].City}, #{customer[0].Street} #{customer[0].Number_}, #{customer[0].Postal_code}
+                        h5 Phone: #{customer[0].Phone}
+                        h5 Family members: #{customer[0].Family_members} 
+                        h5 Pet: #{checkPets(customer[0].Pet)}
+                .card.bg-secondary.shadow(style="margin:left; margin-top:8%;")
+                    .card-body.text-white 
+                        h5 Transactions :
+                        h5 per week: ? #{'&'} per month: ?
+                        h5 Amount spent: 
+                        h5 per week: ? #{'&'} per month: ?
             .col
-                h3 Customer Visiting Hours
-                .card.shadow.bg-white(style="border-radius: 15px; border-color:white;")
+                .card.shadow.bg-white(style="margin-top:8%; border-radius: 15px; border-color:white;")
                     .card-body
-                        #customer_visiting_hours_chart 
+                        h4.card-title Customer Visiting Hours
+                        .chart-container(style="margin-top: 8%;")
+                            #customer_visiting_hours_chart
+                .card.shadow.bg-white(style="margin-top:8%; border-radius: 15px; border-color:white;")
+                    .card-body
+                        h4 Top 10 customer products
+                        .chart-container(style="margin: 3rem 1rem 2rem 0rem; ")
+                            #top_10_per_customer_chart  
         .row
-            .col(style="margin-left:4rem;")
-                h5.label(for="pieces_slider") Total pieces bought
-                input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="")
-            .col       
-                h5.label(for="amount_slider") Total amount (&#36;)
-                input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
-            .col 
-                h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
-                .btn-group.btn-group-toggle(style="margin:0.5rem 0rem 0rem 2.8rem;" data-toggle="buttons" id='radio_buttons')
-                    label.btn.btn-secondary Cash
-                        input(type="radio" name="payment_method" value='Cash')
-                    label.btn.btn-secondary All
-                        input(type="radio" name="payment_method" value='All')
-                    label.btn.btn-secondary Credit Card
-                        input(type="radio" name="payment_method" value='Credit Card')
+            .col
+                .card.shadow.bg-white(style="border-radius: 15px; border-color:white;")
+                    .card-body.text-dark
+                        .row
+                            .col
+                                h5.label(for="pieces_slider") Total pieces bought
+                                input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="")
+                            .col       
+                                h5.label(for="amount_slider") Total amount spent (&#36;)
+                                input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
+                            .col 
+                                h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
+                                .btn-group.btn-group-toggle(style="margin-bottom:2rem;" data-toggle="buttons" id='radio_buttons')
+                                    label.btn.btn-primary Cash
+                                        input(type="radio" name="payment_method" value='Cash')
+                                    label.btn.btn-primary All
+                                        input(type="radio" name="payment_method" value='All')
+                                    label.btn.btn-primary Credit Card
+                                        input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
                 #receiptModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='receiptLabel', aria-hidden='true')
@@ -53,7 +71,7 @@ block content
                                     i.far.fa-window-close
                             .modal-body.mx-3.bg-light
                                 table#receiptTable.table-sm.table-borderless.table-light.table-striped.shadow(style="margin: 1rem 2rem 2rem 0rem; widht:80%;")
-                                    thead.bg-info
+                                    thead.bg-light.text-dark
                                         tr  
                                             th Product
                                             th Pieces 
@@ -61,14 +79,14 @@ block content
                                             th Price per unit 
                             .modal-footer.bg-light
                                 table#receiptTotalTable.table-sm.table-borderless.table-light.table-striped.shadow
-                                    thead.bg-info
+                                    thead.bg-light.text-dark
                                         tr
                                             th Total pieces 
                                             th Total amount 
         .row
-            table#customerTransactionsTable.table.table-borderless.table-light.table-striped.table-hover.shadow-lg(style="margin: 2rem 2rem 2rem 0rem;")
+            table#customerTransactionsTable.table.table-borderless.table-light.table-striped.shadow(style="margin: 2rem 2rem 2rem 0rem;")
                 h3(style="margin-left: 0rem; margin-top: 0rem;") Customer Transactions
-                thead.bg-info 
+                thead.bg-secondary 
                     tr  
                         th Date Time
                         th Total pieces
@@ -87,10 +105,4 @@ block content
                             td#receipt #{trans.Trans_id}
                                 a#receipt_btn.btn.btn-secondary(style='margin: 0rem 0rem 0rem 2.6rem; border-radius:8px;' href= "#" data-toggle='modal' data-target='#receiptModal' role="button") 
                                     i.fas.fa-file-invoice-dollar
-    .container 
-        .row
-            .col
-                h3 Top 10 customer products
-                .chart-container(style="margin: 3rem 1rem 2rem 0rem; ")
-                    #top_10_per_customer_chart   
       
