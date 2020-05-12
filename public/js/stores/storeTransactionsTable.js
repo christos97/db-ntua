@@ -68,7 +68,7 @@ $(document).ready(function() {
             .catch((err) => alert(err))
     } );
 
-    
+
     
     const updateStoreTable = (transactions) => {
         store_table.clear()

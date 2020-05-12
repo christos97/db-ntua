@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
 
     var table = $('#productTable').DataTable( {
-        paging: true,
+        paging: false,
         orderCellsTop: true,
         fixedHeader: true,
         bFilter: true,
@@ -42,19 +42,108 @@ $(document).ready(function() {
             { data: 'Price'},
             { data: 'Name'},
             { data: 'Brand'},
-            { data: 'Category'}
+            { data: 'Category'},
+            { data: 'Price History'}
         ]
     } );
+   
+    const modal = document.getElementById('md_bd')
+    const redraw_model = () => {
+        modal.innerHTML = ''
+        let canvas = document.createElement('canvas')
+        canvas.id='price_history__chart'
+        canvas.width ="400"
+        canvas.height= "400"
+        document.body.appendChild(canvas)
+        modal.append(canvas)
+    }
 
+    let history_chart
+    $('#productTable tbody tr').on('click', function () {
+        
+        redraw_model()
+        
+        let barcode = ( table.row( this ).data().Barcode).split('<')[0]
+        console.log(barcode)
+        axios
+            .get(`http://localhost:3000/api/price_history/${barcode}`)
+            .then( (result) =>{
+                let dates= [], prices=[]
+                
+                for (let row of result.data){
+                    let utc = new Date(row.Start_date)
+                    let date = (utc.toDateString()).split(' ')
+                    dates.push(date[1] + '-' + date[2] + '-' + date[3])
+                    prices.push(row.Price)
+                }
+                let now = new Date()
+                let today = (now.toDateString()).split(' ') 
+                dates.push(today[1] + '-' + today[2] + '-' + today[3])
+                prices.push(result.data[0].cur_price)
+                var ctx = document.getElementById('price_history__chart').getContext('2d');
+                history_chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                    labels: dates,
+                    datasets: [{
+                        label: result.data[0].Name,
+                        fill:false,
+                        data: prices, 
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 2
+                    }]
+                    },
+                    options: {
+                    legend: {
+                        labels: {
+                            fontColor: 'black'
+                        }
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
+                                beginAtZero: false
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: 'black',
+                                fontSize: 14,
+                                stepSize: 1,
+                                beginAtZero: false
+                            }
+                        }]
+                    }
+                    }
+                })
+            })
+            .catch( () => {
+                modal.innerHTML = 'No price history changes';
+            }
+               
+            )
+    });
+
+    
+    
+    
     const updateProductTable = (products) => {
         table.clear()
         for (let prod of products){
             table.row.add({
-                'Barcode' : prod.Barcode,
+                'Barcode' : prod.Barcode ,
                 'Price': prod.Price,
                 'Name': prod.prod_name,
                 'Brand': prod.Brand_name,
                 'Category' : prod.categ_name,
+                'Price History' : '<a class="btn btn-secondary" id="price-history-btn" style="margin: 0rem 0rem 0rem 2.6rem; border-radius:8px;" href="#" data-toggle="modal" data-target="#priceHistoryModal" role="button"><i class="fas fa-history"></i></a>'
             })
         }
         table.draw()
@@ -64,15 +153,13 @@ $(document).ready(function() {
         axios
             .get('http://localhost:3000/products/update_products_table')
             .then((result) => updateProductTable(result.data))
-            .catch( (err) => alert('Error updating table'))
+            .catch( (err) => console.log(err))
     }
     
     $('#product_added').hide();
     $('#product_not_added').hide();
-
     $('#product_edited').hide();
     $('#product_not_edited').hide();
-
     $('#product_deleted').hide();
     $('#product_not_deleted').hide();
 
@@ -139,7 +226,16 @@ $(document).ready(function() {
         for (let f in body) $(`input[name=${f}`).val('')
         
         return
-    }    
+    } 
+       
+    document.getElementById('history-close-btn').onclick = () => {
+        console.log('Removed')
+        if(history_chart) 
+            history_chart.destroy()
+        $('canvas').remove();
+    }
+    
+    document.getElementById('edit-close-btn').onclick = () =>  window.location.reload()
     
     document.getElementById('add-btn').onclick = () => {
         addProduct()
@@ -155,6 +251,7 @@ $(document).ready(function() {
         deleteProduct()
         triggerUpdate()
     }
+  
 });
 
 

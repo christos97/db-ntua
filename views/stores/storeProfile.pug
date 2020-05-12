@@ -7,7 +7,7 @@ block content
     - const parseDate = (utc) => {
         - return (utc.toString()).split('GMT')[0] 
     - }
-    .container
+    .container-fluid
         .row
             .col
                 .card.shadow(style="margin-top: 10%;")
@@ -66,9 +66,12 @@ block content
                                         tr
                                             th Total pieces 
                                             th Total amount         
+    .container
+        .row
+            .col
+                h3(style="margin-left:0rem; margin-top: 0rem;") Transactions in store
         .row
             table#storeTransactionsTable.table.table-borderless.table-light.table-striped.shadow(style="margin: 2rem 2rem 2rem 0rem;")
-                h3(style="margin-left:0rem; margin-top: 0rem;") Transactions in store
                 thead
                     tr 
                         th Date 

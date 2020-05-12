@@ -21,7 +21,16 @@ $(document).ready(function() {
             { data: 'Price_per_unit'}  
         ]
     })
-
+    var weekly_table = $('#weeklyTable').DataTable({
+        paging: true,
+        pagingType: 'numbers',
+        bFilter: false,
+        bInfo : false,
+        columns: [
+            { data: 'Week'}, 
+            { data: '$'} 
+        ]
+    })
     const updateReceiptTotalTable = (total_pieces, total_amount) => {
         receipt_total_table.clear()
         receipt_total_table.row.add({
@@ -64,7 +73,6 @@ $(document).ready(function() {
  
     $('#customerTransactionsTable tbody tr').on('click',  function () {
         let trans_id = ((customer_table.row( this ).data().Receipt).toString()).split('<')[0]
-        console.log('1')
         axios
             .get(`http://localhost:3000/api/transactions/${trans_id}`)
             .then( (result) => updateReceiptTable(result.data))

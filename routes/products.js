@@ -1,17 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db');
+const { db, query, queryEmpty } = require('../db');
 
-const exec = (query, bind, res) => {
-    db.query(query,bind, (err, result) => {
-        if (err) 
-            res.status(500).send('500: Internal server error')
-        console.log(result)
-        res.status(200).send()
-    })
-}
-
-// Index
+// Initial Products table render 
 router.get('/', (req, res) => {
     let query = 'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id'
     db.query(query, (err, result) => {
@@ -19,42 +10,37 @@ router.get('/', (req, res) => {
         res.render('products/index', { products: result })
     })
 })
-
+// Update products table
 router.get('/update_products_table', (req, res) => {
-    let query = 'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, Category.Name AS categ_name FROM Products LEFT JOIN Category ON Category.Category_id=Products.Category_id'
-    db.query(query, (err, result) => {
-        if (err) throw err
-        res.status(200).send(result)
-    })
+    query(
+        'SELECT Products.Barcode, Products.Price, Products.Name AS prod_name, Products.Brand_name, '+
+        'Category.Name AS categ_name FROM Products LEFT JOIN Category '+
+        'ON Category.Category_id=Products.Category_id',
+        null, res
+        )
 })
 
+// CRUD product
 router.post('/addProduct', (req, res, next) => {
-    let query = 'INSERT INTO Products (Barcode,Price,Name,Brand_name, Store_label,Category_id) VALUES (?,?,?,?,0,?)'
-    let bind = [
-        req.body.barcode,
-        parseFloat(req.body.price), 
-        req.body.name, 
-        req.body.brand,
-        parseInt(req.body.category_id)
-    ]
-    console.log('Add: \n', bind)
-    exec(query, bind, res)
+    queryEmpty(
+        'INSERT INTO Products (Barcode,Price,Name,Brand_name, Store_label,Category_id) VALUES (?,?,?,?,0,?)', [
+            req.body.barcode, parseFloat(req.body.price), req.body.name, 
+            req.body.brand, parseInt(req.body.category_id)
+        ], res
+    )
 })
-
 router.post('/editProduct',(req, res, next) => {
-    let query = 'UPDATE Products SET Price=?, Name=?, Brand_name=?, Category_id=? WHERE Barcode=?'
-    let bind = [
-        parseFloat(req.body.price),
-        req.body.name,  
-        req.body.brand, 
-        parseInt(req.body.category_id), 
-        req.body.barcode
-    ]
-    console.log("Edit: \n", bind)
-    exec(query, bind, res)
+    queryEmpty(
+        'UPDATE Products SET Price=?, Name=?, Brand_name=?, Category_id=? WHERE Barcode=?',[
+            parseFloat(req.body.price),
+            req.body.name,  
+            req.body.brand, 
+            parseInt(req.body.category_id), 
+            req.body.barcode
+        ], res
+    )
 })
-
 router.post('/deleteProduct', (req, res) =>
-    exec('DELETE FROM Products WHERE Barcode=?', [req.body.barcode], res))
+    queryEmpty('DELETE FROM Products WHERE Barcode=?', [req.body.barcode], res))
 
 module.exports = router;

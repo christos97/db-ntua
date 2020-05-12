@@ -9,35 +9,47 @@ class Top10PerCustomerChart extends React.Component {
     }
 
     componentDidMount() {
-        let customer_id = ((document.baseURI).split('/'))[4]
-
-        fetch("http://localhost:3000/api/freq_bought_together")
+        let card = ((document.baseURI).split('/'))[4]
+        fetch(`http://localhost:3000/api/top_10_products_per_customer/${card}`)
         .then(res => res.json())
-        .then(
-          (result) => {
+        .then((result) => {
+            
+            let names = [], pieces = []
+            for (let prod of result) {
+                names.push(prod.Name)
+                pieces.push(prod.Total_piecies)
+            }
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'bar',
                 data: {
-                    labels: ["top","10","products","per","customer","random"],
+                    labels: names,
                     datasets: [{
                         label: '',
-                        data: [12, 19, 3, 5, 2, 3], // times bought together...result[..].whatever
+                        data: pieces, // times bought together...result[..].whatever
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)'
                         ],
                         borderColor: [
-                            'rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(54, 162, 235, 1)',
                         ],
                         borderWidth: 2
                     }]

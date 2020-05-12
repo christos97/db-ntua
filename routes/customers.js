@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = require('../db');
+const {db , query} = require('../db');
 
 // All customers and info table
 router.get('/', (req,res) => {
@@ -17,31 +17,29 @@ router.get('/:card_id', (req, res) => {
     let sql2 = 
     'SELECT t.Trans_id, t.Card, t.Date_time, t.Total_piecies, t.Total_amount, t.Payment_method, sa.Street, sa.Number_ ' +
     'FROM Transaction as t JOIN StoreAddress as sa ON sa.Store_id=t.Store_id WHERE t.Card=?'
+    let sql3 = 'select month(Date_time) as Month_no, sum(Total_amount) / count(month(Date_time)) as Avrg from Transaction where Card=? group by month(Date_time);'
+    let sql4 = 'select week(Date_time) as Week_no, sum(Total_amount) / count(week(Date_time)) as Avrg from Transaction where Card=? group by week(Date_time) order by Week_no;'
     db.query(sql1,[card], (err, profile) => {
-        if (err) 
-            res.status(500).send(err);
-        db.query(sql2,[card], (err, trans) => {
-            if (err) 
-                res.status(500).send(err);
-            res.render('customers/customerProfile', { 
-                customer: profile,                 // Card content
-                transactions: trans                // Table content
+        if (err) res.status(500).send(err);
+        db.query(sql3, [card], (err , per_month) => {
+            if (err) res.status(500).send(err);
+            db.query(sql4, [card], (err , per_week) => {
+                if (err) res.status(500).send(err);
+                db.query(sql2,[card], (err, trans) => {
+                    if (err) res.status(500).send(err);
+                    res.render('customers/customerProfile', {
+                        per_week: per_week, 
+                        per_month: per_month,
+                        customer: profile,                 // Card content
+                        transactions: trans                // Table content
+                    })
+                })
             })
         })
     })
 })
 
-const exec = (sql, bind, res) => {
-    db.query(sql, bind, (err, transactions) => {
-        if (err) 
-            res.status(500).send(err)    // Internal Server error
-        if (transactions.length > 0){
-            res.status(200).send(transactions)
-            }    // Ok
-        else    
-            res.status(404).send()    // Empty result return 404 not found
-    })
-}
+
 // Transactions per customer (for ajax calls with parameters)
 router.post('/transactions',(req, res) => {
 
@@ -64,16 +62,16 @@ router.post('/transactions',(req, res) => {
     let bind = [card, min_price, max_price, min_pieces, max_pieces]
     
     if (payment_method === 'All')
-        exec(sql, bind, res)
+        query(sql, bind, res)
     else{
         sql += ' AND Payment_method=?'
         bind.push(payment_method)
-        exec(sql, bind, res)
+        query(sql, bind, res)
     }
  })
 
  router.get('/transactions/:trans_id', (req, res) =>     
-    exec(
+    query(
         'SELECT t.Total_amount as total_amount,t.Total_piecies as total_pieces, tcp.Piecies as product_pieces,'+
         'p.Name as product_name, p.Price as product_price, c.Name as product_category ' +
         'FROM TransactionContainsProduct as tcp ' + 

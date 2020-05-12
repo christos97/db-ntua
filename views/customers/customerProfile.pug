@@ -10,11 +10,15 @@ block content
     - const checkPets = (pets) => {
         - if (pets === '') return '-'
         - else return pets
-    - } 
-    .container
+    - }
+    - const parseMonth = (num) => {
+        - let months = ['January', 'February', 'March', 'April']
+        - return months[num-1] 
+    - }
+    .container-fluid
         .row
             .col    
-                .card.bg-secondary.shadow
+                .card.shadow(style="background-color: lightslategrey;")
                     .card-body.text-white
                         i.fas.fa-user.fa-2x(style="margin-bottom: 1.5rem;")
                         h5.card-title #{customer[0].Name} 
@@ -24,12 +28,32 @@ block content
                         h5 Phone: #{customer[0].Phone}
                         h5 Family members: #{customer[0].Family_members} 
                         h5 Pet: #{checkPets(customer[0].Pet)}
-                .card.bg-secondary.shadow(style="margin:left; margin-top:8%;")
-                    .card-body.text-white 
-                        h5 Transactions :
-                        h5 per week: ? #{'&'} per month: ?
-                        h5 Amount spent: 
-                        h5 per week: ? #{'&'} per month: ?
+                .row
+                    .col
+                        h3(style="margin: 3rem 10% 1rem 0rem;") Transactions averages
+                .row
+                    .col  
+                        table.table-sm.table-borderless.table-light.table-striped.shadow(style="width: 75% ; margin: 5rem 1rem 2rem 0rem;")
+                            thead
+                                tr  
+                                    th Month
+                                    th $ 
+                            tbody
+                                each month in per_month
+                                    tr
+                                        td #{parseMonth(month.Month_no)}
+                                        td #{Math.round(month.Avrg)}
+                    .col(style="margin-top:2rem;")    
+                        table#weeklyTable.table-sm.table-borderless.table-light.table-striped.shadow(style="width: 75% ;margin: 2.5rem 1rem 2rem 0rem;")
+                            thead
+                                tr  
+                                    th Week
+                                    th $ 
+                            tbody
+                                each week in per_week
+                                    tr
+                                        td #{parseInt(week.Week_no) + 1}
+                                        td #{Math.round(week.Avrg)}
             .col
                 .card.shadow.bg-white(style="margin-top:8%; border-radius: 15px; border-color:white;")
                     .card-body
@@ -43,7 +67,7 @@ block content
                             #top_10_per_customer_chart  
         .row
             .col
-                .card.shadow.bg-white(style="border-radius: 15px; border-color:white;")
+                .card.shadow.bg-white(style="margin-top:0.5rem; border-radius: 15px; border-color:white;")
                     .card-body.text-dark
                         .row
                             .col
@@ -82,11 +106,14 @@ block content
                                     thead.bg-light.text-dark
                                         tr
                                             th Total pieces 
-                                            th Total amount 
+                                            th Total amount
+    .container
+        .row
+            .col
+                h3(style="margin-left: 0rem; margin-top: 1rem;") Customer Transactions 
         .row
             table#customerTransactionsTable.table.table-borderless.table-light.table-striped.shadow(style="margin: 2rem 2rem 2rem 0rem;")
-                h3(style="margin-left: 0rem; margin-top: 0rem;") Customer Transactions
-                thead.bg-secondary 
+                thead 
                     tr  
                         th Date Time
                         th Total pieces

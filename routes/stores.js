@@ -1,8 +1,8 @@
 const router = require('express').Router(),
-      db = require('../db');
+      { db , query} = require('../db');
     
 
-// All stores info table
+// Initial Stores table render
 router.get('/', (req, res) => {       
     let sql = 'SELECT * FROM StoreAddress JOIN Stores ON Stores.Store_id=StoreAddress.Store_id'    
     db.query(sql, (err, result) => {
@@ -11,14 +11,8 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/update_stores_table', (req, res) => {
-    let query = 'SELECT * FROM StoreAddress JOIN Stores ON Stores.Store_id=StoreAddress.Store_id'
-    db.query(query, (err, result) => {
-        if (err) throw err
-        console.log(result)
-        res.status(200).send(result)
-    })
-})
+router.get('/update_stores_table', (req, res) => 
+    query('SELECT * FROM StoreAddress JOIN Stores ON Stores.Store_id=StoreAddress.Store_id', null, res))
 
 // Store Profile
 router.get('/:store_id', (req, res) => {
@@ -41,16 +35,7 @@ router.get('/:store_id', (req, res) => {
     })
 })
 
-const exec = (sql, search , res) => {
-    db.query(sql, search, (err,result) => {  
-        if (err) 
-            res.status(500).send()     // Internal Server error
-        if (result.length > 0)          
-            res.status(200).send(result) // Ok
-        else
-            res.status(404).send()      // Empty result return 404 not found
-    })
-}
+// CRUD Store
 router.post('/addStore', (req, res, next) => {
     let sql1 = 'INSERT INTO Stores (Store_id, Operating_hours, Size_) VALUES (?,?,?)'
     let bind1 = [
@@ -68,6 +53,8 @@ router.post('/addStore', (req, res, next) => {
         req.body.city
     ]
     console.log('Add: \n', bind1 , bind2)
+
+    
     db.query(sql1, bind1, (err,result1) => {
         console.log(result1)  
         if (err) res.status(500).send()     
@@ -82,38 +69,19 @@ router.post('/addStore', (req, res, next) => {
             res.status(404).send()      
     })
 })
-
-
-
 router.post('/editStore',(req, res) => {
-    let sql = 'UPDATE Stores as s, StoreAddress as sa '+
-    'SET s.Operating_hours=?, s.Size_=? ,sa.Street=?, sa.Number_=?, sa.Postal_code=?, sa.City=? '+
-    'WHERE s.Store_id=? AND sa.Store_id=?'
-    let bind = [
-        req.body.oper_hours,  
-        parseInt(req.body.size),
-        req.body.street,
-        req.body.number,
-        req.body.postal_code,
-        req.body.city,
-        parseInt(req.body.store_id),
-        parseInt(req.body.store_id) 
-    ]
-    console.log(req.body)
-    db.query(sql, bind, (err, result) => {
-        if (err) res.status(500).send()
-        console.log(result)
-        res.status(200).send()
-    })
+    query(
+        'UPDATE Stores as s, StoreAddress as sa '+
+        'SET s.Operating_hours=?, s.Size_=? ,sa.Street=?, sa.Number_=?, sa.Postal_code=?, sa.City=? '+
+        'WHERE s.Store_id=? AND sa.Store_id=?',[
+        req.body.oper_hours, parseInt(req.body.size), req.body.street, req.body.number,
+        req.body.postal_code, req.body.city, parseInt(req.body.store_id), parseInt(req.body.store_id) 
+        ],
+        res
+    )
 })
-
-router.post('/deleteStore', (req, res) =>{
-    let sql ='delete from Stores where Store_id=?'
-    db.query(sql, [parseInt(req.body.store_id)], (err, result) => {
-        if (err) res.status(500).send()
-        res.status(200).send()
-    })
-})
+router.post('/deleteStore', (req, res) => 
+    query('delete from Stores where Store_id=?', [parseInt(req.body.store_id)], res))
 
 // Handles Transaction Table
 router.post('/transactions', (req, res) => {
@@ -139,11 +107,11 @@ router.post('/transactions', (req, res) => {
         payment_method = 'All'
         
     if (payment_method === 'All')
-        exec(sql, bind, res)
+        query(sql, bind, res)
     else{
         sql += ' AND Payment_method=?'
         bind.push(payment_method)
-        exec(sql, bind, res)
+        query(sql, bind, res)
     }
 })
 
