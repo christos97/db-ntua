@@ -87,6 +87,7 @@ create table Products (
 	Brand_name varchar(255) default '',
 	Store_label int not null default 0,
 	Category_id int not null,
+	Date_created datetime not null,
 	unique(Barcode,Category_id),
 	foreign key (Category_id) references Category(Category_id)
 	on delete cascade
@@ -95,9 +96,9 @@ create table Products (
 );
 
 create table HadOlderPrice(
-	Start_date date not null,
+	Start_date datetime not null,
 	Price decimal(6,3) not null,
-	End_date date not null,
+	End_date datetime not null,
 	Barcode varchar(10) not null,
 	foreign key(Barcode) references Products(Barcode)
 	on delete cascade

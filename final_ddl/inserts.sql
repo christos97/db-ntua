@@ -49,165 +49,165 @@ insert into Category(Category_id, Name) values (5,'Home Products');
 insert into Category(Category_id, Name) values (6,'Pet Products');
 
 /* kathgoria 1 Fresh Products*/
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('9457813465', 2.93, 'Apples', 'Golden', 0, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('9457813465', 2.93, 'Apples', 'Golden', 0, 1,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.04, '2020-03-04','9457813465');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-04-01', 2.8, '2020-04-10','9457813465');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7946842152', 4.37, 'Pears', 'Conference', 0, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7946842152', 4.37, 'Pears', 'Conference', 0, 1,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 4.00, '2020-04-04','7946842152');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7986121145', 5.4, 'Avocado', 'Biofarm', 1, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7986121145', 5.4, 'Avocado', 'Biofarm', 1, 1,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('9458871645', 3.21, 'Oranges', 'Conference', 0, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('9458871645', 3.21, 'Oranges', 'Conference', 0, 1,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 2.5, '2020-03-04','9458871645');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05', 2.9, '2020-03-24','9458871645');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-25', 3.46, '2020-04-04','9458871645');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4385784111', 3.24, 'Bananas', 'Dole', 1, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4385784111', 3.24, 'Bananas', 'Dole', 1, 1,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7784859699', 3.2, 'Pork', '', 1, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7784859699', 3.2, 'Pork', '', 1, 1,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7784859691', 2.4, 'Chicken', '', 0, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7784859691', 2.4, 'Chicken', '', 0, 1,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.4, '2020-03-04','7784859691');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4444587133', 1.5, 'Lamp Head', '', 1, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4444587133', 1.5, 'Lamp Head', '', 1, 1,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1119786455', 2.6, 'Meatballs', '', 1, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1119786455', 2.6, 'Meatballs', '', 1, 1,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4689751247', 5.2, 'Pineapple', 'Biofarm', 1, 1);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4689751247', 5.2, 'Pineapple', 'Biofarm', 1, 1,'2020-01-01');
 
 /* kathgoria 2 Fridge Products*/
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4876969691', 1.08, 'Kefir', 'Olympos', 1, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4876969691', 1.08, 'Kefir', 'Olympos', 1, 2,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7988841112', 1.2, 'ChocoMilk', 'Rodopaki', 1, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7988841112', 1.2, 'ChocoMilk', 'Rodopaki', 1, 2,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('9273049372', 1.45, 'Milk', 'Delta', 1, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('9273049372', 1.45, 'Milk', 'Delta', 1, 2,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7848784753', 1.98, 'Eggs', 'Xrysa Ayga', 1, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7848784753', 1.98, 'Eggs', 'Xrysa Ayga', 1, 2,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('9647851112', 0.78, 'Danone', 'Activia', 1, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('9647851112', 0.78, 'Danone', 'Activia', 1, 2,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('9986157468', 0.9, 'Light Yogurt', 'Rodopi', 0, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('9986157468', 0.9, 'Light Yogurt', 'Rodopi', 0, 2,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 1.2, '2020-02-04','9986157468');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05', 1.1, '2020-03-24','9986157468');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4475837200', 0.95, 'Cream', 'Marata', 0, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4475837200', 0.95, 'Cream', 'Marata', 0, 2,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.4, '2020-03-04','4475837200');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('0182740844', 0.7, 'Bueno', 'Kinder', 0, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('0182740844', 0.7, 'Bueno', 'Kinder', 0, 2,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 0.64, '2020-04-04','0182740844');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7784547843', 1.0, 'Nut Bar', 'Flapjack', 0, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7784547843', 1.0, 'Nut Bar', 'Flapjack', 0, 2,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 2.04, '2020-03-24','7784547843');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-24', 1.5, '2020-04-14','7784547843');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1000488743', 2.4, 'Tyrokafterh', 'AlfaStar', 0, 2);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1000488743', 2.4, 'Tyrokafterh', 'AlfaStar', 0, 2,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 3.4, '2020-02-04','1000488743');
 
 /*kathgoria 3 Liquors and Spirits*/
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('0645158001', 3.52, 'Beer 4pack', 'Alfa', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('0645158001', 3.52, 'Beer 4pack', 'Alfa', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4460322153', 3.74, 'Beer 6pack', 'Bergina', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4460322153', 3.74, 'Beer 6pack', 'Bergina', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('3659568874', 1.51, 'Sangria', 'Don Simon', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('3659568874', 1.51, 'Sangria', 'Don Simon', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7874585330', 1.9, 'White wine', 'Pareas', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7874585330', 1.9, 'White wine', 'Pareas', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('2223656581', 2.04, 'Red Wine', 'Pareas', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('2223656581', 2.04, 'Red Wine', 'Pareas', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7774464646', 2.92, 'Ouzo', 'Mini', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7774464646', 2.92, 'Ouzo', 'Mini', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7774464647', 3.36, 'Tsipouro', 'Mpampatzim', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7774464647', 3.36, 'Tsipouro', 'Mpampatzim', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7774464648', 13, 'Cognac', 'Metaxa', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7774464648', 13, 'Cognac', 'Metaxa', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7774464231', 15.50, 'Vodka', 'Absolut', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7774464231', 15.50, 'Vodka', 'Absolut', 1, 3,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4325784111', 24.96, 'Whiskey', 'Jack Daniels', 1, 3);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4325784111', 24.96, 'Whiskey', 'Jack Daniels', 1, 3,'2020-01-01');
 
 /*kathgoria 4 Self Care Products*/
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4965879533',1.79 , 'Toothbrush', 'Colgate', 1, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4965879533',1.79 , 'Toothbrush', 'Colgate', 1, 4,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('3666321005', 2.19, 'Toothpaste', 'White System', 1, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('3666321005', 2.19, 'Toothpaste', 'White System', 1, 4,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4415266990', 31.19, 'Eau De Toilete', 'Prada', 1, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4415266990', 31.19, 'Eau De Toilete', 'Prada', 1, 4,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4444555512', 3.56, 'Shampoo', 'Elvive', 1, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4444555512', 3.56, 'Shampoo', 'Elvive', 1, 4,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1212120003', 5.5, 'Conditioner', 'Loreal', 1, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1212120003', 5.5, 'Conditioner', 'Loreal', 1, 4,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6666555551', 4.9, 'Shaving Cream', 'Bic', 1, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6666555551', 4.9, 'Shaving Cream', 'Bic', 1, 4,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4447859992',70 , 'Antiage Cream', 'Clinique', 0, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4447859992',70 , 'Antiage Cream', 'Clinique', 0, 4,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01',80 , '2020-02-04','4447859992');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05',60 , '2020-03-04','4447859992');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05',74 , '2020-04-08','4447859992');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6489200132', 12, 'Face Mask', 'Bioten', 0, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6489200132', 12, 'Face Mask', 'Bioten', 0, 4,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 9.5, '2020-03-04','6489200132');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-04',11.2 , '2020-03-21','6489200132');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('5100232520', 20, 'Teeth Whitening Pen', 'Moon', 0, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('5100232520', 20, 'Teeth Whitening Pen', 'Moon', 0, 4,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 24, '2020-03-27','5100232520');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('7784589630', 12, 'Amethyst Crystal Cleaner', '', 0, 4);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('7784589630', 12, 'Amethyst Crystal Cleaner', '', 0, 4,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 19, '2020-04-25','7784589630');
 
 /*kathgoria 5 Home Products*/
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6584756985', 150, 'Woven Rug', 'Wyat', 1, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6584756985', 150, 'Woven Rug', 'Wyat', 1, 5,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('2103254875', 69, 'Window Panel', 'Homedecor', 1, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('2103254875', 69, 'Window Panel', 'Homedecor', 1, 5,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6458954112',249 , 'Wooden Mirror', 'Homedecor', 1, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6458954112',249 , 'Wooden Mirror', 'Homedecor', 1, 5,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1033659896', 50, 'Chair', 'Homedecor', 1, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1033659896', 50, 'Chair', 'Homedecor', 1, 5,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('0012121036', 15, 'Plastic Chair', '', 1, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('0012121036', 15, 'Plastic Chair', '', 1, 5,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6941035879', 100, 'Table', 'Homedecor', 1, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6941035879', 100, 'Table', 'Homedecor', 1, 5,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('3330323201', 500, 'Sofa', 'Homedecor', 0, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('3330323201', 500, 'Sofa', 'Homedecor', 0, 5,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 560, '2020-02-04','3330323201');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05',480 , '2020-03-04','3330323201');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05',471 , '2020-04-08','3330323201');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6495687410', 4, 'Trash Can', 'Homedecor', 0, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6495687410', 4, 'Trash Can', 'Homedecor', 0, 5,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 6,'2020-03-04','6495687410');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-04', 5.2,'2020-03-21','6495687410');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6951000236',31 , 'Lamp', 'Homedecor', 0, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6951000236',31 , 'Lamp', 'Homedecor', 0, 5,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 25, '2020-03-27','6951000236');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('8342876655',3 , 'Tv Screen Cleaner', '', 0, 5);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('8342876655',3 , 'Tv Screen Cleaner', '', 0, 5,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 2.1, '2020-04-25','8342876655');
 
 /*kathgoria 6 Pet Products*/
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4587963201', 25, 'Dog Food', 'Pet4u', 1, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4587963201', 25, 'Dog Food', 'Pet4u', 1, 6,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4785469600',25 , 'Cat Food', 'Pet4u', 1, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4785469600',25 , 'Cat Food', 'Pet4u', 1, 6,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('3333333212', 10, 'Fish Food', 'Pet4u', 1, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('3333333212', 10, 'Fish Food', 'Pet4u', 1, 6,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1000000002', 12, 'Turtle Food', 'Pet4u', 1, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1000000002', 12, 'Turtle Food', 'Pet4u', 1, 6,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1000000230',42 , 'Lizard Food', 'Pet4u', 1, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1000000230',42 , 'Lizard Food', 'Pet4u', 1, 6,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('5555555555',3 , 'Bird Food', '', 1, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('5555555555',3 , 'Bird Food', '', 1, 6,'2020-01-01');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('6666666666',4 , 'Mice Food', 'Pet4u', 0, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('6666666666',4 , 'Mice Food', 'Pet4u', 0, 6,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01',4.5 , '2020-02-04','6666666666');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-02-05', 4.9, '2020-03-04','6666666666');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-05', 5.1, '2020-04-08','6666666666');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1010144512', 60, 'Snake Food', 'Pet4u', 0, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1010144512', 60, 'Snake Food', 'Pet4u', 0, 6,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 62,'2020-03-04','1010144512');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-03-04', 30, '2020-03-21','1010144512');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('1010101010',7 , 'Rabbit Food', 'Pet4u', 0, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('1010101010',7 , 'Rabbit Food', 'Pet4u', 0, 6,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01', 8, '2020-03-27','1010101010');
 
-insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id) values ('4242424242', 100, 'Animal Cage', 'Pet4u', 0, 6);
+insert into Products(Barcode, Price, Name, Brand_name, Store_label, Category_id, Date_created) values ('4242424242', 100, 'Animal Cage', 'Pet4u', 0, 6,'2020-01-01');
 insert into HadOlderPrice(Start_date, Price, End_date, Barcode) values ('2020-01-01',132 , '2020-04-25','4242424242');
 
 /****************************************************************************************************************/
