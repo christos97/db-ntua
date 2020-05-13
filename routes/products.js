@@ -20,10 +20,13 @@ router.get('/update_products_table', (req, res) => {
 
 // CRUD product
 router.post('/addProduct', (req, res) => {
+    console.log(req.body)
+    let date = new Date()
+    console.log(date)
     queryEmpty(
-        'INSERT INTO Products (Barcode,Price,Name,Brand_name, Store_label,Category_id) VALUES (?,?,?,?,0,?)', [
+        'INSERT INTO Products (Barcode,Price,Name,Brand_name, Store_label,Category_id, Date_created) VALUES (?,?,?,?,0,?,?)', [
         req.body.barcode, parseFloat(req.body.price), req.body.name, 
-        req.body.brand, parseInt(req.body.category_id)
+        req.body.brand, parseInt(req.body.category_id), date
         ], res
     )
 })

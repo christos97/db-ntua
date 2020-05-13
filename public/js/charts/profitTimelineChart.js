@@ -7,13 +7,15 @@ class ProfitTimelineChart extends React.Component {
     }
     
     componentDidMount() {
-        let profit = []
+        let profit = [0]
         fetch("http://localhost:3000/api/most_profitable_hours")
         .then(res => res.json())
         .then((result) => {
+            
             for (let res of result) 
                 profit.push(Math.round(res.profit))
             this.chartRef.current.focus();
+            console.log(profit)
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'line',
                 data: {

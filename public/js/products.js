@@ -64,7 +64,6 @@ $(document).ready(function() {
         redraw_model()
         
         let barcode = ( table.row( this ).data().Barcode).split('<')[0]
-        console.log(barcode)
         axios
             .get(`http://localhost:3000/api/price_history/${barcode}`)
             .then( (result) =>{
@@ -72,13 +71,11 @@ $(document).ready(function() {
                 
                 for (let row of result.data){
                     let utc = new Date(row.Start_date)
-                    let date = (utc.toDateString()).split(' ')
-                    dates.push(date[1] + '-' + date[2] + '-' + date[3])
+                    dates.push((utc.toUTCString().split('GMT')[0]).split(',')[1])    
                     prices.push(row.Price)
                 }
                 let now = new Date()
-                let today = (now.toDateString()).split(' ') 
-                dates.push(today[1] + '-' + today[2] + '-' + today[3])
+                dates.push(((now.toUTCString()).split('GMT')[0]).split(',')[1])
                 prices.push(result.data[0].cur_price)
                 var ctx = document.getElementById('price_history__chart').getContext('2d');
                 history_chart = new Chart(ctx, {

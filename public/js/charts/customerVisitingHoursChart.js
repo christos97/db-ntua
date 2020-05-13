@@ -10,34 +10,21 @@ class CustomerVisitingHoursChart extends React.Component {
 
     componentDidMount() {
         let card = ((document.baseURI).split('/'))[4]
-        let time_range = [
-            '[09:00:00,10:00:00)',
-            '[10:00:00,11:00:00)',
-            '[11:00:00,12:00:00)',
-            '[12:00:00,13:00:00)',
-            '[13:00:00,14:00:00)',
-            '[14:00:00,15:00:00)',
-            '[15:00:00,16:00:00)',
-            '[16:00:00,17:00:00)',
-            '[17:00:00,18:00:00)',
-            '[18:00:00,19:00:00)',
-            '[19:00:00,20:00:00)',
-            '[20:00:00,21:00:00]'
-        ]
-        let visits = []
+        let visits = [0]
         fetch(`http://localhost:3000/api/customer_visiting_hours/${card}`)
         .then(res => res.json())
         .then( (result) => {
-            let i=0;
-            console.log(result)
-            for (let row of result) {
-                if (row.Time_range !== time_range[i])
-                    visits.push(0)
-                else    
-                    visits.push(row.cnt)
-                i++
+            let i=1
+            for (let r of result) {
+               if (r.Time_range == i ){
+                   visits.push(r.cnt)
+                   i++
+               }
+               if(r.Time_range > i){
+                   visits.push(0, r.cnt) 
+                   i+=2
+               }
             }
-            console.log(visits)
             this.chartRef.current.focus();
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'line',
@@ -45,7 +32,8 @@ class CustomerVisitingHoursChart extends React.Component {
                     labels: ["09:00","10:00","11:00","12:00","13:00","14:00",
                     "15:00","16:00","17:00","18:00","19:00","20:00","21:00"],
                     datasets: [{
-                        label: '',
+                        fill : false,
+                        label: 'Transactions made the past hour',
                         data: visits, // times bought together...result[..].whatever
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',

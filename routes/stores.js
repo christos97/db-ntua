@@ -54,7 +54,6 @@ router.post('/addStore', (req, res) => {
     ]
     console.log('Add: \n', bind1 , bind2)
 
-    
     db.query(sql1, bind1, (err,result1) => {
         console.log(result1)  
         if (err) res.status(500).send()     

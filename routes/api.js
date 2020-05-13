@@ -35,18 +35,18 @@ router.get('/customer_visiting_hours/:card', (req, res) => {
     query(
         'select tab2.Time_range, count(tab2.Time_range) as cnt from ' +
         '(select case ' +
-            `when Time(tab1.Date_time) >='09:00:00' and Time(tab1.Date_time) <'10:00:00' then '[09:00:00,10:00:00)' `+
-            `when Time(tab1.Date_time) >='10:00:00' and Time(tab1.Date_time) <'11:00:00' then '[10:00:00,11:00:00)' `+
-            `when Time(tab1.Date_time) >='11:00:00' and Time(tab1.Date_time) <'12:00:00' then '[11:00:00,12:00:00)' `+
-            `when Time(tab1.Date_time) >='12:00:00' and Time(tab1.Date_time) <'13:00:00' then '[12:00:00,13:00:00)' `+
-            `when Time(tab1.Date_time) >='13:00:00' and Time(tab1.Date_time) <'14:00:00' then '[13:00:00,14:00:00)' `+
-            `when Time(tab1.Date_time) >='14:00:00' and Time(tab1.Date_time) <'15:00:00' then '[14:00:00,15:00:00)' `+
-            `when Time(tab1.Date_time) >='15:00:00' and Time(tab1.Date_time) <'16:00:00' then '[15:00:00,16:00:00)' `+
-            `when Time(tab1.Date_time) >='16:00:00' and Time(tab1.Date_time) <'17:00:00' then '[16:00:00,17:00:00)' `+
-            `when Time(tab1.Date_time) >='17:00:00' and Time(tab1.Date_time) <'18:00:00' then '[17:00:00,18:00:00)' `+
-            `when Time(tab1.Date_time) >='18:00:00' and Time(tab1.Date_time) <'19:00:00' then '[18:00:00,19:00:00)' `+
-            `when Time(tab1.Date_time) >='19:00:00' and Time(tab1.Date_time) <'20:00:00' then '[19:00:00,20:00:00)' `+
-            `when Time(tab1.Date_time) >='20:00:00' and Time(tab1.Date_time) <='21:00:00' then '[20:00:00,21:00:00]' `+
+            `when Time(tab1.Date_time) >='09:00:00' and Time(tab1.Date_time) <'10:00:00' then 1 `+
+            `when Time(tab1.Date_time) >='10:00:00' and Time(tab1.Date_time) <'11:00:00' then 2 `+
+            `when Time(tab1.Date_time) >='11:00:00' and Time(tab1.Date_time) <'12:00:00' then 3 `+
+            `when Time(tab1.Date_time) >='12:00:00' and Time(tab1.Date_time) <'13:00:00' then 4 `+
+            `when Time(tab1.Date_time) >='13:00:00' and Time(tab1.Date_time) <'14:00:00' then 5 `+
+            `when Time(tab1.Date_time) >='14:00:00' and Time(tab1.Date_time) <'15:00:00' then 6 `+
+            `when Time(tab1.Date_time) >='15:00:00' and Time(tab1.Date_time) <'16:00:00' then 7 `+
+            `when Time(tab1.Date_time) >='16:00:00' and Time(tab1.Date_time) <'17:00:00' then 8 `+
+            `when Time(tab1.Date_time) >='17:00:00' and Time(tab1.Date_time) <'18:00:00' then 9 `+
+            `when Time(tab1.Date_time) >='18:00:00' and Time(tab1.Date_time) <'19:00:00' then 10 `+
+            `when Time(tab1.Date_time) >='19:00:00' and Time(tab1.Date_time) <'20:00:00' then 11 `+
+            `when Time(tab1.Date_time) >='20:00:00' and Time(tab1.Date_time) <='21:00:00' then 12 `+
         `end as Time_range `+
         `from (select Date_time from Transaction where Transaction.Card=?) tab1) tab2 `+
         'group by tab2.Time_range '+
