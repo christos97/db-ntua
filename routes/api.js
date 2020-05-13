@@ -7,7 +7,7 @@ router.get('/database_up', (err, res) => query("select * from information_schema
 
 
 //  Transaction invoice endpoint
-router.get('/transactions/:trans_id', (req, res) =>{ 
+router.get('/transactions/:trans_id', (req, res) =>
      query(
         'SELECT t.Total_amount as total_amount,t.Total_piecies as total_pieces, '+
         'tcp.Piecies as product_pieces, p.Name as product_name, '+
@@ -17,25 +17,21 @@ router.get('/transactions/:trans_id', (req, res) =>{
         'JOIN Category as c ON p.Category_id=c.Category_id ' +
         'JOIN Transaction as t ON t.Trans_id=tcp.Trans_id '+
         'WHERE tcp.Trans_id=?',
-        parseInt(req.params.trans_id), 
-        res 
-    )}
+        parseInt(req.params.trans_id), res 
+    )
 )
 
 // Price history endpoint 
-router.get('/price_history/:barcode', (req, res) => {
-    console.log(req.body)
+router.get('/price_history/:barcode', (req, res) => 
     query(
         'select h.Start_date, h.End_date, h.Price, p.Name, p.Price as cur_price '+
         'from HadOlderPrice as h join Products as p on h.Barcode=p.Barcode '+
         'where h.Barcode=?',
-        req.params.barcode,
-        res
+        req.params.barcode, res
     )
-})
+)
 
 router.get('/customer_visiting_hours/:card', (req, res) => {
-    console.log(req.params)
     query(
         'select tab2.Time_range, count(tab2.Time_range) as cnt from ' +
         '(select case ' +
@@ -55,13 +51,11 @@ router.get('/customer_visiting_hours/:card', (req, res) => {
         `from (select Date_time from Transaction where Transaction.Card=?) tab1) tab2 `+
         'group by tab2.Time_range '+
         'order by tab2.Time_range;',
-        parseInt(req.params.card),
-        res
+        parseInt(req.params.card), res
     )
 })
 
-router.get('/top_10_products_per_customer/:card', (req, res) => {
-    console.log(req.params)
+router.get('/top_10_products_per_customer/:card', (req, res) => 
     query(
         "select tab3.Barcode, tab4.Name, tab4.Brand_name, tab3.Total_piecies from "+
         "(select Barcode, sum(Piecies) as Total_piecies from "+
@@ -73,10 +67,9 @@ router.get('/top_10_products_per_customer/:card', (req, res) => {
         "order by Total_piecies desc "+
         "limit 10) tab3 left join (select Name, Brand_name, Barcode from Products) tab4 "+
         "on tab3.Barcode = tab4.Barcode;",
-        [parseInt(req.params.card)],
-        res
+        [parseInt(req.params.card)], res
     )
-})
+)
 // Dashboard Charts (Display MySQL stored views in Charts)
 const views = [
     'select * from Frequently_bought_together',
@@ -86,10 +79,10 @@ const views = [
     'select * from Most_visited_hours_per_age_pracket'
 ];
 
-router.get('/freq_bought_together',(req, res) => query(views[0], null, res))
-router.get('/top_selling_spots',(req, res) => query(views[1], null, res))
-router.get('/prefered_products_per_category',(req, res) => query(views[2], null, res))
-router.get('/most_profitable_hours',(req, res) => query(views[3], null, res))
-router.get('/most_visited_hours_per_age_bracket',(req, res) => query(views[4], null, res))
+router.get('/freq_bought_together', (req, res) => query(views[0], null, res))
+router.get('/top_selling_spots', (req, res) => query(views[1], null, res))
+router.get('/prefered_products_per_category', (req, res) => query(views[2], null, res))
+router.get('/most_profitable_hours', (req, res) => query(views[3], null, res))
+router.get('/most_visited_hours_per_age_bracket', (req, res) => query(views[4], null, res))
 
 module.exports = router;

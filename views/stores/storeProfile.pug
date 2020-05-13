@@ -10,7 +10,7 @@ block content
     .container-fluid
         .row
             .col
-                .card.shadow(style="margin-top: 10%;")
+                .card.shadow(style="margin-top: 10%; margin-left:5%;")
                     .card-body.text-white
                         i.fas.fa-store.fa-2x(style="margin-bottom: 1.5rem;")
                         h4 City:    #{store[0].City} 
@@ -19,14 +19,14 @@ block content
                         h4 Operating Hours: #{store[0].Operating_hours}
                         h4 Size : #{store[0].Size_}  &#13217;
             .col
-                .card.shadow.bg-white(style="border-radius: 15px; border-color:white;")
+                .card.shadow.bg-white(style="margin-left:10%; border-radius: 15px; border-color:white;")
                     .card-body
                         h4.card-title Products sold per category
                             .chart-container(style='margin-top: 5%;')
                                 #store_sales_per_category_chart
         .row    
             .col
-                .card.shadow.bg-white(style="border-radius: 15px; border-color:white;")
+                .card.shadow.bg-white(style="margin-left:10%; border-radius: 15px; border-color:white;")
                     .card-body.text-dark
                         .row 
                             .col
@@ -37,7 +37,7 @@ block content
                                 input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
                             .col
                                 h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
-                                .btn-group.btn-group-toggle(style="margin:0rem 0rem 2rem 1rem;" data-toggle="buttons" id='radio_buttons')
+                                .btn-group.btn-group-toggle(style="margin:0rem 0rem 2rem 0rem;" data-toggle="buttons" id='radio_buttons')
                                     label.btn.btn-primary Cash
                                         input(type="radio" name="payment_method" value='Cash')
                                     label.btn.btn-primary.active All

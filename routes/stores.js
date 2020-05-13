@@ -36,7 +36,7 @@ router.get('/:store_id', (req, res) => {
 })
 
 // CRUD Store
-router.post('/addStore', (req, res, next) => {
+router.post('/addStore', (req, res) => {
     let sql1 = 'INSERT INTO Stores (Store_id, Operating_hours, Size_) VALUES (?,?,?)'
     let bind1 = [
         parseInt(req.body.store_id),
@@ -114,6 +114,5 @@ router.post('/transactions', (req, res) => {
         query(sql, bind, res)
     }
 })
-
 
 module.exports = router

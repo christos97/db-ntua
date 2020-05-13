@@ -15,10 +15,10 @@ block content
         - let months = ['January', 'February', 'March', 'April']
         - return months[num-1] 
     - }
-    .container-fluid
+    .container-fluid(style="margin-left:4%;")
         .row
             .col    
-                .card.shadow(style="background-color: lightslategrey;")
+                .card.shadow(style="background-color: lightslategrey; margin-top:3.2rem;")
                     .card-body.text-white
                         i.fas.fa-user.fa-2x(style="margin-bottom: 1.5rem;")
                         h5.card-title #{customer[0].Name} 
@@ -32,7 +32,18 @@ block content
                     .col
                         h3(style="margin: 3rem 10% 1rem 0rem;") Transactions averages
                 .row
-                    .col  
+                    .col
+                        table#weeklyTable.table-sm.table-borderless.table-light.table-striped.shadow(style="width: 75% ;margin: 2.5rem 1rem 2rem 0rem;")
+                            thead
+                                tr  
+                                    th Week
+                                    th $ 
+                            tbody
+                                each week in per_week
+                                    tr
+                                        td #{parseInt(week.Week_no) + 1}
+                                        td #{Math.round(week.Avrg)}  
+                    .col(style="margin-top: 0rem;")    
                         table.table-sm.table-borderless.table-light.table-striped.shadow(style="width: 75% ; margin: 5rem 1rem 2rem 0rem;")
                             thead
                                 tr  
@@ -43,17 +54,6 @@ block content
                                     tr
                                         td #{parseMonth(month.Month_no)}
                                         td #{Math.round(month.Avrg)}
-                    .col(style="margin-top:2rem;")    
-                        table#weeklyTable.table-sm.table-borderless.table-light.table-striped.shadow(style="width: 75% ;margin: 2.5rem 1rem 2rem 0rem;")
-                            thead
-                                tr  
-                                    th Week
-                                    th $ 
-                            tbody
-                                each week in per_week
-                                    tr
-                                        td #{parseInt(week.Week_no) + 1}
-                                        td #{Math.round(week.Avrg)}
             .col
                 .card.shadow.bg-white(style="margin-top:8%; border-radius: 15px; border-color:white;")
                     .card-body
@@ -67,7 +67,7 @@ block content
                             #top_10_per_customer_chart  
         .row
             .col
-                .card.shadow.bg-white(style="margin-top:0.5rem; border-radius: 15px; border-color:white;")
+                .card.shadow.bg-white(style="margin-left:5.7% ;margin-top:0.5rem; border-radius: 15px; border-color:white;")
                     .card-body.text-dark
                         .row
                             .col
@@ -78,7 +78,7 @@ block content
                                 input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
                             .col 
                                 h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
-                                .btn-group.btn-group-toggle(style="margin-bottom:2rem;" data-toggle="buttons" id='radio_buttons')
+                                .btn-group.btn-group-toggle(style="margin-left:1.8rem; margin-bottom:2rem;" data-toggle="buttons" id='radio_buttons')
                                     label.btn.btn-primary Cash
                                         input(type="radio" name="payment_method" value='Cash')
                                     label.btn.btn-primary All
