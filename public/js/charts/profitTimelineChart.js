@@ -14,8 +14,8 @@ class ProfitTimelineChart extends React.Component {
             
             for (let res of result) 
                 profit.push(Math.round(res.profit))
+            
             this.chartRef.current.focus();
-            console.log(profit)
             this.myChart = new Chart(this.chartRef.current, {
                 type: 'line',
                 data: {

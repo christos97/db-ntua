@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { query, queryEmpty } = require('../db')
+const {db, query, queryEmpty } = require('../db')
 
 
 // Check database ready
@@ -76,7 +76,9 @@ const views = [
     'select * from Top_selling_spots',
     'select * from Prefered_products_per_category',
     'select * from Most_profitable_hours',
-    'select * from Most_visited_hours_per_age_pracket'
+    'select * from Most_visited_hours_per_age_pracket',
+    'select * from No_of_pet_shop_products_bought_per_pet',
+    'select * from Most_profitable_shop_in_each_city'
 ];
 
 router.get('/freq_bought_together', (req, res) => query(views[0], null, res))
@@ -84,5 +86,47 @@ router.get('/top_selling_spots', (req, res) => query(views[1], null, res))
 router.get('/prefered_products_per_category', (req, res) => query(views[2], null, res))
 router.get('/most_profitable_hours', (req, res) => query(views[3], null, res))
 router.get('/most_visited_hours_per_age_bracket', (req, res) => query(views[4], null, res))
+router.get('/products_per_pet', (req, res) => query(views[5], null, res))
+router.get('/most_profitable_shop_in_each_city', (req, res) => {
+    let address = []
+    db.query(views[6], (err, result) =>{
+        if (err) throw err
+        for (let row of result) {
+            switch (row.Store) {
+                case  1 :
+                    address.push(row.City ,'Georgiou Kerdinou 69')
+                    break
+                case 2 :
+                    address.push(row.City ,'Korai 3')
+                    break
+                case 3 :
+                    address.push(row.City ,'Dimitrakopoulou 72')
+                    break
+                case 4 :
+                    address.push(row.City ,'Valtinon 30')
+                    break
+                case 5 :
+                    address.push(row.City ,'Kallipateiras 91')
+                    break
+                case 6 :
+                    address.push(row.City ,'Akrita 1')
+                    break
+                case 7 :
+                    address.push(row.City ,'Psaron 106')
+                    break
+                case 8 :
+                    address.push(row.City ,'Karagianopoulou 3')
+                    break
+                case 9 :
+                    address.push(row.City ,'Pylou 24')
+                    break
+                case 10 :
+                    address.push(row.City ,'Arkadiou 4')
+                    break
+            }
+        }
+        res.status(200).send(address)
+    } )
+})
 
 module.exports = router;

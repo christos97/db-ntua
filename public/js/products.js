@@ -47,15 +47,15 @@ $(document).ready(function() {
         ]
     } );
    
-    const modal = document.getElementById('md_bd')
+    const modal_body = document.getElementById('md_bd')
     const redraw_model = () => {
-        modal.innerHTML = ''
+        modal_body.innerHTML = ''
         let canvas = document.createElement('canvas')
-        canvas.id='price_history__chart'
+        canvas.id='price_history_chart'
         canvas.width ="400"
         canvas.height= "400"
         document.body.appendChild(canvas)
-        modal.append(canvas)
+        modal_body.append(canvas)
     }
 
     let history_chart
@@ -77,7 +77,7 @@ $(document).ready(function() {
                 let now = new Date()
                 dates.push(((now.toUTCString()).split('GMT')[0]).split(',')[1])
                 prices.push(result.data[0].cur_price)
-                var ctx = document.getElementById('price_history__chart').getContext('2d');
+                var ctx = document.getElementById('price_history_chart').getContext('2d');
                 history_chart = new Chart(ctx, {
                     type: 'line',
                     data: {
@@ -121,11 +121,9 @@ $(document).ready(function() {
                     }
                 })
             })
-            .catch( () => {
-                modal.innerHTML = 'No price history changes';
-            }
-               
-            )
+            .catch( () => { 
+                modal_body.innerHTML = 'No price history changes'; 
+            })
     });
 
     
@@ -226,7 +224,6 @@ $(document).ready(function() {
     } 
        
     document.getElementById('history-close-btn').onclick = () => {
-        console.log('Removed')
         if(history_chart) 
             history_chart.destroy()
         $('canvas').remove();
