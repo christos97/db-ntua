@@ -5,10 +5,18 @@ const router = require('express').Router(),
 // Initial Stores table render
 router.get('/', (req, res) => {       
     let sql = 'SELECT * FROM StoreAddress JOIN Stores ON Stores.Store_id=StoreAddress.Store_id'    
-    db.query(sql, (err, result) => {
+    db.query(sql, (err, info) => {
         if (err) throw err
-        res.render('stores/index', {stores: result})
+        db.query('select * from Most_profitable_shop_in_each_city', (err, top) => {
+            if (err) throw new Error
+            console.log(top)
+            res.render('stores/index', {
+                stores: info,
+                top_stores : top
+            })
+        })
     })
+
 })
 
 router.get('/update_stores_table', (req, res) => 

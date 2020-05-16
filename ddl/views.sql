@@ -1,3 +1,10 @@
+create view temporary as 
+(select tab1.Store_id as st_id, sum(Total_amount) as Total_amount, tab2.City as City from 
+((select Store_id, Total_amount from Transaction) tab1
+left join
+(select Store_id, City from StoreAddress) tab2
+on tab1.Store_id = tab2.Store_id)
+group by st_id, City);
 create view Frequently_bought_together as
 select tab2.nam1, tab2.nam2, tab1.cnt  from
 (select t1.Barcode as Prod1, t2.Barcode as Prod2, count(*) as cnt from TransactionContainsProduct t1 join TransactionContainsProduct t2 on t1.Trans_id = t2.Trans_id and t1.Barcode < t2.Barcode group by Prod1 , Prod2 order by count(*) desc limit 10) tab1
@@ -30,7 +37,7 @@ from
 	when Time(tab1.Date_time) >='19:00:00' and Time(tab1.Date_time) <'20:00:00' then '[19:00:00,20:00:00)'
 	when Time(tab1.Date_time) >='20:00:00' and Time(tab1.Date_time) <='21:00:00' then '[20:00:00,21:00:00]'
 end as Time_range
-from
+ from
 (select Card, Date_time from Transaction) tab1
 left join 
 (select Card, case 
@@ -40,12 +47,9 @@ left join
 	else '65+' end as age_range 
 from Customer) tab2
 on tab1.Card = tab2.Card) tab3
-group by tab3.Age_range, tab3.Time_range
-order by tab3.Time_range;
+group by tab3.Age_range, tab3.Time_range;
 create view Prefered_products_per_category as
-select Products.Category_id, sum(Products.Store_label) / count(*) as Percentage 
-from TransactionContainsProduct left join Products on TransactionContainsProduct.Barcode = Products.Barcode 
-group by Products.Category_id order by Category_id; 
+select Products.Category_id, sum(Products.Store_label) / count(*) as Percentage from TransactionContainsProduct left join Products on TransactionContainsProduct.Barcode = Products.Barcode group by Products.Category_id; 
 create view Most_profitable_hours as
 select case
 	when Time(Date_time) >='09:00:00' and Time(Date_time) <'10:00:00' then '[09:00:00,10:00:00)'
@@ -62,5 +66,25 @@ select case
 	when Time(Date_time) >='20:00:00' and Time(Date_time) <='21:00:00' then '[20:00:00,21:00:00]'
 end as Time_range, sum(Total_amount) as profit
 from Transaction
-group by Time_range
-order by Time_range;
+group by Time_range;
+create view No_of_pet_shop_products_bought_per_pet as
+select Pet, sum(Piecies) as Total_piecies from
+((select Card, tab3.Trans_id, Pet, Barcode, Piecies from
+((select tab1.Card, tab1.Trans_id, tab2.Pet from
+((select Card, Pet from Customer where Pet is not null and not Pet ='') tab2
+left join
+(select Card, Trans_id from Transaction) tab1
+on tab1.Card = tab2.Card)) tab3
+left join
+(select Barcode, Piecies, Trans_id from TransactionContainsProduct) tab4
+on tab3.Trans_id = tab4.Trans_id)) tab5
+left join
+(Select Barcode, Category_id from Products) tab6
+on tab5.Barcode = tab6.Barcode)
+where Category_id = 6
+group by Pet;
+create view Most_profitable_shop_in_each_city as
+select st_id as Store, City
+from temporary
+where (City, Total_amount) in
+(select City, max(Total_amount) as Total_amount from temporary group by City); 

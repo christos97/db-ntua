@@ -3,7 +3,7 @@ const {db, query, queryEmpty } = require('../db')
 
 
 // Check database ready
-router.get('/database_up', (err, res) => query("select * from information_schema.VIEWS where DEFINER='root@localhost' AND TABLE_NAME=Most_visited_hours_per_age_pracket;", res))
+router.get('/database_up', (err, res) => queryEmpty("select * from Most_profitable_shop_in_each_city;", null, res))
 
 
 //  Transaction invoice endpoint

@@ -112,7 +112,7 @@ block content
                 a.btn.btn-info.shadow(style=' margin: 1rem 0rem 0.5rem 0.5rem; font-size: large;border-radius: 15px;padding: 1rem;width: 80%; text-align: center;' href= "#" data-toggle='modal' data-target='#editStoreModal' role="button") Edit Store 
             .col
                 a.btn.btn-danger.shadow(href= "#" data-toggle='modal' data-target='#deleteStoreModal' role="button") Delete Store      
-    .container(style="margin-top: 3rem;")
+    .container
         h3 Stores
             i.fas.fa-store(style="margin-left:1rem;")
         table#storesTable.table.table-borderless.table-light.table-striped.table-hover.shadow
@@ -125,11 +125,28 @@ block content
                     th Operating Hours
                     th Size
             tbody
-                each store in stores   
-                    tr      
-                        td #{store.Store_id}
-                        td #{store.City}
-                        td #{store.Street} #{store.Number_}
-                        td #{store.Postal_code} 
-                        td #{store.Operating_hours}
-                        td #{store.Size_} &#13217;
+                - let flag = false
+                each store in stores
+                    each top in top_stores
+                        if store.Store_id == top.Store
+                            - flag = true
+                            - break;
+                        else
+                            - flag = false
+                    if flag
+                        tr      
+                            td #{store.Store_id}
+                                i.far.fa-star.float-right
+                            td #{store.City}
+                            td #{store.Street} #{store.Number_}
+                            td #{store.Postal_code} 
+                            td #{store.Operating_hours}
+                            td #{store.Size_} &#13217;
+                    else 
+                        tr      
+                            td #{store.Store_id}
+                            td #{store.City}
+                            td #{store.Street} #{store.Number_}
+                            td #{store.Postal_code} 
+                            td #{store.Operating_hours}
+                            td #{store.Size_} &#13217;

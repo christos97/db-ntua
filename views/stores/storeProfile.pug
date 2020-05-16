@@ -24,26 +24,6 @@ block content
                         h4.card-title Products sold per category
                             .chart-container(style='margin-top: 5%;')
                                 #store_sales_per_category_chart
-        .row    
-            .col
-                .card.shadow.bg-white(style="margin-left:10%; border-radius: 15px; border-color:white;")
-                    .card-body.text-dark
-                        .row 
-                            .col
-                                h5.label(for="pieces_slider") Total pieces bought
-                                input#pieces_slider.js-range-slider(name="pieces_slider" type="text" value="")
-                            .col     
-                                h5.label(for="amount_slider") Total amount spent (&#36;)
-                                input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
-                            .col
-                                h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
-                                .btn-group.btn-group-toggle(style="margin:0rem 0rem 2rem 0rem;" data-toggle="buttons" id='radio_buttons')
-                                    label.btn.btn-primary Cash
-                                        input(type="radio" name="payment_method" value='Cash')
-                                    label.btn.btn-primary.active All
-                                        input(type="radio" name="payment_method" value='All') 
-                                    label.btn.btn-primary Credit Card
-                                        input(type="radio" name="payment_method" value='Credit Card')
         .row
             .col
                 #receiptModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='receiptLabel', aria-hidden='true')
@@ -66,31 +46,53 @@ block content
                                         tr
                                             th Total pieces 
                                             th Total amount         
-    .container
         .row
             .col
                 h3(style="margin-left:0rem; margin-top: 0rem;") Transactions in store
-        .row
-            table#storeTransactionsTable.table.table-borderless.table-light.table-striped.shadow(style="margin: 2rem 2rem 2rem 0rem;")
-                thead
-                    tr 
-                        th Date 
-                        th Customer Name
-                        th Card Number
-                        th Total pieces
-                        th Total Amount &#36;
-                        th Payment Method
-                        th Invoice ID
-                tbody
-                    each trans in transactions
+        .container-fluid
+            .row    
+                .col
+                    .card.shadow(style="width: 100%; margin-left:4%; margin-top:35%; border-radius: 15px; background-color: #F5F5F5; border-color:#E8E8E8;;")
+                        .card-body.text-dark
+                            .row 
+                                .col
+                                    h5.label(for="pieces_slider") Total pieces bought
+                                    input#pieces_slider.js-range-slider(name="amount_slider" type="text" value="")
+                                .col       
+                                    h5.label(for="amount_slider") Total amount spent (&#36;)
+                                    input#amount_slider.js-range-slider(name="amount_slider" type="text" value="")
+                                .col 
+                                    h5.label(style="margin-bottom:0rem;" for='radio_buttons') Payment method
+                                    .btn-group.btn-group-toggle(style="margin-left:1.5rem; margin-bottom:1rem;" data-toggle="buttons" id='radio_buttons')
+                                        label.btn.btn-primary
+                                            i.fas.fa-coins
+                                            input(type="radio" name="payment_method" value='Cash')
+                                        label.btn.btn-primary All
+                                            input(type="radio" name="payment_method" value='All')
+                                        label.btn.btn-primary
+                                            i.fas.fa-credit-card
+                                            input(type="radio" name="payment_method" value='Credit Card')
+                .col
+                table#storeTransactionsTable.table.table-borderless.table-light.table-striped.shadow(style="margin: 2rem 2rem 2rem 0rem;")
+                    thead
                         tr 
-                            td#date_time #{parseDate(trans.Date_time)}
-                            td#customer_name #{trans.Name}
-                            td#customer_card #{trans.Card}
-                            td#number_of_pieces #{trans.Total_piecies}
-                            td#total_amount #{trans.Total_amount}
-                            td#payment_method #{trans.Payment_method}
-                            td#ra #{trans.Trans_id}
-                                a#receipt_btn.btn.btn-secondary(style='margin: 0rem 0rem 0rem 2.6rem; border-radius:8px;' href= "#" data-toggle='modal' data-target='#receiptModal' role="button") 
-                                    i.fas.fa-file-invoice-dollar
-                                                
+                            th Date 
+                            th Customer Name
+                            th Card Number
+                            th Total pieces
+                            th Total Amount &#36;
+                            th Payment Method
+                            th Invoice ID
+                    tbody
+                        each trans in transactions
+                            tr 
+                                td#date_time #{parseDate(trans.Date_time)}
+                                td#customer_name #{trans.Name}
+                                td#customer_card #{trans.Card}
+                                td#number_of_pieces #{trans.Total_piecies}
+                                td#total_amount #{trans.Total_amount}
+                                td#payment_method #{trans.Payment_method}
+                                td#ra #{trans.Trans_id}
+                                    a#receipt_btn.btn.btn-secondary(style='margin: 0rem 0rem 0rem 2.6rem; border-radius:8px;' href= "#" data-toggle='modal' data-target='#receiptModal' role="button") 
+                                        i.fas.fa-file-invoice-dollar
+                                                    
