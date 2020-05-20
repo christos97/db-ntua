@@ -94,34 +94,65 @@ router.get('/most_profitable_shop_in_each_city', (req, res) => {
         for (let row of result) {
             switch (row.Store) {
                 case  1 :
-                    address.push(row.City ,'Georgiou Kerdinou 69')
+                    let key = row.City
+                    address.push({ 
+                        city : 'Athens', 
+                        adr :'Georgiou Kerdinou 69' 
+                    })
                     break
                 case 2 :
-                    address.push(row.City ,'Korai 3')
+                    address.push({
+                        city: 'Athens',
+                        adr :'Korai 3'
+                    })
                     break
                 case 3 :
-                    address.push(row.City ,'Dimitrakopoulou 72')
+                    address.push({
+                        city: 'Athens', 
+                        adr :'Dimitrakopoulou 72'
+                    })
                     break
                 case 4 :
-                    address.push(row.City ,'Valtinon 30')
+                    address.push({
+                        city: 'Athens', 
+                        adr :'Valtinon 30'
+                    })
                     break
                 case 5 :
-                    address.push(row.City ,'Kallipateiras 91')
+                    address.push({
+                        city: 'Kalamata', 
+                        adr :'Kallipateiras 91'
+                    })
                     break
                 case 6 :
-                    address.push(row.City ,'Akrita 1')
+                    address.push({
+                        city:'Kalamata', 
+                        adr :'Akrita 1'
+                    })
                     break
                 case 7 :
-                    address.push(row.City ,'Psaron 106')
+                    address.push({
+                        city: 'Kalamata',
+                        adr :'Psaron 106'
+                    })
                     break
                 case 8 :
-                    address.push(row.City ,'Karagianopoulou 3')
+                    address.push({
+                        city: 'Lamia', 
+                        adr :'Karagianopoulou 3'
+                    })
                     break
                 case 9 :
-                    address.push(row.City ,'Pylou 24')
+                    address.push({
+                        city :'Lamia', 
+                        adr :'Pylou 24'
+                    })
                     break
                 case 10 :
-                    address.push(row.City ,'Arkadiou 4')
+                    address.push({
+                        city: 'Lamia', 
+                        adr :'Arkadiou 4'
+                    })
                     break
             }
         }

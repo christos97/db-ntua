@@ -113,40 +113,42 @@ block content
             .col
                 a.btn.btn-danger.shadow(href= "#" data-toggle='modal' data-target='#deleteStoreModal' role="button") Delete Store      
     .container
-        h3 Stores
-            i.fas.fa-store(style="margin-left:1rem;")
-        table#storesTable.table.table-borderless.table-light.table-striped.table-hover.shadow
-            thead
-                tr  
-                    th ID
-                    th City
-                    th Address
-                    th Postal Code
-                    th Operating Hours
-                    th Size
-            tbody
-                - let flag = false
-                each store in stores
-                    each top in top_stores
-                        if store.Store_id == top.Store
-                            - flag = true
-                            - break;
-                        else
-                            - flag = false
-                    if flag
-                        tr      
-                            td #{store.Store_id}
-                                i.far.fa-star.float-right
-                            td #{store.City}
-                            td #{store.Street} #{store.Number_}
-                            td #{store.Postal_code} 
-                            td #{store.Operating_hours}
-                            td #{store.Size_} &#13217;
-                    else 
-                        tr      
-                            td #{store.Store_id}
-                            td #{store.City}
-                            td #{store.Street} #{store.Number_}
-                            td #{store.Postal_code} 
-                            td #{store.Operating_hours}
-                            td #{store.Size_} &#13217;
+        .row 
+            .col
+                h3 Stores
+                    i.fas.fa-store(style="margin-left:1rem;")
+        .row
+            .col
+                table#storesTable.table.table-borderless.table-light.table-striped.table-hover.shadow
+                    thead
+                        tr  
+                            th ID
+                            th City
+                            th Address
+                            th Postal Code
+                            th Operating Hours
+                            th Size 
+                    tbody
+                        each store in stores
+                            tr      
+                                td #{store.Store_id}
+                                td #{store.City}
+                                td #{store.Street} #{store.Number_}
+                                td #{store.Postal_code} 
+                                td #{store.Operating_hours}
+                                td #{store.Size_} &#13217;
+        .row
+            .col
+                h3(style='margin-top:18%;') Top stores per city
+                    i.far.fa-star(style='margin-left: 1rem;')
+            .col(style='margin-top:2rem;')
+                table#topStoresTable.table.table-borderless.table-light.table-striped.table-hover.shadow(style='width:75%;')
+                    thead
+                        tr  
+                            th City
+                            th Address
+                    tbody
+                        each top in top_stores
+                            tr
+                                td #{top.city}
+                                td #{top.adr}

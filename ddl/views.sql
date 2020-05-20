@@ -37,7 +37,7 @@ from
 	when Time(tab1.Date_time) >='19:00:00' and Time(tab1.Date_time) <'20:00:00' then '[19:00:00,20:00:00)'
 	when Time(tab1.Date_time) >='20:00:00' and Time(tab1.Date_time) <='21:00:00' then '[20:00:00,21:00:00]'
 end as Time_range
- from
+from
 (select Card, Date_time from Transaction) tab1
 left join 
 (select Card, case 

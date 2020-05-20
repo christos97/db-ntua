@@ -1,19 +1,19 @@
 const router = require('express').Router(),
-      { db , query} = require('../db');
-    
+    { db , query } = require('../db'),
+    axios = require ('axios')    
 
 // Initial Stores table render
 router.get('/', (req, res) => {       
     let sql = 'SELECT * FROM StoreAddress JOIN Stores ON Stores.Store_id=StoreAddress.Store_id'    
     db.query(sql, (err, info) => {
         if (err) throw err
-        db.query('select * from Most_profitable_shop_in_each_city', (err, top) => {
-            if (err) throw new Error
-            console.log(top)
-            res.render('stores/index', {
-                stores: info,
-                top_stores : top
-            })
+        axios
+            .get('http://localhost:3000/api/most_profitable_shop_in_each_city')
+            .then( (result) => {
+                res.render('stores/index', {
+                    stores: info,
+                    top_stores : result.data
+                })
         })
     })
 
@@ -115,7 +115,8 @@ router.post('/transactions', (req, res) => {
         
     if (payment_method === 'All')
         query(sql, bind, res)
-    else{
+    else
+    {
         sql += ' AND Payment_method=?'
         bind.push(payment_method)
         query(sql, bind, res)

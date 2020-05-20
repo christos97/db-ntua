@@ -15,21 +15,26 @@ $(document).ready(function() {
         { data: 'Size'}
     ]
     });
+
+    $('#topStoresStable').DataTable({
+        orderCellsTop: true,
+        fixedHeader: true,
+        columns: [
+            { data : 'City' },
+            { data: 'Address' }
+        ]
+    })
     
     $('#storesTable tbody tr').on('click',  function () {
-        var store_id = table.row( this ).data().Store_id;
-        console.log(store_id)
-        window.location = `http://localhost:3000/stores/${store_id[0]}`
-        
+        let store_id = table.row( this ).data().Store_id;
+        window.location = `http://localhost:3000/stores/${store_id}`
     } );
-
 
      const updateStoreTable = (stores) => {
         table.clear()
-        console.log(stores)
         for (let store of stores){
             table.row.add({
-                'Store_id' : store.Store_id,
+                'Store_id': store.Store_id,
                 'City': store.City,
                 'Address': store.Street + " " + store.Number_,
                 'Postal_code': store.Postal_code,
@@ -67,7 +72,7 @@ $(document).ready(function() {
         axios
             .post(url, body)    
             .then( () => displayAlert(success))
-            .catch( (err) => console.log(err))
+            .catch( (err) => displayAlert(error))
     }  
     
     const addStore =  () => {
